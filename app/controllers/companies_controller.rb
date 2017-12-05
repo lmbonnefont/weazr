@@ -16,11 +16,11 @@ class CompaniesController < ApplicationController
     @company = Company.new(params_company)
     @company.user = current_user
     @company.save
-    redirect_to companies_path(@company)
+    redirect_to new_company_input_path(@company)
   end
 
   private
   def params_company
-    params.require(:company).permit(:address)
+    params.require(:company).permit(:address, :name)
   end
 end

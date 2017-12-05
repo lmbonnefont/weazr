@@ -13,7 +13,12 @@ class ProfilesController < ApplicationController
   def update
     @user = current_user
     @user.update(profile_params)
-    redirect_to profile_path
+
+    if @user.companies.exists?
+      redirect_to profile_path
+    else
+      redirect_to new_company_path
+    end
 
   end
 
