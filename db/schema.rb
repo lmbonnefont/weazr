@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204110120) do
+ActiveRecord::Schema.define(version: 20171205111837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "daily_inputs", force: :cascade do |t|
+    t.integer "monday"
+    t.integer "tuesday"
+    t.integer "wednesday"
+    t.integer "thursday"
+    t.integer "friday"
+    t.integer "saturday"
+    t.integer "sunday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inputs", force: :cascade do |t|
+    t.float "monday"
+    t.float "tuesday"
+    t.float "wednesday"
+    t.float "thursday"
+    t.float "friday"
+    t.float "saturday"
+    t.float "sunday"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_inputs_on_company_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +66,17 @@ ActiveRecord::Schema.define(version: 20171204110120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weather_sensitivenesses", force: :cascade do |t|
+    t.float "damp"
+    t.float "temperature"
+    t.float "rain"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_weather_sensitivenesses_on_company_id"
+  end
+
+  add_foreign_key "companies", "users"
+  add_foreign_key "inputs", "companies"
+  add_foreign_key "weather_sensitivenesses", "companies"
 end
