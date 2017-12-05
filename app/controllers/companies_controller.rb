@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(params_company)
     @company.user = current_user
     @company.save
-    redirect_to new_company_input_path(@company)
+    redirect_to companies_path(@company)
   end
 
   private
