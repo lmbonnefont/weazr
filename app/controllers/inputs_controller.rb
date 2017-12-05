@@ -7,7 +7,7 @@ class InputsController < ApplicationController
     input = Input.new(params_input)
     input.company = Company.find(params[:company_id])
     input.save
-    redirect_to company_path(params[:company_id])
+    redirect_to profile_path
   end
 
   def edit

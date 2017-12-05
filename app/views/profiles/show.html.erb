@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" >
+      <h1>Your profile</h1>
+      <p>First name: <%= @user.first_name %></p>
+      <p>Last name: <%= @user.last_name %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Phone number: <%= @user.phone_number %></p>
+      <%= link_to 'Update my profile', edit_profile_path(@user) %>
+
+    </div>
+  </div>
+</div>
+

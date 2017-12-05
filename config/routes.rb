@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :companies do
     resources :inputs, only: [:new, :create, :update, :edit]
   end
+  resource :profile, only: [:show, :edit, :update]
 end
