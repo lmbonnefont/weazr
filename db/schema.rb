@@ -68,17 +68,6 @@ ActiveRecord::Schema.define(version: 20171205143523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "weather_sensitivenesses", force: :cascade do |t|
-    t.float "damp"
-    t.float "temperature"
-    t.float "rain"
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_weather_sensitivenesses_on_company_id"
-  end
-
   add_foreign_key "companies", "users"
   add_foreign_key "inputs", "companies"
-  add_foreign_key "weather_sensitivenesses", "companies"
 end

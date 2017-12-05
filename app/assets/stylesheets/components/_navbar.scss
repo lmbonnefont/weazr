@@ -97,7 +97,7 @@
 }
 
 .happy  {
-  color: #61C3E4;
+  color: #30346A;
   font-weight: bold;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .draw-border {
-  @include btn-border-drawing(#61C3E4, #fed57e, 2px, bottom, right);
+  @include btn-border-drawing(#30346A, #fed57e, 2px, bottom, right);
   border: 8px solid transparent;
 }
 
