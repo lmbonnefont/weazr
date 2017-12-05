@@ -1,0 +1,10 @@
+<%= simple_form_for @input, url: company_inputs_path(params[:company_id]), method: :post do |f| %>
+  <%= f.input :monday %>
+  <%= f.input :tuesday %>
+  <%= f.input :wednesday %>
+  <%= f.input :thursday %>
+  <%= f.input :friday %>
+  <%= f.input :saturday %>
+  <%= f.input :sunday %>
+  <%= f.button :submit %>
+<% end %>
