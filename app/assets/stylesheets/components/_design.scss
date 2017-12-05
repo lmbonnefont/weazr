@@ -1,0 +1,116 @@
+// voici la liste des elements qu'il faut utiliser sur notre site :
+
+
+// couleurs :
+// #fed57e : jaune
+// #FD6A64 : rouge
+
+
+// #61C3E4 : bleu clair
+// #2F326B : bleu foncé
+
+// #E3EBF5 : gris clair
+// #D0DAE6 : gris foncé
+
+// #77ACC7 : bleu gris
+
+// #C9CF91 : vert
+
+// notre police :
+
+// font-family: "Raleway", "Helvetica", "sans-serif"; dans le banner on utilise avec la font weight BOLD
+
+// nos boutons :
+
+// .btn-white
+
+// .btn-colored
+
+// .btn-colored-mini
+
+
+
+ .btn-white {
+    display: inline-block;
+    background: white;
+    color: $blue;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    border-radius: 4px;
+    box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+    margin-top: 10px;
+
+    &:hover {
+      box-shadow: 0px 37px 20px -20px rgba(0,0,0,0.2);
+      transform: translate(0px, -10px) scale(1.2);
+    }
+}
+
+.btn-colored {
+    display: inline-block;
+    background: #1f69e2;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    border-radius: 4px;
+    box-shadow: 0px 17px 10px -10px rgba(128, 136, 151,0.1);
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+    margin-top: 30px;
+
+    &:hover {
+      box-shadow: 0px 37px 20px -20px rgba(128, 136, 151,0.1);
+      transform: translate(0px, -5px) scale(1.02);
+    }
+}
+
+.btn-colored-mini {
+    display: inline-block;
+    background: #5CAFCF;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    border-radius: 4px;
+    box-shadow: 0px 17px 10px -10px rgba(128, 136, 151,0.1);
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+    margin-top: 30px;
+
+
+    &:hover {
+      box-shadow: 0px 37px 20px -20px rgba(128, 136, 151,0.1);
+      transform: translate(0px, -5px) scale(1.02);
+    }
+}
+
+// over surligne
+
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+
+.post {
+  width: 1240px;
+  max-width: 100%;
+  text-align: center;
+  padding:180px 50px;
+}
+
+.highlight {
+
+  background-image:
+    -webkit-linear-gradient(left, #58afd1 50%, #fee603 50%);
+  background-image:
+    linear-gradient(to  right, #58afd1 50%, #fee603 50%);
+  background-position: 0;
+  background-size: 200%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  color: white;
+}
+.highlight:hover {
+  background-position: -100%;
+}
+
+
