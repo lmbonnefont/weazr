@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :inputs, only: [:new, :create, :update, :edit]
   end
   resource :profile, only: [:show, :edit, :update]
-  resources :campaigns
+  resources :campaigns do
+    resource :campaign_days, only: [:create, :update, :destroy]
+  end
 end
