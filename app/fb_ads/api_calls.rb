@@ -52,6 +52,7 @@ class FacebookAdsAPIClient
   end
 
   def create_adset
+    # Optimize
     ad_set = campaign.create_ad_set(
       name: 'Test Ad Set',
       targeting: targeting,
