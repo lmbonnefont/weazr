@@ -6,8 +6,12 @@ class InputsController < ApplicationController
   def create
     input = Input.new(params_input)
     input.company = Company.find(params[:company_id])
-    input.save
-    redirect_to company_path(params[:company_id])
+
+    if input.save
+      redirect_to profile_path
+    else
+      render :new
+    end
   end
 
   def edit

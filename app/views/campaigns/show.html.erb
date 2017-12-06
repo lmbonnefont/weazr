@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-sign">
+      <h2>Your campaign <%= @campaign.title %></h1>
+      <p>Starting: <%= @campaign.start %></p>
+      <p>Create: <%= @campaign.created_at %></p>
+      <p>Budget total: <%= @campaign.budget_total %></p>
+      <p>Budget remaining: <%= @campaign.budget_remaining %></p>
+      <% if Date.today < @campaign.start %>
+        <p>
+          <%= link_to "Edit the campaign", edit_campaign_path(@campaign) %>
+          <%= link_to "Destroy the campaign", campaign_path(@campaign), method: :delete %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -19,8 +19,9 @@ class CompaniesController < ApplicationController
     redirect_to new_company_input_path(@company)
   end
 
+
   private
   def params_company
-    params.require(:company).permit(:address)
+    params.require(:company).permit(:address, :name, :economic_sector_id)
   end
 end

@@ -1,4 +1,15 @@
-<%= simple_form_for @company do |f| %>
-  <%= f.input :address %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-sign">
+      <h1>Add your company</h1>
+        <%= simple_form_for @company do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.association  :economic_sector %>
+          <%= f.button :submit %>
+        <% end %>
+
+    </div>
+  </div>
+</div>
+
