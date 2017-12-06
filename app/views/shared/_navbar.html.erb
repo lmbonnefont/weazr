@@ -12,20 +12,8 @@
 
 
     <% if user_signed_in? %>
-        <%= link_to "Sell new product", new_product_path, class: "btn draw-border-red" %> |
-        <div class="contenant-messages">
-        <%= link_to user_messages_path(current_user) do %>
-          <div class="nbmessage text-center"> <%= current_user.new_message %> </div>
-          <i class="fa fa-envelope-o spacing" aria-hidden="true"></i>
-        <% end %> |
-        </div>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn draw-border-red" %> |
 
-        <%= link_to "", basket_path(current_user.basket), class: "fa fa-shopping-basket " %> |
-        <%=link_to cl_image_tag(current_user.profil_picture, :transformation=>[
-        {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-        {:width=>200, :crop=>"scale"}
-        ],  class: "avatar spacing"), user_path(current_user) %>
-        <%= link_to "Checkout", destroy_user_session_path, method: :delete, class: "btn draw-border-red" %> |
 
 
     <% else %>
