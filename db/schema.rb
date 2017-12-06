@@ -12,8 +12,22 @@
 
 ActiveRecord::Schema.define(version: 20171206102641) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigns", force: :cascade do |t|
+    t.bigint "company_id"
+    t.date "start"
+    t.date "end"
+    t.integer "budget_total"
+    t.integer "budget_remaining"
+    t.boolean "live"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["company_id"], name: "index_campaigns_on_company_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.bigint "user_id"
@@ -80,7 +94,9 @@ ActiveRecord::Schema.define(version: 20171206102641) do
     t.index ["company_id"], name: "index_weather_sensitivenesses_on_company_id"
   end
 
+
   add_foreign_key "companies", "economic_sectors"
+  add_foreign_key "campaigns", "companies"
   add_foreign_key "companies", "users"
   add_foreign_key "inputs", "companies"
   add_foreign_key "weather_sensitivenesses", "companies"
