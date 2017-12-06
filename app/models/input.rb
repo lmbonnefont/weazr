@@ -8,4 +8,5 @@ class Input < ApplicationRecord
   validates :friday, presence: true
   validates :saturday, presence: true
   validates :sunday, presence: true
+
 end
