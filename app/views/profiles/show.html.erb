@@ -9,6 +9,18 @@
       <%= link_to 'Update my profile', edit_profile_path(@user) %>
 
     </div>
+    <div class="col-md-6 col-md-offset-3" >
+          <h2>Your company</h2>
+          <%# if @company.exists? %>
+            <p>Company name: <%= @company.name %></p>
+            <p>Address: <%= @company.address %></p>
+            <p>Economic sector: <%= @company.economic_sector.name %></p>
+            <%= link_to 'Update my company', edit_company_path(@user) %>
+          <%# else %>
+            <!-- <p>add company</p> -->
+          <%# end %>
+        </div>
+
   </div>
 </div>
 

@@ -31,21 +31,53 @@ company_2 = {
 }
 
 input_1 = {
-
+  monday: 0.1,
+  tuesday: 0.2,
+  wednesday: 0.1,
+  thursday: 0.1,
+  friday: 0.2,
+  saturday: 0.2,
+  sunday: 0.1,
 }
 
 input_2 = {
-
+  monday: 0.3,
+  tuesday: 0,
+  wednesday: 0.1,
+  thursday: 0.1,
+  friday: 0.2,
+  saturday: 0.2,
+  sunday: 0.1,
 }
 
+inputs = [input_1, input_2]
 companies = [company_1, company_2]
 users = [user_1, user_2]
 
+economic_sector1 = {
+  name: "Food Delivery",
+  damp: 0.2,
+  temperature: 0.4,
+  rain: 0.4,
+}
+
+es = EconomicSector.create(economic_sector1)
+
 users.each_with_index do |user, index|
+
   u = User.create!(users[index])
-  c = Company.new!(companies[index])
-  c.company = u
+
+  c = Company.new(companies[index])
+  c.user = u
+  c.economic_sector = es
+  p c
   c.save!
+
+  i = Input.new(inputs[index])
+  i.company_id = c.id
+  i.save!
 end
+
+
 
 

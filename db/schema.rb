@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171206102839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "economic_sector_id"
+    t.index ["economic_sector_id"], name: "index_companies_on_economic_sector_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -91,19 +93,9 @@ ActiveRecord::Schema.define(version: 20171206102839) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "weather_sensitivenesses", force: :cascade do |t|
-    t.float "damp"
-    t.float "temperature"
-    t.float "rain"
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_weather_sensitivenesses_on_company_id"
-  end
-
   add_foreign_key "campaign_days", "campaigns"
   add_foreign_key "campaigns", "companies"
+  add_foreign_key "companies", "economic_sectors"
   add_foreign_key "companies", "users"
   add_foreign_key "inputs", "companies"
-  add_foreign_key "weather_sensitivenesses", "companies"
 end

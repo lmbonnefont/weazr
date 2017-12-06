@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 
 
   def show
-
+    @company = current_user.companies.first
+    @input =
   end
 
   def edit
