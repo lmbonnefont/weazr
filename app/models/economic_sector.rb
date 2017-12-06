@@ -1,5 +1,5 @@
 class EconomicSector < ApplicationRecord
-  belongs_to :company
+  has_many :companies
 
   validates :name, presence: true
   validates :damp, presence: true
