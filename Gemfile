@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'koala'
+gem 'facebook_ads', '~> 0.1'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
