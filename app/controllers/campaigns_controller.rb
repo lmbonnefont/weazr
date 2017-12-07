@@ -10,6 +10,14 @@ class CampaignsController < ApplicationController
     @campaign.company = current_user.companies.first
     @campaign.budget_remaining = @campaign.budget_total
     @campaign.save
+    if @campaign.save!
+      (@campaign.start..@campaign.end).each do |day|
+        c = CampaignDay.new
+        c.campaign = @campaign
+        c.date = day
+        c.save!
+      end
+    end
     redirect_to campaign_path(@campaign)
   end
 

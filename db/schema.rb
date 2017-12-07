@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 20171206111657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "campaign_days", force: :cascade do |t|
+    t.bigint "campaign_id"
+    t.date "date"
+    t.float "budget_forcast"
+    t.float "budget_spent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_campaign_days_on_campaign_id"
+  end
+
   create_table "campaigns", force: :cascade do |t|
     t.bigint "company_id"
     t.date "start"
@@ -90,6 +100,7 @@ ActiveRecord::Schema.define(version: 20171206111657) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "campaign_days", "campaigns"
   add_foreign_key "campaigns", "companies"
   add_foreign_key "companies", "economic_sectors"
   add_foreign_key "companies", "users"

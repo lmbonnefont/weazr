@@ -9,4 +9,12 @@ class Input < ApplicationRecord
   validates :saturday, presence: true
   validates :sunday, presence: true
 
+  # validate :total_100
+
+  # def total_100
+  #   total_100 = monday + tuesday + wednesday + thursday + friday + saturday + sunday
+  #   if total_100 != 100
+  #     errors.add(:sunday, "Sum of the days must be 100")
+  #   end
+  # end
 end
