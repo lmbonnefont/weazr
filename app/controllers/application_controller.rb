@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:home, :contact]
 
-  def after_sign_up_path_for(resource)
-      '/an/example/path' # Or :prefix_to_your_route
-  end
+
 
 end

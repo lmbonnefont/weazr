@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          legend:{position:'none'}
+        };
+
+
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+
+      <% @skip_navbar = true %>
+      <% @skip_footer = true %>
+
+      <div class="profile text-center">
+        <div class="menu text-center">
+
+            <div tl-menu>
+
+              <button class="btn-1 btn-colored-carre"><i class="fa fa-lg fa-calendar" aria-hidden="true"></i>
+    </button>
+              <button class="btn-1 btn-colored-carre"><i class="fa fa-lg fa-plus" aria-hidden="true"></i></button>
+              <button class="btn-1 btn-colored-carre"><i class="fa fa-cog fa-spin fa-lg fa-fw"></i>
+    <span class="sr-only">Loading...</span></button>
+
+            </div>
+
+
+        </div>
+
+        <div class="navbar-dashboard stat ">
+
+          <div class="navbar-wagon-left">
+            <i class="fa fa-calendar" aria-hidden="true"></i> |
+            <span>17 - 23 NOV 2017</span>
+          </div>
+
+          <div class="navbar-wagon-right">
+            <a href="" class=" btn draw-border-red-2">Today</a>
+            <a href="" class=" btn draw-border-red-2">Week</a> |
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+
+
+        </div>
+
+        <div class="stat1 stat">
+          <div class="stat-content">
+            <h3>3</h3>
+            <p>MON</p>
+            <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
+          </div>
+        </div>
+
+        <div class="stat2 stat">
+          <div class="stat-content">
+            <h3>4</h3>
+            <p>TUE</p>
+            <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #31CD64 "></i>
+          </div>
+        </div>
+
+        <div class="stat3 stat">
+          <div class="stat-content">
+            <h3>5</h3>
+            <p>WED</p>
+            <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
+          </div>
+        </div>
+
+        <div class="stat4 stat">
+          <div class="stat-content">
+            <h3>6</h3>
+            <p>THU</p>
+            <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #31CD64 "></i>
+          </div>
+        </div>
+
+        <div class="stat5 stat">
+          <div class="stat-content">
+            <h3>7</h3>
+            <p>FRI</p>
+            <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #31CD64 "></i>
+          </div>
+        </div>
+
+        <div class="stat6 stat">
+          <div class="stat-content">
+            <h3>8</h3>
+            <p>SAT</p>
+            <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
+          </div>
+        </div>
+
+        <div class="stat7 stat">
+          <div class="stat-content">
+            <h3>9</h3>
+            <p>SUN</p>
+            <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #31CD64 "></i>
+          </div>
+        </div>
+
+        <div class="description " id="chart_div" style="width: 100%; height: 200px;">
+
+
+
+
+        </div>
+    <!-- </div> -->
+
+  </body>
