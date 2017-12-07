@@ -16,6 +16,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "chartkick"
 
 gem 'koala'
 gem 'facebook_ads', '~> 0.1'

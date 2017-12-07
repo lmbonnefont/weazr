@@ -4,9 +4,11 @@ class ProfilesController < ApplicationController
 
   def show
     @company = current_user.companies.first
+
     unless @company.nil?
       return @input = @company.input
     end
+
   end
 
   def edit

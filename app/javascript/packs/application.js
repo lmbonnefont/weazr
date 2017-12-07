@@ -10,4 +10,3 @@ loadDynamicBannerText();
 import { isElementInViewport, callbackFunc } from '../components/timeline.js';
 
 
-
