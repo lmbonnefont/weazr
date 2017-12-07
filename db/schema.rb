@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207132729) do
+
+ActiveRecord::Schema.define(version: 20171207154348) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +38,13 @@ ActiveRecord::Schema.define(version: 20171207132729) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.float "budget_fb"
+    t.integer "target_age_min"
+    t.integer "target_age_max"
+    t.text "post_msg"
+    t.string "post_title"
+    t.string "photo"
+    t.string "url"
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
