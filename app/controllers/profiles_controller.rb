@@ -24,7 +24,6 @@ class ProfilesController < ApplicationController
     else
       redirect_to new_company_path
     end
-
   end
 
   private
@@ -34,6 +33,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:email, :first_name, :last_name, :phone_number)
+    params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :photo)
   end
 end
