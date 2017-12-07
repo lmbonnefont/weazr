@@ -2,24 +2,57 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3" >
       <h1>Your profile</h1>
+      <h2>Your personal data</h2>
       <p>First name: <%= @user.first_name %></p>
       <p>Last name: <%= @user.last_name %></p>
       <p>Email: <%= @user.email %></p>
       <p>Phone number: <%= @user.phone_number %></p>
-      <%= link_to 'Update my profile', edit_profile_path(@user) %>
+
+       <% if  @user.photo.file.nil?%>
+        <%= cl_image_tag("tneymtpekih2wlj1dwdd.jpg",width: 150, height: 150, crop: :thumb, gravity: :face) %>
+       <% else %>
+        <%= cl_image_tag @user.photo, width: 150, height: 150, crop: :thumb, gravity: :face %>
+       <% end %>
+      <p><%= link_to 'Update my profile', edit_profile_path %></p>
 
     </div>
     <div class="col-md-6 col-md-offset-3" >
+        <% if @company.nil? %>
+          <p><%= link_to 'Add a company', new_company_path(@user) %></p>
+        <% else %>
           <h2>Your company</h2>
-          <%# if @company.exists? %>
-            <p>Company name: <%= @company.name %></p>
-            <p>Address: <%= @company.address %></p>
-            <p>Economic sector: <%= @company.economic_sector.name %></p>
-            <%= link_to 'Update my company', edit_company_path(@user) %>
-          <%# else %>
-            <!-- <p>add company</p> -->
-          <%# end %>
-        </div>
+          <p>Company name: <%= @company.name %></p>
+          <p>Address: <%= @company.address %></p>
+          <p>Economic sector: <%= @company.economic_sector.name %></p>
+           <% if  @company.photo.file.nil? %>
+           <%= cl_image_tag("qhvyfzlzwg9mbi8i1det.jpg",
+                 width: 150, height: 150, crop: :fill) %>
+           <% else %>
+              <%= cl_image_tag @company.photo, height: 150, width: 150, crop: :fill %>
+           <% end %>
+          <p><%= link_to 'Update my company', edit_company_path(@user) %></p>
+        <% end %>
+      </div>
+
+    <div class="col-md-6 col-md-offset-3" >
+      <% if @input.nil? %>
+          <% if @company.nil? %>
+            <p></p>
+          <% else %>
+            <p><%= link_to 'Add inputs', new_company_input_path(@company) %></p>
+          <% end %>
+      <% else %>
+          <h2>Your inputs</h2>
+          <p>Monday: <%= @input.monday %></p>
+          <p>Tuestay: <%= @input.tuesday %></p>
+          <p>Wednesday: <%= @input.wednesday %></p>
+          <p>Thursday: <%= @input.thursday %></p>
+          <p>Friday: <%= @input.friday %></p>
+          <p>Saturday: <%= @input.saturday %></p>
+          <p>Sunday: <%= @input.sunday %></p>
+         <p><%= link_to 'Update my inputs', edit_company_input_path(@company, @input) %></p>
+      <% end %>
+    </div>
 
   </div>
 </div>

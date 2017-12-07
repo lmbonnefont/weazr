@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-sign">
+      <h1>Edit your company</h1>
+        <%= simple_form_for @company do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.association  :economic_sector %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.button :submit %>
+        <% end %>
+
+    </div>
+  </div>
+</div>

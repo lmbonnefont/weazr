@@ -20,6 +20,8 @@ user_2 = {
   password: 123456,
 }
 
+
+
 company_1 = {
   address: "27 rue saint louis",
   name: "Chez Tinou",
@@ -54,12 +56,14 @@ inputs = [input_1, input_2]
 companies = [company_1, company_2]
 users = [user_1, user_2]
 
+
 economic_sector1 = {
   name: "Food Delivery",
   damp: 0.2,
   temperature: 0.4,
   rain: 0.4,
 }
+
 
 es = EconomicSector.create(economic_sector1)
 
@@ -76,6 +80,7 @@ users.each_with_index do |user, index|
   i = Input.new(inputs[index])
   i.company_id = c.id
   i.save!
+
 end
 
 
