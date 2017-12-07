@@ -78,7 +78,6 @@ namespace :up do
   def updatedays(array_to_be_uploaded, hash_with_infos)
     array_to_be_uploaded.each do |campaign_day|
       if hash_with_infos[campaign_day.date.strftime("%Y-%m-%d")]
-        # p campaign_day.weather
       campaign_day.weather.damp = hash_with_infos[campaign_day.date.strftime("%Y-%m-%d")][:damp]
       campaign_day.weather.temperature = hash_with_infos[campaign_day.date.strftime("%Y-%m-%d")][:temperature]
       campaign_day.weather.rain = hash_with_infos[campaign_day.date.strftime("%Y-%m-%d")][:rain]
