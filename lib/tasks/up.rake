@@ -33,6 +33,7 @@ namespace :up do
         n += 1
       end
     end
+    hashday
     updatedays(@total_ongoing,hashday)
   end
 

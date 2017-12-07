@@ -1,7 +1,5 @@
 <% @skip_footer = true %>
 
-
-
 <div class="container">
 
       <div class="profil text-center">
@@ -11,19 +9,17 @@
             <% if  @user.photo.file.nil?%>
                    <%= cl_image_tag("tneymtpekih2wlj1dwdd.jpg",width: 150, height: 150, crop: :thumb, gravity: :face) %>
                   <% else %>
-                   <%= cl_image_tag @user.photo, width: 150, height: 150, crop: :thumb, gravity: :face %>
+                   <%= cl_image_tag @user.photo, width: 100, height: 100, crop: :thumb, gravity: :face, class: "avatar" %>
                   <% end %>
-                 <p><%= link_to 'Update my profile', edit_profile_path %></p>
 
             <h2><i class="fa fa-user" aria-hidden="true"></i>
-               : <%= @user.first_name %></<h2></h2>>
+               : <%= @user.first_name %></<h2></h2>
             <p><i class="fa fa-envelope-o" aria-hidden="true"></i> : <%= @user.email %></p>
             <p><i class="fa fa-phone" aria-hidden="true"></i>
                : <%= @user.phone_number %></p>
             <%= link_to 'Update my profile', edit_profile_path, class: "btn draw-border-red"   %>
             <br>
-            <br>
-            <p><%= link_to 'Update my inputs', edit_company_input_path(@company, @input) %></p>
+            <p><%= link_to 'Update my inputs', edit_company_input_path(@company, @input), class: "btn draw-border-red" %></p>
 
           </div>
         </div>
@@ -46,7 +42,6 @@
           <div class="stat-content">
             <h3><i class="fa fa-lg fa-calendar" aria-hidden="true"></i></h3>
             <p>Calendar</p>
-
           </div>
         </div>
         <div class="description-bis">
