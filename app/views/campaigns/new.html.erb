@@ -1,17 +1,32 @@
+
+
+<% @skip_footer = true %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 form-sign">
-      <h1>Create your campaign !</h1>
-        <%= simple_form_for @campaign do |f| %>
+      <h2 class= "text-center">Create your campaign !</h2>
+
+      <%= simple_form_for @campaign do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
           <%= f.input :title %>
           <%= f.input :start %>
           <%= f.input :end %>
           <%= f.input :budget_total %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
-          <%= f.button :submit %>
-        <% end %>
-    </div>
+
+        </div>
+
+        <div class="form-actions text-center">
+          <%= f.button :submit, "create campaign", :class => 'btn-white btn-colored' %>
+
+        </div>
+      <% end %>
+     </div>
   </div>
 </div>
+
 

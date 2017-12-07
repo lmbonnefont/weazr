@@ -1,60 +1,85 @@
+<% @skip_footer = true %>
+
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3" >
-      <h1>Your profile</h1>
-      <h2>Your personal data</h2>
-      <p>First name: <%= @user.first_name %></p>
-      <p>Last name: <%= @user.last_name %></p>
-      <p>Email: <%= @user.email %></p>
-      <p>Phone number: <%= @user.phone_number %></p>
 
-       <% if  @user.photo.file.nil?%>
-        <%= cl_image_tag("tneymtpekih2wlj1dwdd.jpg",width: 150, height: 150, crop: :thumb, gravity: :face) %>
-       <% else %>
-        <%= cl_image_tag @user.photo, width: 150, height: 150, crop: :thumb, gravity: :face %>
-       <% end %>
-      <p><%= link_to 'Update my profile', edit_profile_path %></p>
+      <div class="profil text-center">
+        <div class="main-bis">
+          <div class="main-content">
 
-    </div>
-    <div class="col-md-6 col-md-offset-3" >
-        <% if @company.nil? %>
-          <p><%= link_to 'Add a company', new_company_path(@user) %></p>
-        <% else %>
-          <h2>Your company</h2>
-          <p>Company name: <%= @company.name %></p>
-          <p>Address: <%= @company.address %></p>
-          <p>Economic sector: <%= @company.economic_sector.name %></p>
-           <% if  @company.photo.file.nil? %>
-           <%= cl_image_tag("qhvyfzlzwg9mbi8i1det.jpg",
-                 width: 150, height: 150, crop: :fill) %>
-           <% else %>
-              <%= cl_image_tag @company.photo, height: 150, width: 150, crop: :fill %>
-           <% end %>
-          <p><%= link_to 'Update my company', edit_company_path(@user) %></p>
-        <% end %>
+            <% if  @user.photo.file.nil?%>
+                   <%= cl_image_tag("tneymtpekih2wlj1dwdd.jpg",width: 150, height: 150, crop: :thumb, gravity: :face) %>
+                  <% else %>
+                   <%= cl_image_tag @user.photo, width: 150, height: 150, crop: :thumb, gravity: :face %>
+                  <% end %>
+                 <p><%= link_to 'Update my profile', edit_profile_path %></p>
+
+            <h2><i class="fa fa-user" aria-hidden="true"></i>
+               : <%= @user.first_name %></<h2></h2>>
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> : <%= @user.email %></p>
+            <p><i class="fa fa-phone" aria-hidden="true"></i>
+               : <%= @user.phone_number %></p>
+            <%= link_to 'Update my profile', edit_profile_path, class: "btn draw-border-red"   %>
+            <br>
+            <br>
+            <p><%= link_to 'Update my inputs', edit_company_input_path(@company, @input) %></p>
+
+          </div>
+        </div>
+
+        <div class="stat-bis">
+          <div class="stat-content">
+            <h3>1000 $</h3>
+
+            <p>Week budget</p>
+
+          </div>
+        </div>
+        <div class="stat-bis">
+          <div class="stat-content">
+            <h3>234 $</h3>
+            <p>tomorrow</p>
+          </div>
+        </div>
+        <div class="stat-bis">
+          <div class="stat-content">
+            <h3><i class="fa fa-lg fa-calendar" aria-hidden="true"></i></h3>
+            <p>Calendar</p>
+
+          </div>
+        </div>
+        <div class="description-bis">
+          <div class="description-content">
+            <% if @company.nil? %>
+              <p><%= link_to 'Add a company', new_company_path(@user) %></p>
+            <% else %>
+              <h2> <i class="fa fa-building-o" aria-hidden="true"></i>
+                : <%= @company.name %></h2>
+              <p class="text-center"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                : <%= @company.address %></p>
+              <p class="text-center"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                : <%= @company.economic_sector.name %></p>
+              <p><%= link_to 'Update my company', edit_company_path(@user), class: "btn draw-border-red"  %></p>
+            <% end %>
+            <% if  @company.photo.file.nil? %>
+            <%= cl_image_tag("qhvyfzlzwg9mbi8i1det.jpg",
+                  width: 150, height: 150, crop: :fill) %>
+            <% else %>
+               <%= cl_image_tag @company.photo, height: 150, width: 150, crop: :fill %>
+            <% end %>
+          </div>
+        </div>
+        <div class="stat2">
+          <div class="stat-content ">
+            <h3 class="text-center"> <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #55A1F4"></i>
+            <% end %>
+            </h3>
+            <p>New campaign</p>
+          </div>
+        </div>
       </div>
-
-    <div class="col-md-6 col-md-offset-3" >
-      <% if @input.nil? %>
-          <% if @company.nil? %>
-            <p></p>
-          <% else %>
-            <p><%= link_to 'Add inputs', new_company_input_path(@company) %></p>
-          <% end %>
-      <% else %>
-          <h2>Your inputs</h2>
-          <p>Monday: <%= @input.monday %></p>
-          <p>Tuestay: <%= @input.tuesday %></p>
-          <p>Wednesday: <%= @input.wednesday %></p>
-          <p>Thursday: <%= @input.thursday %></p>
-          <p>Friday: <%= @input.friday %></p>
-          <p>Saturday: <%= @input.saturday %></p>
-          <p>Sunday: <%= @input.sunday %></p>
-         <p><%= link_to 'Update my inputs', edit_company_input_path(@company, @input) %></p>
-      <% end %>
     </div>
 
-  </div>
-  <%= link_to "create a campaign", new_campaign_path%>
-</div>
 
+</div>

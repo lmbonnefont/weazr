@@ -94,7 +94,5 @@
   // background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 9%, #5fcdf5 9%, #5fcdf5, #5fcdf5 32%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0));
   // background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 9%, #5fcdf5 9%, #5fcdf5, #5fcdf5 32%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0));
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 9%, #31F3C7 9%, #31F3C7, #31F3C7 32%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0));
-  &:hover {
-    background: linear-gradient(0deg, #31F3C7, #31F3C7 9%, #31F3C7 9%, #31F3C7, #31F3C7 32%, white 32%, white) #31F3C7;
-  }
+
 }
