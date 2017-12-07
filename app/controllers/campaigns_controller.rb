@@ -16,6 +16,9 @@ class CampaignsController < ApplicationController
         c.campaign = @campaign
         c.date = day
         c.save!
+        w = Weather.new
+        w.campaign_day = c
+        w.save!
       end
     end
     redirect_to campaign_path(@campaign)
