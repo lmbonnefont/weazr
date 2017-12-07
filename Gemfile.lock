@@ -55,10 +55,10 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (2.2.5)
     cloudinary (1.8.2)
       aws_cf_signer
       rest-client
-    chartkick (2.2.5)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
@@ -228,8 +228,8 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   carrierwave (~> 1.2)
-  cloudinary
   chartkick
+  cloudinary
   devise
   facebook_ads (~> 0.1)
   figaro
