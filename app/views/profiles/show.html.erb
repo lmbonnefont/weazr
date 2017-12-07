@@ -3,10 +3,18 @@
 
 
 <div class="container">
+
       <div class="profil text-center">
         <div class="main-bis">
           <div class="main-content">
-            <img src="images/seb.jpeg" alt="" width="150" class="img-circle">
+
+            <% if  @user.photo.file.nil?%>
+                   <%= cl_image_tag("tneymtpekih2wlj1dwdd.jpg",width: 150, height: 150, crop: :thumb, gravity: :face) %>
+                  <% else %>
+                   <%= cl_image_tag @user.photo, width: 150, height: 150, crop: :thumb, gravity: :face %>
+                  <% end %>
+                 <p><%= link_to 'Update my profile', edit_profile_path %></p>
+
             <h2><i class="fa fa-user" aria-hidden="true"></i>
                : <%= @user.first_name %></<h2></h2>>
             <p><i class="fa fa-envelope-o" aria-hidden="true"></i> : <%= @user.email %></p>
@@ -19,6 +27,7 @@
 
           </div>
         </div>
+
         <div class="stat-bis">
           <div class="stat-content">
             <h3>1000 $</h3>
@@ -53,16 +62,24 @@
                 : <%= @company.economic_sector.name %></p>
               <p><%= link_to 'Update my company', edit_company_path(@user), class: "btn draw-border-red"  %></p>
             <% end %>
+            <% if  @company.photo.file.nil? %>
+            <%= cl_image_tag("qhvyfzlzwg9mbi8i1det.jpg",
+                  width: 150, height: 150, crop: :fill) %>
+            <% else %>
+               <%= cl_image_tag @company.photo, height: 150, width: 150, crop: :fill %>
+            <% end %>
           </div>
         </div>
         <div class="stat2">
           <div class="stat-content ">
             <h3 class="text-center"> <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-2x" aria-hidden="true" style="color: #55A1F4"></i>
-        <% end %>
-        </h3>
+            <% end %>
+            </h3>
             <p>New campaign</p>
           </div>
         </div>
       </div>
     </div>
+
+
 </div>
