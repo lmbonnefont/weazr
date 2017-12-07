@@ -1,0 +1,95 @@
+.campaign {
+  display: grid;
+  grid-template-columns: 1fr  1fr 1fr;
+
+  height: calc(100vh - 70px);
+  padding: 30px;
+}
+.campaign .main-camp {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 3;
+
+}
+
+.campaign .start-end {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.campaign .budget {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.campaign .edit {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.campaign .destroy {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.campaign .see-all {
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+}
+
+
+.main-camp, .stat-content-bis {
+  background: white;
+  box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+  padding: 50px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 940px) {
+  .campaign {
+    display: block;
+  }
+}
+
+/* Fonts and colors */
+.campaign h2 {
+  font-size: 28px;
+
+}
+.campaign h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.campaign p {
+  color: rgba(0,0,0,0.6);
+}
+
+
+.stat-camp h3 {
+  color: #55A1F4;
+  font-size: 28px;
+}
+.stat-camp p {
+  color: rgba(0,0,0,0.25);
+  font-size: 19px;
+}
+
+.stat2-camp   h3 {
+  color: #55A1F4;
+  font-size: 28px;
+}
+.stat2-camp   p {
+  color: rgba(0,0,0,0.25);
+  font-size: 19px;
+}
+
+.description-camp h3 {
+  color: #55A1F4;
+  font-size: 21px;
+  font-weight: normal;
+}
+.description-camp p {
+  color: rgba(0,0,0,0.5);
+  font-weight: lighter;
+}

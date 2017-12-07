@@ -31,6 +31,7 @@ class CampaignsController < ApplicationController
   end
 
   def index
+    @campaigns = Campaign.all
   end
 
   def show
