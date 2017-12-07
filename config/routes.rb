@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   end
   resource :profile, only: [:show, :edit, :update]
   resources :campaigns do
-    resource :campaign_days, only: [:update, :destroy]
+    resources :campaign_days, only: [:index]
   end
 end
