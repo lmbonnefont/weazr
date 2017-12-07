@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact', as: :contact
   resources :companies do
     resources :inputs, only: [:new, :create, :update, :edit]
+    resources :dashboards, only: [:show]
   end
   resource :profile, only: [:show, :edit, :update]
   resources :campaigns do

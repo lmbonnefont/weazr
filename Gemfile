@@ -16,8 +16,15 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+<<<<<<< HEAD
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+=======
+gem "chartkick"
+
+gem 'koala'
+gem 'facebook_ads', '~> 0.1'
+>>>>>>> master
 
 group :development, :test do
   gem 'pry-byebug'
