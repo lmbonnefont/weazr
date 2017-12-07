@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207111911) do
+ActiveRecord::Schema.define(version: 20171207132729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,9 +94,20 @@ ActiveRecord::Schema.define(version: 20171207111911) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weathers", force: :cascade do |t|
+    t.float "damp"
+    t.float "rain"
+    t.float "temperature"
+    t.bigint "campaign_day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_day_id"], name: "index_weathers_on_campaign_day_id"
+  end
+
   add_foreign_key "campaign_days", "campaigns"
   add_foreign_key "campaigns", "companies"
   add_foreign_key "companies", "economic_sectors"
   add_foreign_key "companies", "users"
   add_foreign_key "inputs", "companies"
+  add_foreign_key "weathers", "campaign_days"
 end
