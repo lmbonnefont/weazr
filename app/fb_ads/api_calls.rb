@@ -101,9 +101,9 @@ class FacebookAdsAPIClient
 
 end
 
-# p this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/')
-# p " this done "
-# p account = this.get_account
+p this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/')
+p " this done "
+p account = this.get_account
 # p " account done "
 # p campaign = this.create_campaign('NEW TEST')
 # p " campaign done "

@@ -9,8 +9,11 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
     @campaign.company = current_user.companies.first
     @campaign.budget_remaining = @campaign.budget_total
-    @campaign.save
     if @campaign.save!
+
+      # client = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/', 'https://aurel-allard.github.io/Kibouftou-Landing/')
+      # client.generate_ad
+
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
         c.campaign = @campaign
