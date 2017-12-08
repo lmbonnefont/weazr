@@ -1,22 +1,11 @@
 <% @skip_footer = true %>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
-  <div class="banner-content">
-    <div>
-      <% if @campaigns.nil? %>
-        <div class="text-center"> <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i>
-        <% end %>
+
+      <div class="banner" style="background-image: url(<%= image_path 'Index.jpg' %>);">
+        <div class="banner-content">
+
         </div>
+      </div>
 
-      <% else %>
-        <% @campaigns.each do |campaign| %>
-          <%= link_to campaign_path(campaign) do %>
-              <p><%= campaign.title.capitalize %></p>
-          <% end %>
-        <% end %>
-      <% end %>
 
-    </div>
 
-  </div>
-</div>
