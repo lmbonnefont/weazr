@@ -16,6 +16,9 @@ class CampaignsController < ApplicationController
         c.campaign = @campaign
         c.date = day
         c.save!
+        w = Weather.new
+        w.campaign_day = c
+        w.save!
       end
     end
     redirect_to campaign_path(@campaign)
@@ -31,6 +34,7 @@ class CampaignsController < ApplicationController
   end
 
   def index
+    @campaigns = Campaign.all
   end
 
   def show
@@ -48,6 +52,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:start, :end, :budget_total, :title)
+    params.require(:campaign).permit(:start, :end, :budget_total, :title, :budget_fb, :target_age_min, :target_age_max, :post_msg, :post_title, :url, :photo)
   end
 end

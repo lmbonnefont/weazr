@@ -15,8 +15,13 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(params_company)
     @company.user = current_user
-    @company.save
-    redirect_to new_company_input_path(@company)
+    @company.save!
+
+    dashboard = Dashboard.new
+    dashboard.company_id = @company.id
+    dashboard.save
+
+    redirect_to new_company_input_path(@company.id)
   end
 
   def edit
@@ -31,6 +36,6 @@ class CompaniesController < ApplicationController
 
   private
   def params_company
-    params.require(:company).permit(:address, :name, :economic_sector_id)
+    params.require(:company).permit(:address, :name, :economic_sector_id, :photo)
   end
 end

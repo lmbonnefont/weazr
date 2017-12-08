@@ -1,0 +1,129 @@
+.profil {
+  display: grid;
+  grid-template-columns: 350px 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  height: calc(100vh - 70px);
+  padding: 30px;
+}
+.profil .main-bis {
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 1;
+
+}
+.profil .description-bis {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 2;
+}
+
+.profil .stat2 {
+  grid-row: 2 / span 1;
+  grid-column: 4 / span 1;
+}
+
+.main-bis, .description-bis, .stat-bis, .stat2 {
+  background: white;
+    box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+  padding: 50px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 940px) {
+  .profil {
+    display: block;
+  }
+}
+
+/* Fonts and colors */
+.profil h2 {
+  font-size: 28px;
+
+}
+.profil h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.profil p {
+  color: rgba(0,0,0,0.6);
+}
+
+
+.stat-bis h3 {
+  color: #55A1F4;
+  font-size: 28px;
+}
+.stat-bis p {
+  color: rgba(0,0,0,0.25);
+  font-size: 19px;
+}
+
+.stat2   h3 {
+  color: #55A1F4;
+  font-size: 28px;
+}
+.stat2   p {
+  color: rgba(0,0,0,0.25);
+  font-size: 19px;
+}
+
+.description-bis h3 {
+  color: #55A1F4;
+  font-size: 21px;
+  font-weight: normal;
+}
+.description-bis p {
+  color: rgba(0,0,0,0.5);
+  font-weight: lighter;
+}
+
+.gocard {
+
+  background: white;
+  box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+
+  padding: 50px;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.gocard h3 {
+  color: #55A1F4;
+  font-size: 21px;
+  font-weight: normal;
+}
+.gocard p {
+  color: rgba(0,0,0,0.5);
+  font-weight: lighter;
+}
+
+.gocard2 {
+  background: white;
+
+  padding: 50px;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.margin-around {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
