@@ -47,7 +47,7 @@ class FacebookAdsAPIClient
   def create_campaign(name)
     @account.create_ad_campaign(
       name: name,
-      objective: 'PAGE_LIKES',
+      objective: 'LINK_CLICKS',
       status: 'PAUSED'
     )
   end
@@ -82,7 +82,7 @@ class FacebookAdsAPIClient
       link: @page_url, # Add your Play Store ID here.
       link_title: 'Plat foodie servi par cycliste sympa.',
       image_hash: ad_image_hash,
-      call_to_action_type: 'SHOP_NOW'
+      call_to_action_type: 'SIGN_UP'
     }, creative_type: 'image')
   end
 
@@ -98,25 +98,26 @@ class FacebookAdsAPIClient
     file.close
     [name, file.path]
   end
-
 end
 
-# p this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/')
-# p " this done "
-# p account = this.get_account
-# p " account done "
-# p campaign = this.create_campaign('NEW TEST')
-# p " campaign done "
-# p ad_creative = this.create_adcreative('New creative')
-# p " ad_creative done "
-# p ad_set = this.create_adset(campaign)
-# p " ad_set done "
-# p ad = ad_set.create_ad(
-#   name: 'Test AD',
-#   creative_id: ad_creative.id,
-#   status: 'ACTIVE'
-#   )
+this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/')
+p " this done "
+account = this.get_account
+p " account done "
+p campaign = this.create_campaign('THURSDAY 1$ TEST BABY')
+p " campaign done "
+p ad_creative = this.create_adcreative('New creative')
+p " ad_creative done "
+p ad_set = this.create_adset(campaign)
+p " ad_set done "
+p ad = ad_set.create_ad(
+  name: 'Test AD',
+  creative_id: ad_creative.id,
+  status: 'ACTIVE'
+  )
 
+
+p account.ad_insights
 
 
 # p campaign = this.index_campaigns.first
