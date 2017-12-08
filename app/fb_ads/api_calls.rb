@@ -103,18 +103,18 @@ end
 this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/')
 p " this done "
 account = this.get_account
-p " account done "
-p campaign = this.create_campaign('THURSDAY 1$ TEST BABY')
-p " campaign done "
-p ad_creative = this.create_adcreative('New creative')
-p " ad_creative done "
-p ad_set = this.create_adset(campaign)
-p " ad_set done "
-p ad = ad_set.create_ad(
-  name: 'Test AD',
-  creative_id: ad_creative.id,
-  status: 'ACTIVE'
-  )
+# p " account done "
+# p campaign = this.create_campaign('THURSDAY 1$ TEST BABY')
+# p " campaign done "
+# p ad_creative = this.create_adcreative('New creative')
+# p " ad_creative done "
+# p ad_set = this.create_adset(campaign)
+# p " ad_set done "
+# p ad = ad_set.create_ad(
+#   name: 'Test AD',
+#   creative_id: ad_creative.id,
+#   status: 'ACTIVE'
+#   )
 
 
 p account.ad_insights
