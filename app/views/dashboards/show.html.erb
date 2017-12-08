@@ -30,6 +30,7 @@
   </head>
   <body>
 
+
       <% @skip_navbar = true %>
       <% @skip_footer = true %>
 
@@ -38,11 +39,17 @@
 
             <div tl-menu>
 
-              <button class="btn-1 btn-colored-carre" style="color: #55A1F4" ><i class="fa fa-lg fa-calendar" aria-hidden="true"></i>
-    </button>
-              <button class="btn-1 btn-colored-carre" style="color: #55A1F4"><i class="fa fa-lg fa-plus" aria-hidden="true"></i></button>
-              <button class="btn-1 btn-colored-carre" style="color: #55A1F4"><i class="fa fa-cog fa-spin fa-lg fa-fw"></i>
-    <span class="sr-only">Loading...</span></button>
+              <h3 class="text-center "> <%= link_to company_dashboard_path() do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <% end %>
+              </h3>
+
+              <h3 class="text-center " style="margin-bottom: 20px"> <%= link_to new_campaign_path() do %><i class="fa fa-lg fa-plus" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <% end %>
+              </h3>
+
+              <h3 class="text-center"> <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <% end %>
+              </h3>
 
             </div>
 

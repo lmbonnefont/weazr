@@ -3,11 +3,14 @@ class ProfilesController < ApplicationController
 
 
   def show
+
     @company = current_user.companies.first
+    @dashboard = @company.dashboard
 
     unless @company.nil?
       return @input = @company.input
     end
+
 
   end
 
