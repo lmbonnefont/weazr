@@ -20,8 +20,6 @@ user_2 = {
   password: 123456,
 }
 
-
-
 company_1 = {
   address: "27 rue saint louis",
   name: "Chez Tinou",

@@ -56,7 +56,9 @@
         </div>
         <div class="stat-bis">
           <div class="stat-content">
-            <h3><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color:#55A1F4"></i></h3>
+            <h3 class="text-center "> <%= link_to company_dashboard_path(@company, @dashboard) do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <% end %>
+              </h3>
             <p>Calendar</p>
           </div>
         </div>
@@ -82,12 +84,7 @@
                         : <%= @company.economic_sector.name %></p>
 
                     <p><%= link_to 'Update my company', edit_company_path(@user), class: "btn "  %></p>
-                    <% if  @company.photo.file.nil? %>
-                      <%= cl_image_tag("qhvyfzlzwg9mbi8i1det.jpg",
-                          width: 150, height: 150, crop: :fill) %>
-                    <% else %>
-                       <%= cl_image_tag @company.photo, height: 150, width: 150, crop: :fill %>
-                    <% end %>
+
                <% end %>
              <% end %>
 

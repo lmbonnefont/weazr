@@ -1,0 +1,115 @@
+.fb-add {
+  width: 494px;
+  height: 524px;
+  background: white;
+  box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.brand {
+  position: absolute;
+  left: 12px;
+  top: 13px;
+  width: 127px;
+  height: 40px;
+}
+
+.logo-company {
+  position: absolute;
+  left: 12px;
+  top: 13px;
+  width: 40px;
+  height: 40px;
+}
+
+.brand-company-h2 {
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  left: 61px;
+  top: 14px;
+  color: #3B5998;
+}
+
+.brand-company-p {
+  position: absolute;
+  left: 61.5px;
+  top: 36px;
+  font-size: 12px;
+  color: #9197A3;
+}
+
+.brand i {
+  position: absolute;
+  left: 130px;
+  top: 38px;
+  width: 9px;
+  height: 9px;
+  color: #9197A3;
+}
+
+.title {
+  position: absolute;
+  left: 12px;
+  top: 65px;
+  width: 299px;
+  height: 17px;
+  font-size: 14px;
+}
+
+.pic {
+  position: absolute;
+  left: 12px;
+  top: 92px;
+  width: 470px;
+  height: 365px;
+  background-color: #D8D8D8;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.call-action h2 {
+  position: absolute;
+  left: 25px;
+  top: 350px;
+  font-size: 18px;
+}
+
+.call-action p {
+  position: absolute;
+  left: 24px;
+  top: 383px;
+  font-size: 12px;
+}
+
+.website {
+  position: absolute;
+  left: 24px;
+  top: 429,04px;
+  font-size: 12px;
+  color: #9197A3;
+}
+
+.fb-add-footer {
+  position: absolute;
+  left: 13px;
+  top: 466px;
+  width: 204px;
+  height: 14px;
+  color: #9197A3;
+  font-size: 12px;
+}
+
+.fb-add-footer-2 {
+  position: absolute;
+  left: 13px;
+  top: 498px;
+  width: 241px;
+  height: 15px;
+  color: #7F7F7F;
+  font-size: 12px;
+}
+
+

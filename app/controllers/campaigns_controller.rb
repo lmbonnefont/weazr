@@ -11,8 +11,12 @@ class CampaignsController < ApplicationController
     @campaign.budget_remaining = @campaign.budget_total
     if @campaign.save!
 
-      # client = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/', 'https://aurel-allard.github.io/Kibouftou-Landing/')
-      # client.generate_ad
+      # -------- Creation of a Facebook campaign -------- #
+      # current_user.account_id =
+      # current_user.page_id =
+      # current_user.website_url =
+      # FacebookAdsAPIClient.new(account_id, campaign_id, page_id, page_url, website_url))
+      # -------- End -------- #
 
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new

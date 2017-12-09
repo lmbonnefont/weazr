@@ -1,49 +1,6 @@
 <% @skip_footer = true %>
+<div class="banner" style="background-image: url(<%= image_path 'CampDash.jpg' %>);">
+  <div class="banner-content">
 
-
-
-<div class="container">
-
-      <div class="campaign text-center">
-
-        <div class="main-camp">
-          <div class="main-content">
-            Your campaign <%= @campaign.title %>
-          </div>
-        </div>
-
-        <div class="start-end">
-          <div class="stat-content-bis">
-            <p>Starting: <%= @campaign.start %></p>
-            <p>finishing: <%= @campaign.end %></p>
-          </div>
-        </div>
-
-        <div class="budget">
-          <div class="stat-content-bis">
-            <p>Budget total: <%= @campaign.budget_total %></p>
-          </div>
-        </div>
-
-        <div class="edit">
-          <div class="stat-content-bis">
-            <%= link_to "Edit the campaign", edit_campaign_path(@campaign), :class => 'btn-white btn-colored' %>
-          </div>
-        </div>
-
-        <div class="destroy">
-          <div class="stat-content-bis">
-            <%= link_to "Destroy the campaign", campaign_path(@campaign),:class => 'btn-white btn-colored', method: :delete %>
-          </div>
-        </div>
-
-        <div class="see-all">
-          <div class="stat-content-bis ">
-            <%= link_to "See all campaigns",  campaigns_path(@company),:class => 'btn-white btn-colored' %>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+  </div>
 </div>
