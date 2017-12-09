@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207154348) do
+ActiveRecord::Schema.define(version: 20171209162910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 20171207154348) do
     t.string "name"
     t.bigint "economic_sector_id"
     t.string "photo"
+    t.string "account_id"
+    t.string "website_url"
+    t.string "page_id"
     t.index ["economic_sector_id"], name: "index_companies_on_economic_sector_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end

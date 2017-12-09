@@ -9,8 +9,15 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
     @campaign.company = current_user.companies.first
     @campaign.budget_remaining = @campaign.budget_total
-    @campaign.save
     if @campaign.save!
+
+      # -------- Creation of a Facebook campaign -------- #
+      current_user.account_id =
+      current_user.page_id =
+      current_user.website_url =
+      FacebookAdsAPIClient.new(account_id, campaign_id, page_id, page_url, website_url))
+      # -------- End -------- #
+
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
         c.campaign = @campaign
