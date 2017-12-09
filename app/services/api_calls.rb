@@ -60,7 +60,7 @@ class FacebookAdsAPIClient
       promoted_object: {
         pixel_id: '467837863611941'
       },
-      optimization_goal: 'LINK_CLICKS',
+      optimization_goal: 'OFFSITE_CONVERSIONS',
       daily_budget: 100, # This is in cents, so the daily budget here is $5.
       billing_event: 'IMPRESSIONS',
       status: 'ACTIVE',
@@ -82,7 +82,16 @@ class FacebookAdsAPIClient
   end
 
   def generate_ad
-
+    this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/', 'https://aurel-allard.github.io/Kibouftou-Landing/')
+    account = this.get_account
+    campaign = this.create_campaign('THURSDAY 1$ TEST BABY')
+    ad_creative = this.create_adcreative('New creative')
+    ad_set = this.create_adset(campaign)
+    ad = ad_set.create_ad(
+      name: 'Test AD',
+      creative_id: ad_creative.id,
+      status: 'ACTIVE'
+      )
   end
 
   private
@@ -98,35 +107,5 @@ class FacebookAdsAPIClient
     [name, file.path]
   end
 end
-
-this = FacebookAdsAPIClient.new('act_114566172663449', '23842663923640452', '1917026111950285', 'https://www.facebook.com/Kibouftou-1917026111950285/', 'https://aurel-allard.github.io/Kibouftou-Landing/')
-p " this done "
-account = this.get_account
-p " account done "
-p campaign = this.create_campaign('THURSDAY 1$ TEST BABY')
-p " campaign done "
-p ad_creative = this.create_adcreative('New creative')
-p " ad_creative done "
-p ad_set = this.create_adset(campaign)
-p " ad_set done "
-p ad = ad_set.create_ad(
-  name: 'Test AD',
-  creative_id: ad_creative.id,
-  status: 'ACTIVE'
-  )
-
-
-# p account.ad_insights
-
-
-# p campaign = this.index_campaigns.first
-# ad_set = campaign.ad_sets(effective_status: ['PAUSED']).first
-# ad_creative = account.ad_creatives.first
-# ad_set.create_ad(name: 'Test Ad', creative_id: ad_creative.id)
-# campaign = this.create_campaign("Pages like campaign")
-
-# this.create_adset(campaign)
-# new_ad = this.create_adcreative("Test adset 1")
-# campaign = this.get_campaign('114566172663449')
 
 puts "-------- Done --------"
