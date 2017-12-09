@@ -12,10 +12,10 @@ class CampaignsController < ApplicationController
     if @campaign.save!
 
       # -------- Creation of a Facebook campaign -------- #
-      # current_user.account_id =
-      # current_user.page_id =
-      # current_user.website_url =
-      # FacebookAdsAPIClient.new(account_id, campaign_id, page_id, page_url, website_url))
+      current_user.account_id =
+      current_user.page_id =
+      current_user.website_url =
+      FacebookAdsAPIClient.new(account_id, campaign_id, page_id, page_url, website_url))
       # -------- End -------- #
 
       (@campaign.start..@campaign.end).each do |day|
