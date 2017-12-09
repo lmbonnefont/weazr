@@ -33,6 +33,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :photo)
+    params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :photo, :account_id, :page_id, :website_url)
   end
 end
