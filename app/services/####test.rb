@@ -3,16 +3,15 @@ require 'koala'
 # require 'facebook_ads'
 
 # Assing a peculiar page to. variable
-# access_token = 'EAACEdEose0cBALiQZANhAMCwjOVwZBqhmbDrPjjCQkwZCHZCrHC76Jh6nY5gk3P0VHuUDsZAVAlFGUzTfg0gnYvzKZA7zn2TF0Bs3cVrvsokxwmHXOrYj5DkEGBt9VNmuqUIsogJoqxlzGaUZCyAPFlH8AmKkyh9YLIpPwLSmLRD15ZBm6gOgJ3TtVM7Tm8ZAZA6QZD'
-# ad_token = 'EAAVcDLP8LsoBAJsIacGWn93YSlf0xbrYqAT94xPdX96yZC59O3pjgVFQpD4NHYvaSXpAwu2ytjImY1XaFbuo5gwUgNk0bHQHAOxWmyUR8ZBsrqBCvpUYKfqd6FnbrWi8TBjIChRjqZAK1xFMmqLdYIL8z9llzRNhV8kHahgtAZDZD'
+access_token = 'EAAdGnkgbtQoBACCOFpcLBcTycoEx57g3HCn8qvo4wK8fblnQDIpI1wCcQZAZAOTTMrp3P6EJUf1HDvA0yHcrcZAVtRpuKWJMZATxB9ImLzjvGFHsDTg0zDZAeDNWManfx96RpW9nx2PbbrhtqXULH3hXt5EYonv3YLzbHYQbYAd0ZBkwvHVF9yZAW16Ic8eauMZD'
+ad_token = 'EAAdGnkgbtQoBACCOFpcLBcTycoEx57g3HCn8qvo4wK8fblnQDIpI1wCcQZAZAOTTMrp3P6EJUf1HDvA0yHcrcZAVtRpuKWJMZATxB9ImLzjvGFHsDTg0zDZAeDNWManfx96RpW9nx2PbbrhtqXULH3hXt5EYonv3YLzbHYQbYAd0ZBkwvHVF9yZAW16Ic8eauMZD'
 # account_id = 'act_114566172663449'
 # page_id = '1917026111950285'
 
-# @graph = Koala::Facebook::API.new(access_token)
+@graph = Koala::Facebook::API.new(access_token)
 # FacebookAds.configure do |config|
 #   config.access_token = ad_token
 # end
-# ad_account = ?
 
 # Publish a single message
 # @graph.put_connections("me", "feed", message: "A super bon steak !")
@@ -21,7 +20,7 @@ require 'koala'
 # @graph.put_connections("me", "feed", url: "https://www.omahasteaks.com/gifs/990x594/pr_ts004.jpg")
 
 # Publish both message and picture
-# @graph.put_picture("http://constance-a-table.fr/wp-content/uploads/2016/06/colombo-de-poulet.jpg")
+@graph.put_picture("http://constance-a-table.fr/wp-content/uploads/2016/06/colombo-de-poulet.jpg", message: "A super bon steak !")
 
 # Get all media publications in an array
 # @posts = []

@@ -1,11 +1,13 @@
 require 'pathname'
 require 'facebook_ads'
+require 'koala'
 
 class FacebookAdsAPIClient
 
   def initialize(account_id, page_id, website_url, pixel_id)
     FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
     FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
+    @page_token = 'EAAdGnkgbtQoBACCOFpcLBcTycoEx57g3HCn8qvo4wK8fblnQDIpI1wCcQZAZAOTTMrp3P6EJUf1HDvA0yHcrcZAVtRpuKWJMZATxB9ImLzjvGFHsDTg0zDZAeDNWManfx96RpW9nx2PbbrhtqXULH3hXt5EYonv3YLzbHYQbYAd0ZBkwvHVF9yZAW16Ic8eauMZD'
     @account_id = account_id
     @page_id = page_id
     @website_url = website_url
@@ -89,6 +91,11 @@ class FacebookAdsAPIClient
       creative_id: ad_creative.id,
       status: 'ACTIVE'
       )
+  end
+
+  def display(image_url, post_msg)
+    @graph = Koala::Facebook::API.new(@page_token)
+    @graph.put_picture(image_url, message: post_msg)
   end
 
   private
