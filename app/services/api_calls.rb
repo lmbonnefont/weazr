@@ -3,13 +3,13 @@ require 'facebook_ads'
 
 class FacebookAdsAPIClient
 
-  def initialize(account_id, page_id, website_url)
+  def initialize(account_id, page_id, website_url, pixel_id)
     FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
     FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
     @account_id = account_id
     @page_id = page_id
-
     @website_url = website_url
+    @pixel_id = pixel_id
   end
 
   def get_account
@@ -26,9 +26,9 @@ class FacebookAdsAPIClient
     @account.ad_campaigns
   end
 
-  def create_adimages(url)
+  def create_adimages(image_url)
     FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
-    dl = download(url)
+    dl = download(image_url)
     file = File.open(dl[1])
     uri = "#{FacebookAds.base_uri}/#{@account_id}/adimages"
     response = RestClient.post(uri, {dl[0] => file, objectivity: false, access_token: FacebookAds.access_token })
@@ -44,7 +44,6 @@ class FacebookAdsAPIClient
 
   def create_adset(campaign, name)
     targeting                   = FacebookAds::AdTargeting.new
-    targeting.genders           = [FacebookAds::AdTargeting::ALL]
     targeting.age_min           = 29
     targeting.age_max           = 65
     targeting.countries         = ['FR']
@@ -53,12 +52,13 @@ class FacebookAdsAPIClient
       name: "#{name} Ad Set",
       targeting: targeting,
       promoted_object: {
-        pixel_id: '467837863611941'
+        pixel_id: @pixel_id,
+        custom_event_type: 'LEAD'
       },
       optimization_goal: 'OFFSITE_CONVERSIONS',
       daily_budget: 100,
       billing_event: 'IMPRESSIONS',
-      status: 'PAUSED',
+      status: 'ACTIVE',
       is_autobid: true
     )
   end
@@ -79,22 +79,24 @@ class FacebookAdsAPIClient
   def generate_ad(name, post_title, post_msg, photo)
     # this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/')
     account = self.get_account
+    p account.ad_images.first["hash"]
     campaign = self.create_campaign(name)
+    create_adimages(photo)
     ad_creative = self.create_adcreative("Creative #{name}", post_title, post_msg)
     ad_set = self.create_adset(campaign, name)
-    # ad = ad_set.create_ad(
-    #   name: 'Test AD',
-    #   creative_id: ad_creative.id,
-    #   status: 'ACTIVE'
-    #   )
+    ad = ad_set.create_ad(
+      name: 'Test AD',
+      creative_id: ad_creative.id,
+      status: 'ACTIVE'
+      )
   end
 
   private
 
-  def download(url)
-    pathname = Pathname.new(url)
+  def download(image_url)
+    pathname = Pathname.new(image_url)
     name = "#{pathname.dirname.basename}.jpg"
-    data = RestClient.get(url).body
+    data = RestClient.get(image_url).body
     file = File.open("/tmp/#{name}", 'w')
     file.binmode
     file.write(data)
@@ -103,7 +105,9 @@ class FacebookAdsAPIClient
   end
 end
 
-this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/')
-this.generate_ad('SUNDAY2', 'Title text', 'Post text', '')
+this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
+this.generate_ad('THISSUNDAY', 'Title text', 'Post text', '')
 
+puts
 puts "-------- Done --------"
+puts
