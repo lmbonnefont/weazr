@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Meteo.destroy_all
 Dashboard.destroy_all
 Input.destroy_all
 User.destroy_all
@@ -84,6 +85,12 @@ users.each_with_index do |user, index|
   i.company_id = c.id
   i.save!
 
+end
+
+for i in (0..14) do
+  m = Meteo.new
+  m.date = Date.today + i
+  m.save!
 end
 
 

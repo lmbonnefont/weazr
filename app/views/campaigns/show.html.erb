@@ -1,6 +1,16 @@
 <% @skip_footer = true %>
-<div class="banner" style="background-image: url(<%= image_path 'CampDash.jpg' %>);">
+<!-- <div class="banner" style="background-image: url(<%= image_path 'CampDash.jpg' %>);">
   <div class="banner-content">
 
   </div>
-</div>
+</div> -->
+<p> <%= @campaign.budget_total %> </p>
+<% s = 0.0 %>
+<% sum = 0.0 %>
+<% @campaign.campaign_days.each do |cd| %>
+  <p> <%= cd.date %>
+    <% if cd.budget_forcast != nil %>
+      <%= sum += cd.budget_forcast%>
+    <% end %> </p>
+<% end %>
+

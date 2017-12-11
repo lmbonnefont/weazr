@@ -28,15 +28,10 @@ class CampaignsController < ApplicationController
         somme_coeffs_inputs += coeff_input
         c.save!
         array_days << c
-
-        w = Weather.new
-        w.campaign_day = c
-        w.save!
       end
 
-      array_days.each do |cd|
-        new_indice = @campaign.company.input.attributes[cd.date.strftime("%A").downcase]/ somme_coeffs_inputs
-        cd.theorical_budget = @campaign.budget_total * new_indice
+      array_days.each do |cd| #on pondère les inputs utilisateurs au cas ou les semaines ne seraient pas completes
+        cd.indice_bau = @campaign.company.input.attributes[cd.date.strftime("%A").downcase]/ somme_coeffs_inputs
         cd.save!
       end
 
@@ -59,6 +54,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
+    @campaign = Campaign.find(params[:id])
   end
 
   def destroy
