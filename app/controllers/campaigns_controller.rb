@@ -16,7 +16,7 @@ class CampaignsController < ApplicationController
       page_id = current_user.companies.page_id
       website_url = current_user.companies.website_url
       pixel_id = current_user.companies.pixel_id
-      new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
+      # new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
       name = @campaign.name
       post_title = @campaign.post_title
       post_msg = @campaign.post_msg
