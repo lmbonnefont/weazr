@@ -1,10 +1,9 @@
 require 'open-uri'
 require 'nokogiri'
 
-namespace :up do
+namespace :weather do
   desc "Update Weather for the next 14 days by scrapping data."
   task update_weather_14_days: :environment do
-
 
   @total_ongoing = CampaignDay.where("date >= :today AND date <= :date_in_two_weeks", today: Date.today, date_in_two_weeks: Date.today + 13.days)
 

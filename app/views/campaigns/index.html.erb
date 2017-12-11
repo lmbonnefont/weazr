@@ -1,11 +1,73 @@
+
 <% @skip_footer = true %>
 
 
-      <div class="banner" style="background-image: url(<%= image_path 'Index.jpg' %>);">
-        <div class="banner-content">
 
+<div class="container text-center margin-around">
+<h1 style="margin-top: 40px; margin-bottom: 40px">Here are all your campaigns</h1>
+
+  <div class="row">
+
+      <% if @campaigns.nil? %>
+        <div class="text-center"> <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i>
+        <% end %>
+        </div>
+
+      <% else %>
+        <% @campaigns.each do |campaign| %>
+          <%= link_to campaign_path(campaign) do %>
+            <div class="col-xs-12 col-sm-4 gocard text-center">
+              <h3><%= campaign.title.capitalize %></h3>
+              <p><%= campaign.start %> - <%= campaign.end %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+
+    <div class="col-xs-12 col-sm-4 gocard2">
+      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i> <% end %>
+    </div>
+
+
+    <div class="fb-add">
+
+      <div class="brand">
+        <div class="logo-company">
+          <%= link_to image_tag("logo.png", class: "logo-company"), root_path %>
         </div>
       </div>
 
+      <div class="brand-company">
+        Deliveroo
+      </div>
+
+      <div class="brand-company-p">
+      Sponsored
+      </div>
+      <i class="fa fa-globe" aria-hidden="true"></i>
+
+      <div class="title">This is a clever title to make you buy something.</div>
+
+      <div class="pic"></div>
+
+      <div class="call-action">
+        <h2>Call to Action Title Get my Attention</h2>
+        <p>This is where you explain what you are selling, get to the point and make it powerful.</p>
+      </div>
+
+      <div class="website">WEBSITE.COM</div>
+
+      <div class="fb-add-footer">200 Likes 25 Comments 109 Shares</div>
+
+      <div class="fb-add-footer-2">Like Comment Share</div>
 
 
+
+
+    </div>
+
+
+
+
+  </div>
+</div>

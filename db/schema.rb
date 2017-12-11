@@ -22,7 +22,12 @@ ActiveRecord::Schema.define(version: 20171211100540) do
     t.float "budget_spent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "happened"
+    t.boolean "happened", default: false
+    t.float "irain"
+    t.float "idamp"
+    t.float "itemperature"
+    t.float "idailyabsolute"
+    t.float "idailyrelative"
     t.index ["campaign_id"], name: "index_campaign_days_on_campaign_id"
   end
 
