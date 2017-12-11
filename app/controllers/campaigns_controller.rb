@@ -10,25 +10,28 @@ class CampaignsController < ApplicationController
     @campaign.company = current_user.company
     @campaign.budget_remaining = @campaign.budget_total
     if @campaign.save!
+      @campaign = Campaign.find(@campaign.id) # TODO find smartest way
+
+    #### BEWARE WHEN ADDING A CAMPAIGN, TOKENS MAY NEED AN UPDATE #####
 
       # -------- Creation of a Facebook campaign -------- #
       account_id = current_user.company.account_id
       page_id = current_user.company.page_id
       website_url = current_user.company.website_url
       pixel_id = current_user.company.pixel_id
-      # new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
+      new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
       name = @campaign.name
       post_title = @campaign.post_title
       post_msg = @campaign.post_msg
-      image_url = @campaign.photo
+      image_url = @campaign.photo.url
       new_campaign.generate_ad(name, post_title, post_msg, image_url)
-      # -------- End -------- #
 
       # -------- Display on Facebook page -------- #
       if @campaign.display == true
         new_campaign.display(image_url, post_msg)
       end
-      # -------- End -------- #
+
+  ################################################################
 
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
