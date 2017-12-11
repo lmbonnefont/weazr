@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Dashboard.destroy_all
+Input.destroy_all
 User.destroy_all
 Company.destroy_all
 Campaign.destroy_all
@@ -19,8 +21,6 @@ user_2 = {
   email: "aurel@yolo.fr",
   password: 123456,
 }
-
-
 
 company_1 = {
   address: "27 rue saint louis",
@@ -77,12 +77,40 @@ users.each_with_index do |user, index|
   p c
   c.save!
 
+  d = Dashboard.create!(company_id: c.id)
+
+
   i = Input.new(inputs[index])
   i.company_id = c.id
   i.save!
 
 end
 
+######## KIBOUFTOU ########
+k_user = {
+  email: "jeanb@gmail.fr",
+  password: 123456,
+  first_name: "Jean",
+  last_name: "Bombeur",
+  phone_number: '02.40.35.69.18',
+}
 
+kibouftou = {
+  address: "16 Villa Gaudelet",
+  name: "Kibouftou",
+  account_id: 'act_114566172663449',
+  page_id: '1917026111950285',
+  website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
+  pixel_id: '467837863611941'
+}
 
+k_user = User.create!(k_user)
+kibouftou = Company.new(kibouftou)
+k_dash = Dashboard.new
 
+kibouftou.user = k_user
+kibouftou.dashboard = k_dash
+kibouftou.economic_sector = es
+kibouftou.save!
+k_dash.save!
+###########################

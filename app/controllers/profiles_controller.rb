@@ -3,26 +3,20 @@ class ProfilesController < ApplicationController
 
 
   def show
-
-    @company = current_user.companies.first
+    @company = current_user.company
     @dashboard = @company.dashboard
-
     unless @company.nil?
       return @input = @company.input
     end
-
-
   end
 
   def edit
-
   end
 
   def update
     @user = current_user
     @user.update(profile_params)
-
-    if @user.companies.exists?
+    if @user.company.exists?
       redirect_to profile_path
     else
       redirect_to new_company_path
@@ -36,6 +30,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :photo)
+    params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :photo, :account_id, :page_id, :website_url)
   end
 end

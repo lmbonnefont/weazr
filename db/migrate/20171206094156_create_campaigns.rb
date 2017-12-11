@@ -6,7 +6,6 @@ class CreateCampaigns < ActiveRecord::Migration[5.1]
       t.date :end
       t.integer :budget_total
       t.integer :budget_remaining
-      t.boolean :live
 
       t.timestamps
     end
