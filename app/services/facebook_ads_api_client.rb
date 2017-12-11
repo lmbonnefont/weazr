@@ -45,7 +45,7 @@ class FacebookAdsAPIClient
     )
   end
 
-  def create_adset(campaign, name)
+  def create_adset(campaign, name, budget)
     targeting                   = FacebookAds::AdTargeting.new
     targeting.age_min           = 29
     targeting.age_max           = 65
@@ -59,7 +59,7 @@ class FacebookAdsAPIClient
         custom_event_type: 'LEAD'
       },
       optimization_goal: 'OFFSITE_CONVERSIONS',
-      daily_budget: 100,
+      daily_budget: budget,
       billing_event: 'IMPRESSIONS',
       status: 'ACTIVE',
       is_autobid: true
@@ -79,14 +79,14 @@ class FacebookAdsAPIClient
     }, creative_type: 'image')
   end
 
-  def generate_ad(name, post_title, post_msg, image_url)
+  def generate_ad(name, post_title, post_msg, image_url, budget)
     # this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/')
     account = self.get_account
     create_adimages(image_url)
     account.ad_images.first["hash"]
     campaign = self.create_campaign(name)
     ad_creative = self.create_adcreative("Creative #{name}", post_title, post_msg)
-    ad_set = self.create_adset(campaign, name)
+    ad_set = self.create_adset(campaign, name, budget)
     ad = ad_set.create_ad(
       name: 'Test AD',
       creative_id: ad_creative.id,

@@ -21,10 +21,11 @@ class CampaignsController < ApplicationController
       pixel_id = current_user.company.pixel_id
       new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
       name = @campaign.name
+      budget = @campaign.budget_total
       post_title = @campaign.post_title
       post_msg = @campaign.post_msg
       image_url = @campaign.photo.url
-      new_campaign.generate_ad(name, post_title, post_msg, image_url)
+      new_campaign.generate_ad(name, post_title, post_msg, image_url, budget)
 
       # -------- Display on Facebook page -------- #
       if @campaign.display == true
