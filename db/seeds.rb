@@ -75,6 +75,9 @@ users.each_with_index do |user, index|
   p c
   c.save!
 
+  d = Dashboard.create!(company_id: c.id)
+
+
   i = Input.new(inputs[index])
   i.company_id = c.id
   i.save!
