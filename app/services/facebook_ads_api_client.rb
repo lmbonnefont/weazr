@@ -5,9 +5,10 @@ require 'koala'
 class FacebookAdsAPIClient
 
   def initialize(account_id, page_id, website_url, pixel_id)
-    FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
+    # FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
     FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
-    @page_token = 'EAAdGnkgbtQoBACCOFpcLBcTycoEx57g3HCn8qvo4wK8fblnQDIpI1wCcQZAZAOTTMrp3P6EJUf1HDvA0yHcrcZAVtRpuKWJMZATxB9ImLzjvGFHsDTg0zDZAeDNWManfx96RpW9nx2PbbrhtqXULH3hXt5EYonv3YLzbHYQbYAd0ZBkwvHVF9yZAW16Ic8eauMZD'
+    @marketing_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
+    @page_token = 'EAAVcDLP8LsoBAEFMJFqhcoZCdyg7iZB4mHgAv4Lfv0sVIx5ZCguhWz5cmw2TxulriIDdUIRZAmQi7sNmZBEiPD7M71lUpARzW6B1nLW3F0n0ba1nXXjS9tKTWkxXfqq5A4KadvpFnX1cJcIOIjn0kYZAJk3gUw48hXsSYsLkYm8yDROum7mlgAIxSpVEPQn3MZD'
     @account_id = account_id
     @page_id = page_id
     @website_url = website_url
@@ -29,7 +30,7 @@ class FacebookAdsAPIClient
   end
 
   def create_adimages(image_url)
-    FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
+    FacebookAds.access_token = @marketing_token
     dl = download(image_url)
     file = File.open(dl[1])
     uri = "#{FacebookAds.base_uri}/#{@account_id}/adimages"
@@ -78,12 +79,12 @@ class FacebookAdsAPIClient
     }, creative_type: 'image')
   end
 
-  def generate_ad(name, post_title, post_msg, photo)
+  def generate_ad(name, post_title, post_msg, image_url)
     # this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/')
     account = self.get_account
-    p account.ad_images.first["hash"]
+    create_adimages(image_url)
+    account.ad_images.first["hash"]
     campaign = self.create_campaign(name)
-    create_adimages(photo)
     ad_creative = self.create_adcreative("Creative #{name}", post_title, post_msg)
     ad_set = self.create_adset(campaign, name)
     ad = ad_set.create_ad(
@@ -112,9 +113,10 @@ class FacebookAdsAPIClient
   end
 end
 
-this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
-this.generate_ad('THISSUNDAY', 'Title text', 'Post text', '')
+# this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
+# this.display('https://mr-ginseng.com/wp-content/uploads/2013/05/Cannelle.jpg', "Trop bon!")
+# this.generate_ad('THISSUNDAY', 'Title text', 'Post text', 'https://mr-ginseng.com/wp-content/uploads/2013/05/Cannelle.jpg')
 
-puts
-puts "-------- Done --------"
-puts
+# puts
+# puts "-------- Done --------"
+# puts
