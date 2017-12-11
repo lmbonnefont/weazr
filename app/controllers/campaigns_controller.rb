@@ -7,15 +7,15 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
-    @campaign.company = current_user.companies.first
+    @campaign.company = current_user.company
     @campaign.budget_remaining = @campaign.budget_total
     if @campaign.save!
 
       # -------- Creation of a Facebook campaign -------- #
-      account_id = current_user.companies.account_id
-      page_id = current_user.companies.page_id
-      website_url = current_user.companies.website_url
-      pixel_id = current_user.companies.pixel_id
+      account_id = current_user.company.account_id
+      page_id = current_user.company.page_id
+      website_url = current_user.company.website_url
+      pixel_id = current_user.company.pixel_id
       # new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
       name = @campaign.name
       post_title = @campaign.post_title

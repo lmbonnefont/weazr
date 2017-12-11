@@ -88,13 +88,12 @@ end
 
 ######## KIBOUFTOU ########
 k_user = {
-  email: "jeanb@google.fr",
+  email: "jeanb@gmail.fr",
   password: 123456,
   first_name: "Jean",
   last_name: "Bombeur",
   phone_number: '02.40.35.69.18',
 }
-k_user = User.create!(k_user)
 
 kibouftou = {
   address: "16 Villa Gaudelet",
@@ -105,8 +104,13 @@ kibouftou = {
   pixel_id: '467837863611941'
 }
 
+k_user = User.create!(k_user)
 kibouftou = Company.new(kibouftou)
+k_dash = Dashboard.new
+
 kibouftou.user = k_user
+kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
 kibouftou.save!
+k_dash.save!
 ###########################
