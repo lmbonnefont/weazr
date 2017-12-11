@@ -17,19 +17,33 @@ class CampaignsController < ApplicationController
       # current_user.website_url =
       # FacebookAdsAPIClient.new(account_id, campaign_id, page_id, page_url, website_url))
       # -------- End -------- #
+      somme_coeffs_inputs = 0
+      array_days = []
 
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
         c.campaign = @campaign
         c.date = day
+        coeff_input = @campaign.company.input.attributes[c.date.strftime("%A").downcase] #on recherche dans les input le jour de la campagn day en création
+        somme_coeffs_inputs += coeff_input
         c.save!
+        array_days << c
+
         w = Weather.new
         w.campaign_day = c
         w.save!
       end
+
+      array_days.each do |cd|
+        new_indice = @campaign.company.input.attributes[cd.date.strftime("%A").downcase]/ somme_coeffs_inputs
+        cd.theorical_budget = @campaign.budget_total * new_indice
+        cd.save!
+      end
+
     end
     redirect_to campaign_path(@campaign)
   end
+
 
   def edit
   end

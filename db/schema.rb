@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211105129) do
+ActiveRecord::Schema.define(version: 20171211142555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171211105129) do
     t.float "itemperature"
     t.float "idailyabsolute"
     t.float "idailyrelative"
+    t.float "theorical_budget"
     t.index ["campaign_id"], name: "index_campaign_days_on_campaign_id"
   end
 
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20171211105129) do
     t.string "post_title"
     t.string "photo"
     t.string "url"
+    t.float "usualbudget"
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
