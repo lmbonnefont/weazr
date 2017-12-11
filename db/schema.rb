@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171211105129) do
     t.float "budget_spent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "happened"
+    t.boolean "happened", default: false
     t.float "irain"
     t.float "idamp"
     t.float "itemperature"
