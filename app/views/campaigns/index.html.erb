@@ -4,70 +4,70 @@
 
 
 <div class="container text-center margin-around">
-<h1 style="margin-top: 40px; margin-bottom: 40px">Here are all your campaigns</h1>
+
+  <h1 style="margin-top: 40px; margin-bottom: 80px; color: #55A1F4" class="cta-header-no-size ">All campaigns</h1>
 
   <div class="row">
 
-      <% if @campaigns.nil? %>
-        <div class="text-center"> <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i>
+    <% if @campaigns.nil? %>
+      <div class="text-center">
+        <%= link_to new_campaign_path() do %>
+          <i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i>
         <% end %>
-        </div>
+      </div>
 
-      <% else %>
-        <% @campaigns.each do |campaign| %>
+
+    <% else %>
+
+
+      <% @campaigns.each do |campaign| %>
+        <div class="col-md-6">
           <%= link_to campaign_path(campaign) do %>
-            <div class="col-xs-12 col-sm-4 gocard text-center">
-              <h3><%= campaign.title.capitalize %></h3>
-              <p><%= campaign.start %> - <%= campaign.end %></p>
+            <div class="fb-add">
+
+              <div class="logo-company-1">
+                  <%= cl_image_tag campaign.company.photo, :class => 'avatar ',
+                  width: 45, height: 45, crop: :fill %>
+              </div>
+
+              <h3 class="marque text-left"><%= @company.name %></h3>
+              <p class="sponsor text-left">Sponsorised</p>
+
+              <div class="title text-left"> <%= campaign.title.capitalize %></div>
+
+              <div class="pic">
+                <%= cl_image_tag campaign.photo , height: 246, width: 470, crop: :fill %>
+              </div>
+
+              <div>
+                <h2 class="title-un-pic1 text-left"> <%= campaign.post_title %></h2>
+                <p class="p-un-pic text-left"><%= campaign.post_msg %></p>
+                <h2 class="website text-left"><%= campaign.url.upcase %></h2>
+                <p class="counts text-left">200 Likes 25 Comments 109 Shares</p>
+              </div>
+
+              <div >
+                <h2 class="interaction-bar text-left"> Likes Comments Share</h2>
+              </div>
             </div>
           <% end %>
-        <% end %>
-      <% end %>
+          <div class="text-center" style="  margin-top: 20px;">
+            <%= link_to "Destroy the campaign", campaign_path(campaign),:class => 'btn bouton2', method: :delete %>
+            <%= link_to company_dashboard_path(campaign.company, campaign.company.dashboard) do %><i class="fa fa-lg fa-calendar"   aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <% end %>
 
-    <div class="col-xs-12 col-sm-4 gocard2">
-      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i> <% end %>
-    </div>
+          </div>
 
-
-    <div class="fb-add">
-
-      <div class="brand">
-        <div class="logo-company">
-          <%= link_to image_tag("logo.png", class: "logo-company"), root_path %>
         </div>
-      </div>
-
-      <div class="brand-company">
-        Deliveroo
-      </div>
-
-      <div class="brand-company-p">
-      Sponsored
-      </div>
-      <i class="fa fa-globe" aria-hidden="true"></i>
-
-      <div class="title">This is a clever title to make you buy something.</div>
-
-      <div class="pic"></div>
-
-      <div class="call-action">
-        <h2>Call to Action Title Get my Attention</h2>
-        <p>This is where you explain what you are selling, get to the point and make it powerful.</p>
-      </div>
-
-      <div class="website">WEBSITE.COM</div>
-
-      <div class="fb-add-footer">200 Likes 25 Comments 109 Shares</div>
-
-      <div class="fb-add-footer-2">Like Comment Share</div>
-
-
-
-
-    </div>
-
-
-
-
+      <% end %>
+    <% end %>
   </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 gocard3">
+      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #55A1F4"></i> <% end %>
+    </div>
+  </div>
+
 </div>
+

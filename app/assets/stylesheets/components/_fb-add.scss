@@ -6,48 +6,34 @@
   display: flex;
   align-items: center;
   position: relative;
+  margin: 0 auto;
+  margin-top: 60px;
 }
 
-.brand {
-  position: absolute;
-  left: 12px;
-  top: 13px;
-  width: 127px;
-  height: 40px;
-}
-
-.logo-company {
+.logo-company-1 {
   position: absolute;
   left: 12px;
   top: 13px;
   width: 40px;
+  font-size: 14px;
   height: 40px;
 }
 
-.brand-company-h2 {
-  font-size: 14px;
-  font-weight: bold;
+.marque {
   position: absolute;
   left: 61px;
-  top: 14px;
+  top: -12px;
   color: #3B5998;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.brand-company-p {
+.sponsor {
   position: absolute;
-  left: 61.5px;
-  top: 36px;
+  left: 62px;
+  top: 39px;
+  color: #9197A3;
   font-size: 12px;
-  color: #9197A3;
-}
-
-.brand i {
-  position: absolute;
-  left: 130px;
-  top: 38px;
-  width: 9px;
-  height: 9px;
-  color: #9197A3;
 }
 
 .title {
@@ -64,52 +50,160 @@
   left: 12px;
   top: 92px;
   width: 470px;
-  height: 365px;
-  background-color: #D8D8D8;
+  height: 246px;
+
   background-size: cover !important;
   background-position: center;
 }
 
-.call-action h2 {
+.title-un-pic1 {
   position: absolute;
-  left: 25px;
-  top: 350px;
+  left: 12px;
+  top: 331px;
   font-size: 18px;
 }
 
-.call-action p {
+.p-un-pic {
   position: absolute;
-  left: 24px;
+  left: 12px;
   top: 383px;
   font-size: 12px;
 }
 
 .website {
   position: absolute;
-  left: 24px;
-  top: 429,04px;
+  left: 12px;
+  top: 429px;
   font-size: 12px;
   color: #9197A3;
 }
 
-.fb-add-footer {
+.counts {
   position: absolute;
-  left: 13px;
+  left: 12px;
   top: 466px;
-  width: 204px;
-  height: 14px;
+  font-size: 12px;
+  color: #9197A3;
+}
+
+.interaction-bar {
+  position: absolute;
+  left: 12px;
+  top: 474px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #7F7F7F;
+}
+
+.bouton1 {
+  @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
+  border: 8px solid transparent;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.bouton2 {
+  @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
+  border: 8px solid transparent;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.plus {
+  margin: 100px
+}
+
+//////////////////////
+
+.fb-add-mini {
+  width: auto;
+  height: 400px;
+  background: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.logo-company-1-mini {
+  position: absolute;
+  left: 12px;
+  top: 13px;
+  width: 40px;
+  font-size: 14px;
+  height: 40px;
+}
+
+.marque-mini {
+  position: absolute;
+  left: 61px;
+  top: -12px;
+  color: #3B5998;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sponsor-mini {
+  position: absolute;
+  left: 62px;
+  top: 39px;
   color: #9197A3;
   font-size: 12px;
 }
 
-.fb-add-footer-2 {
+.title-mini {
   position: absolute;
-  left: 13px;
-  top: 498px;
-  width: 241px;
-  height: 15px;
-  color: #7F7F7F;
+  left: 12px;
+  top: 65px;
+  width: 299px;
+  height: 17px;
+  font-size: 14px;
+}
+
+.pic-mini {
+  position: absolute;
+  left: 12px;
+  top: 92px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.title-un-pic1-mini {
+  position: absolute;
+  left: 12px;
+  top: 226px;
+  font-size: 18px;
+}
+
+.p-un-pic-mini {
+  position: absolute;
+  left: 12px;
+  top: 269px;
   font-size: 12px;
 }
 
+.website-mini {
+  position: absolute;
+  left: 12px;
+  top: 313px;
+  font-size: 12px;
+  color: #9197A3;
+}
+
+.counts-mini {
+  position: absolute;
+  left: 12px;
+  top: 358px;
+  font-size: 12px;
+  color: #9197A3;
+}
+
+.interaction-bar-mini {
+  position: absolute;
+  left: 12px;
+  top: 360px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #7F7F7F;
+}
 
