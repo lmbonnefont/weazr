@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211105129) do
+ActiveRecord::Schema.define(version: 20171211100540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20171211105129) do
     t.string "post_title"
     t.string "photo"
     t.string "url"
+    t.string "display"
+    t.string "name"
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171211105129) do
     t.string "account_id"
     t.string "website_url"
     t.string "page_id"
+    t.string "pixel_id"
     t.index ["economic_sector_id"], name: "index_companies_on_economic_sector_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
