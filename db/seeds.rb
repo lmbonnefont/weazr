@@ -130,6 +130,20 @@ campaign1 = {
   impressions: "618",
 }
 
+campaign2 = {
+  start: "12/12/2017",
+  end: "12/15/2017",
+  budget_total: "1000",
+  budget_remaining: "122",
+  post_msg: ".",
+  post_title: "Kibouftou",
+  title: "Christmas Campaign",
+  cpm: "13,99",
+  cpc: "0.12",
+  post_engagements: "154",
+  btn_click: "9",
+  impressions: "618",
+}
 
 k_user = User.new(k_user)
 campaign1 = Campaign.new(campaign1)
