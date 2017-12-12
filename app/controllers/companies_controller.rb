@@ -26,7 +26,6 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = current_user.company
-
   end
 
   def update
@@ -40,3 +39,4 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:address, :name, :economic_sector_id, :photo)
   end
 end
+
