@@ -28,7 +28,7 @@ namespace :indice do
       campaigns[i].campaign_days.each do |cd|
         if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
           if sumrain == 0
-            r = 0.1
+            r = 0
           else
             r = Meteo.find_by(date: cd.date).rain / sumrain
           end
