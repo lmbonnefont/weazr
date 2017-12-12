@@ -1,0 +1,113 @@
+.campaign-grid {
+  display: grid;
+  grid-template-columns: 470px 200px 1fr 1fr;
+  grid-template-rows: 25% 25% 25% 25%;
+  height: calc(100vh - 70px);
+  padding: 30px;
+}
+.campaign-grid .titles {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  display: flex;
+}
+.campaign-grid .template-fb {
+  grid-row: 2 / span 3;
+  grid-column: 1 / span 1;
+}
+
+.campaign-grid .fb-stats {
+  grid-row: 1 / span 4;
+  grid-column: 2 / span 1;
+  display: block;
+}
+
+.campaign-grid .chart-fb {
+  grid-row: 4 / span 1;
+  grid-column: 3 / span 2;
+}
+
+.campaign-grid .title-numbers {
+  grid-row: 1 / span 1;
+  grid-column: 3 / span 2;
+  display: flex;
+}
+
+.campaign-grid .number1 {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.campaign-grid .number2 {
+  grid-row: 2 / span 1;
+  grid-column: 4 / span 1;
+}
+
+.campaign-grid .number3 {
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.campaign-grid .number4 {
+  grid-row: 3 / span 1;
+  grid-column: 4 / span 1;
+}
+
+.head-campaigns {
+  display: flex;
+  flex-direction: column;
+}
+
+.titles, .template-fb, .fb-stats, .chart-fb, .title-numbers, .number4, .number3, .number2, .number1, .head-campaigns {
+  background: white;
+  box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+  padding: 10px;
+  margin: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 940px) {
+  .campaign-grid
+ {
+    display: block;
+  }
+}
+
+/* Fonts and colors */
+.campaign-grid h2 {
+  font-size: 14px;
+
+}
+.campaign-grid h3 {
+  font-size: 14px;
+}
+.campaign-grid p {
+  color: rgba(0,0,0,0.6);
+}
+
+.campaign-grid h1 {
+  font-size: 16px;
+  color: #55A1F4;
+  font-weight: bold;
+}
+
+.fb-stats h3, .head-campaigns h3 {
+  color: #55A1F4;
+  font-size: 14px;
+}
+.fb-stats p, .head-campaigns p
+ {
+  color: rgba(0,0,0,0.25);
+  font-size: 12px;
+}
+
+.number1 h3, .number2 h3, .number3 h3, .number4 h3 {
+  color: #55A1F4;
+  font-size: 14px;
+}
+.number1 p, .number2 p, .number3 p, .number4 p {
+  color: rgba(0,0,0,0.25);
+  font-size: 12px;
+  padding-top: 15px;
+}
+
+

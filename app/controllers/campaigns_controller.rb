@@ -57,10 +57,12 @@ class CampaignsController < ApplicationController
   end
 
   def index
+    @company = current_user.companies
     @campaigns = Campaign.all
   end
 
   def show
+
   end
 
   def destroy

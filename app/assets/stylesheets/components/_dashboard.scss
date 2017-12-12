@@ -302,7 +302,12 @@ transition: all .3s;
     @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
     border: 8px solid transparent;
     padding: 8px;
+}
 
+.draw-border-blue {
+    @include btn-border-drawing(#55A1F4, #ffe593, 2px, bottom, right);
+    border: 8px solid transparent;
+    padding: 8px;
 }
 
 .fa-bad {
