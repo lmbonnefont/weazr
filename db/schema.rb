@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211221929) do
+ActiveRecord::Schema.define(version: 20171212105907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20171211221929) do
     t.integer "budget_remaining"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.float "budget_fb"
     t.integer "target_age_min"
     t.integer "target_age_max"
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171211221929) do
     t.string "photo"
     t.boolean "display", default: true
     t.float "usualbudget"
+    t.string "title"
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
