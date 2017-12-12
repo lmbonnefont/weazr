@@ -85,6 +85,7 @@ users.each_with_index do |user, index|
   i.company_id = c.id
   i.save!
 
+
 end
 
 for i in (0..14) do
