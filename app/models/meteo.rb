@@ -1,0 +1,2 @@
+class Meteo < ApplicationRecord
+end
