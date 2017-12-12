@@ -1,34 +1,4 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0},
-          legend:{position:'none'}
-        };
-
-
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
 
 
       <% @skip_navbar = true %>
@@ -36,7 +6,6 @@
 
       <div class="profile text-center">
         <div class="menu text-center">
-
             <div tl-menu>
 
               <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
@@ -55,9 +24,7 @@
 
 
         </div>
-
         <div class="navbar-dashboard stat ">
-
           <div class="navbar-wagon-left">
             <i class="fa fa-calendar" aria-hidden="true"></i> |
             <span style="color: #55A1F4">17 - 23 NOV 2017</span>
@@ -68,8 +35,6 @@
             <a href="" class=" btn draw-border-red-2">Week</a> |
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
-
-
         </div>
 
 
@@ -83,13 +48,13 @@
               <div class="stat-content">
                 <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
                 <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
-                <% if @campaign_days.find_by_date(day).idailyabsolute >= 0.15 %>
+                <%# if @campaign_days.find_by_date(day).indice_daily >= 0.15 %>
                   <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #55A1F4 "></i>
-                <% elsif @campaign_days.find_by_date(day).idailyabsolute < 0.03 %>
+                <%# elsif @campaign_days.find_by_date(day).indice_daily < 0.03 %>
                   <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
-                <% else %>
+                <%# else %>
                   <i class="fa fa-4x fa-meh-o" aria-hidden="true" style=" color: #f9a302 "></i>
-                <% end %>
+                <%# end %>
               </div>
             </div>
 
@@ -108,12 +73,12 @@
 
 
 
-        <div class="description " id="chart_div" style="width: 100%; height: 200px;">
+
 
 
 
 
         </div>
-    <!-- </div> -->
 
-  </body>
+
+
