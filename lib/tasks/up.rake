@@ -6,14 +6,14 @@ namespace :weather do
   task update_weather_14_days: :environment do
   p "hello1"
   nextdays = Meteo.where("date >= :toomorow AND date <= :date_in_two_weeks", toomorow: Date.today + 1, date_in_two_weeks: Date.today + 14.days)
-    p url = "https://www.timeanddate.com/weather/france/paris/ext"
+  p url = "https://www.timeanddate.com/weather/france/paris/ext"
     html_file = open(url).read
-    html_doc = Nokogiri::HTML(html_file)
+    p html_doc = Nokogiri::HTML(html_file)
     i = 0
     k = 0
     l = 6
     m = 8
-    n = 0
+    p n = 0
     hashday = {}
     for j in (1..14) do
       hashday[transform_date(html_doc.search(".c#{i} th")[n].text)] = {
@@ -24,6 +24,7 @@ namespace :weather do
         if i == 0
           i = 1
         elsif i == 1
+          p "hellofrombouclefor"
           i = 0
           k += 3
           l += 12
