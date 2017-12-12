@@ -83,9 +83,9 @@
               <div class="stat-content">
                 <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
                 <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
-                <% if @campaign_days.find_by_date(day).idailyabsolute >= 0.15 %>
+                <% if @campaign_days.find_by_date(day).indice_daily >= 0.15 %>
                   <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #55A1F4 "></i>
-                <% elsif @campaign_days.find_by_date(day).idailyabsolute < 0.03 %>
+                <% elsif @campaign_days.find_by_date(day).indice_daily < 0.03 %>
                   <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
                 <% else %>
                   <i class="fa fa-4x fa-meh-o" aria-hidden="true" style=" color: #f9a302 "></i>
