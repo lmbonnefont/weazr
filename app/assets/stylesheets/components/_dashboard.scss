@@ -30,7 +30,7 @@
   grid-column: 2 / span 1;
 }
 
-.profile .stat21 {
+.profile .stat2 {
   grid-row: 2 / span 1;
   grid-column: 3 / span 1;
 }
@@ -60,7 +60,9 @@
   grid-column: 8 / span 1;
 }
 
-
+.profile .off {
+  background-color: rgb(128, 128, 128);
+}
 
 
 .menu, .stat {
