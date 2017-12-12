@@ -60,8 +60,8 @@ users = [user_1, user_2]
 economic_sector1 = {
   name: "Food Delivery",
   damp: 0.2,
-  temperature: 0.4,
-  rain: 0.4,
+  temperature: -0.2,
+  rain: 0.6,
 }
 
 
