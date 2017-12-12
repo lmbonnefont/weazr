@@ -134,8 +134,12 @@ kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
 campaign1.company = kibouftou
 
+user_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/djjgseim9m0c3ssjqmim.jpg"
 company_url =  "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089928/kibouftou_kazfqf.png"
+campaign1_url = "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089951/24883602_1919847041668192_4831931305905943121_o_uhrdsu.png"
+k_user.remote_photo_url = user_url
 kibouftou.remote_photo_url = company_url
+campaign1.remote_photo_url = campaign1_url
 
 k_user.save!
 kibouftou.save!
