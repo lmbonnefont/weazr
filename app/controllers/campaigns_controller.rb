@@ -57,7 +57,7 @@ class CampaignsController < ApplicationController
   end
 
   def index
-    @company = current_user.companies
+    @company = current_user.company
     @campaigns = Campaign.all
   end
 
