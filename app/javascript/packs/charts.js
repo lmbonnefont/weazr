@@ -16,17 +16,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
       var revenueChart = new FusionCharts({
         "type": "msline",
         "renderAt": 'chart-container',
-         "width": "500",
-         "height": "300",
+         "width": "1000",
+         "height": "600",
          "dataFormat": "json",
          "dataSource": {
             chart:{
-              "caption": "Number of visitors last week",
-              "subCaption": "Bakersfield Central vs Los Angeles Topanga",
+              "caption": "Week weather forecast in Paris",
+              "subCaption": "Rain, Damp & Temperature",
               "captionFontSize": "14",
               "subcaptionFontSize": "14",
               "subcaptionFontBold": "0",
-              "paletteColors": "#0075c2,#1aaf5d",
+              "paletteColors": "#0075c2,#1aaf5d,#ff9b05",
               "bgcolor": "#ffffff",
               "showBorder": "0",
               "showShadow": "0",
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
               "xAxisName": "Day",
               "showValues": "0"
             },
-            // data: source,
             categories: days,
             dataset: series,
          }
