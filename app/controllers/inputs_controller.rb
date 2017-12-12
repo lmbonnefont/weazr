@@ -20,7 +20,7 @@ class InputsController < ApplicationController
   end
 
   def update
-    @input = current_user.companies.first.input
+    @input = current_user.company
     @input.update(new_params(params_input))
     redirect_to profile_path
 
