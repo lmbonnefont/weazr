@@ -33,7 +33,7 @@
               <h3 class="marque text-left"><%= campaign.company.name %></h3>
               <p class="sponsor text-left">Sponsorised</p>
 
-              <div class="title text-left"> <%= campaign.title.capitalize %></div>
+              <div class="title text-left"> <%= campaign.title %></div>
 
               <div class="pic">
                 <%= cl_image_tag campaign.photo , height: 246, width: 470, crop: :fill %>
@@ -42,7 +42,7 @@
               <div>
                 <h2 class="title-un-pic1 text-left"> <%= campaign.post_title %></h2>
                 <p class="p-un-pic text-left"><%= campaign.post_msg %></p>
-                <h2 class="website text-left"><%= campaign.url.upcase %></h2>
+                <h2 class="website text-left"><%= campaign.url %></h2>
                 <p class="counts text-left">200 Likes 25 Comments 109 Shares</p>
               </div>
 

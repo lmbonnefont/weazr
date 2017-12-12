@@ -20,12 +20,12 @@ class CampaignsController < ApplicationController
       website_url = current_user.company.website_url
       pixel_id = current_user.company.pixel_id
       new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
-      name = @campaign.name
+      name = @campaign.title
       budget = @campaign.budget_total
       post_title = @campaign.post_title
       post_msg = @campaign.post_msg
       image_url = @campaign.photo.url
-      new_campaign.generate_ad(name, post_title, post_msg, image_url, budget)
+      new_campaign.generate_ad(title, post_title, post_msg, image_url, budget)
 
       # -------- Display on Facebook page -------- #
       if @campaign.display == true
@@ -77,6 +77,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:start, :end, :budget_total, :name, :budget_fb, :target_age_min, :target_age_max, :post_msg, :post_title, :url, :photo, :display)
+    params.require(:campaign).permit(:start, :end, :budget_total, :title, :budget_fb, :target_age_min, :target_age_max, :post_msg, :post_title, :url, :photo, :display)
   end
 end

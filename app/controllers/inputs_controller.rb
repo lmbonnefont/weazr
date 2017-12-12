@@ -16,7 +16,7 @@ class InputsController < ApplicationController
   end
 
   def edit
-    @input = current_user.companies.first.input
+    @input = current_user.company.input
   end
 
   def update

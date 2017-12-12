@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = current_user.companies.find(params[:id])
+    @company = current_user.company
   end
 
 
@@ -25,11 +25,12 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = current_user.companies.find(params[:id])
+    @company = current_user.company
+
   end
 
   def update
-    @company = current_user.companies.find(params[:id])
+    @company = current_user.company
     @company.update(params_company)
     redirect_to profile_path
   end
