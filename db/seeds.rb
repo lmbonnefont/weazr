@@ -88,14 +88,12 @@ users.each_with_index do |user, index|
 
 end
 
-<<<<<<< HEAD
 for i in (0..14) do
   m = Meteo.new
   m.date = Date.today + i
   m.save!
 end
 
-=======
 ######## KIBOUFTOU ########
 k_user = {
   email: "jeanb@gmail.fr",
@@ -104,7 +102,6 @@ k_user = {
   last_name: "Bombeur",
   phone_number: '02.40.35.69.18',
 }
->>>>>>> master
 
 kibouftou = {
   address: "16 Villa Gaudelet",
