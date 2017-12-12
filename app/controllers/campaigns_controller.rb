@@ -14,7 +14,7 @@ class CampaignsController < ApplicationController
 
     #### BEWARE WHEN ADDING A CAMPAIGN, TOKENS MAY NEED AN UPDATE #####
 
-      # # -------- Creation of a Facebook campaign -------- #
+      # # -------- Creation of a Facebook campaign -------- # #
       # account_id = current_user.company.account_id
       # page_id = current_user.company.page_id
       # website_url = current_user.company.website_url
@@ -25,15 +25,12 @@ class CampaignsController < ApplicationController
       # post_title = @campaign.post_title
       # post_msg = @campaign.post_msg
       # image_url = @campaign.photo.url
-
       # new_campaign.generate_ad(title, post_title, post_msg, image_url, budget)
 
-
-      # # -------- Display on Facebook page -------- #
+      # # -------- Display on Facebook page -------- # #
       # if @campaign.display == true
       #   new_campaign.display(image_url, post_msg)
       # end
-
 
   ################################################################
 

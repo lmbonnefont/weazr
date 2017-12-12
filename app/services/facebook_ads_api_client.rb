@@ -1,14 +1,16 @@
 require 'pathname'
 require 'facebook_ads'
 require 'koala'
+require 'date'
 
 class FacebookAdsAPIClient
 
   def initialize(account_id, page_id, website_url, pixel_id)
     # FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
-    FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
     @marketing_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
     @page_token = 'EAAVcDLP8LsoBAEFMJFqhcoZCdyg7iZB4mHgAv4Lfv0sVIx5ZCguhWz5cmw2TxulriIDdUIRZAmQi7sNmZBEiPD7M71lUpARzW6B1nLW3F0n0ba1nXXjS9tKTWkxXfqq5A4KadvpFnX1cJcIOIjn0kYZAJk3gUw48hXsSYsLkYm8yDROum7mlgAIxSpVEPQn3MZD'
+    FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
+    FacebookAds.access_token = @marketing_token
     @account_id = account_id
     @page_id = page_id
     @website_url = website_url
@@ -22,11 +24,6 @@ class FacebookAdsAPIClient
   def get_adimages
     self.get_account
     @account.ad_images
-  end
-
-  def index_campaigns
-    self.get_account
-    @account.ad_campaigns
   end
 
   def create_adimages(image_url)
@@ -113,10 +110,9 @@ class FacebookAdsAPIClient
   end
 end
 
-# this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
-# this.display('https://mr-ginseng.com/wp-content/uploads/2013/05/Cannelle.jpg', "Trop bon!")
-# this.generate_ad('THISSUNDAY', 'Title text', 'Post text', 'https://mr-ginseng.com/wp-content/uploads/2013/05/Cannelle.jpg')
+this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
+# this.generate_ad("December Specials", "Envie de nouveauté ?", "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.", "https://www.cellublue.com/blog/wp-content/uploads/2015/01/chocolat.jpg", "500")
 
-# puts
-# puts "-------- Done --------"
-# puts
+puts
+puts "-------- Done --------"
+puts

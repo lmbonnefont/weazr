@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212105907) do
+ActiveRecord::Schema.define(version: 20171212164502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(version: 20171212105907) do
     t.boolean "display", default: true
     t.float "usualbudget"
     t.string "title"
+    t.string "cpm"
+    t.string "cpc"
+    t.string "post_engagements"
+    t.string "btn_click"
+    t.string "impressions"
+    t.boolean "active", default: true
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
