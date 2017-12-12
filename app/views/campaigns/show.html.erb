@@ -46,7 +46,7 @@
       <div class="campaign-grid">
         <div class="titles  text-center">
           <h1>
-            <%= @campaign.title.upcase %>
+            <%= @campaign.title %>
           </h1>
         </div>
 
@@ -65,7 +65,7 @@
             <p class="sponsor-mini text-left">Sponsorised</p>
 
             <div class="title-mini text-left">
-              <%= @campaign.title.capitalize %>
+              <%= @campaign.title %>
             </div>
 
             <div class="pic-mini">
@@ -83,7 +83,7 @@
               </p>
 
               <h2 class="website-mini text-left">
-                <%= @campaign.url.upcase %>
+                <%= @campaign.url %>
               </h2>
 
               <p class="counts-mini text-left">
@@ -106,7 +106,7 @@
           <h3><%= @campaign.company_id %></h3>
 
           <p>Campaign Name</p>
-          <h3><%= @campaign.title.capitalize %></h3>
+          <h3><%= @campaign.title %></h3>
 
           <p>Weekly budget</p>
           <h3>???</h3>

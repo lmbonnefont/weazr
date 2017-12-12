@@ -25,11 +25,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = current_user.companies.find(params[:id])
+    @company = current_user.company
   end
 
   def update
-    @company = current_user.companies.find(params[:id])
+    @company = current_user.company
     @company.update(params_company)
     redirect_to profile_path
   end
@@ -39,3 +39,4 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:address, :name, :economic_sector_id, :photo)
   end
 end
+
