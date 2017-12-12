@@ -1,83 +1,85 @@
 
 
+<% @skip_navbar = true %>
+<% @skip_footer = true %>
 
-      <% @skip_navbar = true %>
-      <% @skip_footer = true %>
+<div class="profile text-center">
+  <div class="menu text-center">
+      <div tl-menu>
 
-      <div class="profile text-center">
-        <div class="menu text-center">
-            <div tl-menu>
-
-              <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
-              <% end %>
-              </h3>
-
-              <h3 class="text-center " style="margin-bottom: 20px"> <%= link_to new_campaign_path() do %><i class="fa fa-lg fa-plus" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
-              <% end %>
-              </h3>
-
-              <h3 class="text-center"> <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
-              <% end %>
-              </h3>
-
-            </div>
-
-
-        </div>
-        <div class="navbar-dashboard stat ">
-          <div class="navbar-wagon-left">
-            <i class="fa fa-calendar" aria-hidden="true"></i> |
-            <span style="color: #55A1F4"><%= (Date.today).strftime('%a %d') %> - <%= (Date.today + 6).strftime('%a %d')  %></span>
-          </div>
-        <div class="campaign-title"><%= link_to @campaign.title, campaign_path(@campaign) %></div>
-        <div class="campaign-budget"><i class="fa fa-money" aria-hidden="true"></i>
-          <%= @campaign.budget_total %>€</div>
-        </div>
-
-
-
-        <% today = Date.today %>
-        <% day7 = today + 6 %>
-        <% i = 0 %>
-        <% (today..day7).each  do |day| %>
-          <% if day >= @campaign.start && day <= @campaign.end %>
-            <div class="stat #{i+1} stat">
-              <div class="stat-content">
-                <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
-                <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
-                <% if @campaign_days.find_by_date(day).indice_daily >= 0.15 %>
-                  <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #55A1F4 "></i>
-                <% elsif @campaign_days.find_by_date(day).indice_daily < 0.03 %>
-                  <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
-                <% else %>
-                  <i class="fa fa-4x fa-meh-o" aria-hidden="true" style=" color: #f9a302 "></i>
-                <% end %>
-                <div class="contenant-budget">
-                  <p>Budget forcast</p>
-                  <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
-                </div>
-              </div>
-            </div>
-
-          <% else %>
-            <div class="stat #{i+1} stat off">
-              <div class="stat-content">
-                <h3><%= day.strftime("%e") %></h3>
-                <p><%= day.strftime("%a") %></p>
-
-              </div>
-            </div>
-          <% end %>
+        <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
         <% end %>
+        </h3>
+
+        <h3 class="text-center " style="margin-bottom: 20px"> <%= link_to new_campaign_path() do %><i class="fa fa-lg fa-plus" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+        <% end %>
+        </h3>
+
+        <h3 class="text-center"> <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+        <% end %>
+        </h3>
+
+      </div>
+
+
+  </div>
+  <div class="navbar-dashboard stat ">
+    <div class="navbar-wagon-left">
+      <i class="fa fa-calendar" aria-hidden="true"></i> |
+      <span style="color: #55A1F4"><%= (Date.today).strftime('%a %d') %> - <%= (Date.today + 6).strftime('%a %d')  %></span>
+    </div>
+  <div class="campaign-title"><%= link_to @campaign.title, campaign_path(@campaign) %></div>
+  <div class="campaign-budget"><i class="fa fa-money" aria-hidden="true"></i>
+    <%= @campaign.budget_total %>€</div>
+  </div>
 
 
 
+  <% today = Date.today %>
+  <% day7 = today + 6 %>
+  <% i = 0 %>
+  <% (today..day7).each  do |day| %>
+    <% if day >= @campaign.start && day <= @campaign.end %>
+      <div class="stat #{i+1} stat">
+        <div class="stat-content">
+          <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
+          <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
+          <% if @campaign_days.find_by_date(day).indice_daily >= 0.15 %>
+            <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #55A1F4 "></i>
+          <% elsif @campaign_days.find_by_date(day).indice_daily < 0.03 %>
+            <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
+          <% else %>
+            <i class="fa fa-4x fa-meh-o" aria-hidden="true" style=" color: #f9a302 "></i>
+          <% end %>
+          <div class="contenant-budget">
+            <p>Budget forcast</p>
+            <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
+          </div>
+        </div>
+      </div>
 
-
-
-
+    <% else %>
+      <div class="stat #{i+1} stat off">
+        <div class="stat-content">
+          <h3><%= day.strftime("%e") %></h3>
+          <p><%= day.strftime("%a") %></p>
 
         </div>
+      </div>
+    <% end %>
+
+<% end %>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <div id="chart-container" data-days="<%= @days.to_json %>" data-series="<%= @series.to_json %>"></div>
+
+    </div>
+  </div>
+</div>
+
 
 
 
