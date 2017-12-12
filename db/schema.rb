@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211221929) do
+ActiveRecord::Schema.define(version: 20171212105907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,19 +37,17 @@ ActiveRecord::Schema.define(version: 20171211221929) do
     t.date "end"
     t.integer "budget_total"
     t.integer "budget_remaining"
-    t.boolean "live"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
     t.float "budget_fb"
     t.integer "target_age_min"
     t.integer "target_age_max"
     t.text "post_msg"
     t.string "post_title"
     t.string "photo"
-    t.string "url"
     t.boolean "display", default: true
     t.float "usualbudget"
+    t.string "title"
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
@@ -135,21 +133,10 @@ ActiveRecord::Schema.define(version: 20171211221929) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "weathers", force: :cascade do |t|
-    t.float "damp"
-    t.float "rain"
-    t.float "temperature"
-    t.bigint "campaign_day_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["campaign_day_id"], name: "index_weathers_on_campaign_day_id"
-  end
-
   add_foreign_key "campaign_days", "campaigns"
   add_foreign_key "campaigns", "companies"
   add_foreign_key "companies", "economic_sectors"
   add_foreign_key "companies", "users"
   add_foreign_key "dashboards", "companies"
   add_foreign_key "inputs", "companies"
-  add_foreign_key "weathers", "campaign_days"
 end

@@ -26,11 +26,13 @@ user_2 = {
 company_1 = {
   address: "27 rue saint louis",
   name: "Chez Tinou",
+  website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
 }
 
 company_2 = {
   address: "12 rue de Tocqueville",
   name: "Chez Popaul",
+  website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
 }
 
 input_1 = {
@@ -85,16 +87,15 @@ users.each_with_index do |user, index|
   i.company_id = c.id
   i.save!
 
+
 end
 
-<<<<<<< HEAD
 for i in (0..14) do
   m = Meteo.new
   m.date = Date.today + i
   m.save!
 end
 
-=======
 ######## KIBOUFTOU ########
 k_user = {
   email: "jeanb@gmail.fr",
@@ -103,7 +104,6 @@ k_user = {
   last_name: "Bombeur",
   phone_number: '02.40.35.69.18',
 }
->>>>>>> master
 
 kibouftou = {
   address: "16 Villa Gaudelet",
@@ -123,4 +123,3 @@ kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
 kibouftou.save!
 k_dash.save!
-###########################
