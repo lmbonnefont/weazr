@@ -34,9 +34,9 @@ namespace :weather do
   end
 
   def transform_date(date)
-    date = date.split(" ")
+    p date = date.split(" ")
     d = date[0].match(/\d+/)
-    months = {
+    p months = {
       janv: 1,
       fév: 2,
       mars: 3,
@@ -50,7 +50,7 @@ namespace :weather do
       nov: 11,
       déc: 12,
     }
-    m = months[date[1].to_sym]
+    p m = months[date[1].to_sym]
     #attention pb avec les changements d'année !!
     y = Date.today.year
     return "#{y}-#{m}-#{d}"
