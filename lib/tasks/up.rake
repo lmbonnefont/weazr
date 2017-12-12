@@ -75,12 +75,13 @@ namespace :weather do
   end
 
   def updatedays(array_to_be_uploaded, hash_with_infos)
+    p "hellofromupdate"
     array_to_be_uploaded.each do |day|
       if hash_with_infos[day.date.strftime("%Y-%m-%d")]
       day.damp = hash_with_infos[day.date.strftime("%Y-%m-%d")][:damp]
       day.temperature = hash_with_infos[day.date.strftime("%Y-%m-%d")][:temperature]
       day.rain = hash_with_infos[day.date.strftime("%Y-%m-%d")][:rain]
-
+    p "hellofromupdateendbeforesaving"
       day.save!
       p day
       end
