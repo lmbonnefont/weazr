@@ -21,6 +21,7 @@ class InputsController < ApplicationController
   def update
     @input = current_user.company.input
     @input.update!(new_params(params_input))
+
     redirect_to profile_path
   end
 

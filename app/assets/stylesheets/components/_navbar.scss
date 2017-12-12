@@ -183,7 +183,7 @@
 }
 
 .draw-border {
-  @include btn-border-drawing(#30346A, #fed57e, 2px, bottom, right);
+  @include btn-border-drawing(#41f2c7, #fed57e, 2px, bottom, right);
   border: 8px solid transparent;
 }
 

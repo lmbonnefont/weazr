@@ -25,15 +25,22 @@ class CampaignsController < ApplicationController
       # post_title = @campaign.post_title
       # post_msg = @campaign.post_msg
       # image_url = @campaign.photo.url
+
       # new_campaign.generate_ad(title, post_title, post_msg, image_url, budget)
+
 
       # # -------- Display on Facebook page -------- #
       # if @campaign.display == true
       #   new_campaign.display(image_url, post_msg)
       # end
 
+
+  ################################################################
+
+
       somme_coeffs_inputs = 0
       array_days = []
+
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
         c.campaign = @campaign
