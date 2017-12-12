@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def show
     @company = current_user.company
-    @dashboard = @company.dashboard
+
     unless @company.nil?
       return @input = @company.input
     end
@@ -14,10 +14,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.update(profile_params)
-    if @user.company.exists?
-      redirect_to profile_path
+    if @user.update(profile_params)
+      redirect_to profile_path(@user)
     else
       redirect_to new_company_path
     end
