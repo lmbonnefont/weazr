@@ -110,8 +110,8 @@ class FacebookAdsAPIClient
   end
 end
 
-this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
-this.get_active_campaigns
+# this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
+# p this.get_account.ad_insights(range: Date.today - 3..Date.today - 1)
 
 puts
 puts "-------- Done --------"
