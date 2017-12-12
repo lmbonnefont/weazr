@@ -96,7 +96,7 @@ end
 
 ######## KIBOUFTOU ########
 k_user = {
-  email: "jeanb@gmail.fr",
+  email: "jeanb@gmail.com",
   password: 123456,
   first_name: "Jean",
   last_name: "Bombeur",
@@ -109,16 +109,37 @@ kibouftou = {
   account_id: 'act_114566172663449',
   page_id: '1917026111950285',
   website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
-  pixel_id: '467837863611941'
+  pixel_id: '467837863611941',
 }
 
-k_user = User.create!(k_user)
+campaign1 = {
+  start: "12/09/2017",
+  end: "12/11/2017",
+  budget_total: 1000,
+  budget_remaining: 26,
+  post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
+  Goûtez à l'incroyable, faites confiance à Kibouftou.",
+  post_title: "Kibouftou",
+  title: "Christmas Campaign",
+}
+
+
+k_user = User.new(k_user)
+campaign1 = Campaign.new(campaign1)
 kibouftou = Company.new(kibouftou)
 k_dash = Dashboard.new
 
 kibouftou.user = k_user
 kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
+campaign1.company = kibouftou
+
+company_url =  "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089928/kibouftou_kazfqf.png"
+kibouftou.remote_photo_url = company_url
+
+k_user.save!
 kibouftou.save!
 k_dash.save!
+campaign1.save!
+
 ###########################
