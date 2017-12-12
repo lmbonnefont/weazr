@@ -61,8 +61,8 @@ users = [user_1, user_2]
 economic_sector1 = {
   name: "Food Delivery",
   damp: 0.2,
-  temperature: 0.4,
-  rain: 0.4,
+  temperature: -0.2,
+  rain: 0.6,
 }
 
 
@@ -87,12 +87,40 @@ users.each_with_index do |user, index|
 
 end
 
+<<<<<<< HEAD
 for i in (0..14) do
   m = Meteo.new
   m.date = Date.today + i
   m.save!
 end
 
+=======
+######## KIBOUFTOU ########
+k_user = {
+  email: "jeanb@gmail.fr",
+  password: 123456,
+  first_name: "Jean",
+  last_name: "Bombeur",
+  phone_number: '02.40.35.69.18',
+}
+>>>>>>> master
 
+kibouftou = {
+  address: "16 Villa Gaudelet",
+  name: "Kibouftou",
+  account_id: 'act_114566172663449',
+  page_id: '1917026111950285',
+  website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
+  pixel_id: '467837863611941'
+}
 
+k_user = User.create!(k_user)
+kibouftou = Company.new(kibouftou)
+k_dash = Dashboard.new
 
+kibouftou.user = k_user
+kibouftou.dashboard = k_dash
+kibouftou.economic_sector = es
+kibouftou.save!
+k_dash.save!
+###########################

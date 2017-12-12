@@ -30,7 +30,7 @@
   grid-column: 2 / span 1;
 }
 
-.profile .stat21 {
+.profile .stat2 {
   grid-row: 2 / span 1;
   grid-column: 3 / span 1;
 }
@@ -60,7 +60,9 @@
   grid-column: 8 / span 1;
 }
 
-
+.profile .off {
+  background-color: rgb(128, 128, 128);
+}
 
 
 .menu, .stat {
@@ -300,7 +302,12 @@ transition: all .3s;
     @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
     border: 8px solid transparent;
     padding: 8px;
+}
 
+.draw-border-blue {
+    @include btn-border-drawing(#55A1F4, #ffe593, 2px, bottom, right);
+    border: 8px solid transparent;
+    padding: 8px;
 }
 
 .fa-bad {

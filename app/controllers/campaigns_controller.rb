@@ -7,19 +7,33 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
-    @campaign.company = current_user.companies.first
+    @campaign.company = current_user.company
     @campaign.budget_remaining = @campaign.budget_total
     if @campaign.save!
+      @campaign = Campaign.find(@campaign.id) # TODO find smartest way
+
+    #### BEWARE WHEN ADDING A CAMPAIGN, TOKENS MAY NEED AN UPDATE #####
 
       # -------- Creation of a Facebook campaign -------- #
-      # current_user.account_id =
-      # current_user.page_id =
-      # current_user.website_url =
-      # FacebookAdsAPIClient.new(account_id, campaign_id, page_id, page_url, website_url))
-      # -------- End -------- #
+      account_id = current_user.company.account_id
+      page_id = current_user.company.page_id
+      website_url = current_user.company.website_url
+      pixel_id = current_user.company.pixel_id
+      new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
+      name = @campaign.name
+      budget = @campaign.budget_total
+      post_title = @campaign.post_title
+      post_msg = @campaign.post_msg
+      image_url = @campaign.photo.url
+      new_campaign.generate_ad(name, post_title, post_msg, image_url, budget)
+
+      # -------- Display on Facebook page -------- #
+      if @campaign.display == true
+        new_campaign.display(image_url, post_msg)
+      end
+
       somme_coeffs_inputs = 0
       array_days = []
-
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
         c.campaign = @campaign
@@ -50,6 +64,7 @@ class CampaignsController < ApplicationController
   end
 
   def index
+    @company = current_user.company
     @campaigns = Campaign.all
   end
 
@@ -69,6 +84,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:start, :end, :budget_total, :title, :budget_fb, :target_age_min, :target_age_max, :post_msg, :post_title, :url, :photo)
+    params.require(:campaign).permit(:start, :end, :budget_total, :name, :budget_fb, :target_age_min, :target_age_max, :post_msg, :post_title, :url, :photo, :display)
   end
 end

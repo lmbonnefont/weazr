@@ -1,16 +1,162 @@
 <% @skip_footer = true %>
-<!-- <div class="banner" style="background-image: url(<%= image_path 'CampDash.jpg' %>);">
-  <div class="banner-content">
 
-  </div>
-</div> -->
-<p> <%= @campaign.budget_total %> </p>
-<% s = 0.0 %>
-<% sum = 0.0 %>
-<% @campaign.campaign_days.each do |cd| %>
-  <p> <%= cd.date %>
-    <% if cd.budget_forcast != nil %>
-      <%= sum += cd.budget_forcast%>
-    <% end %> </p>
-<% end %>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          legend:{position:'none'}
+        };
+
+
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="text-center" style="margin-top:50px">
+        <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <% end %>
+               |
+        <%= link_to "Destroy the campaign", campaign_path(@campaign),:class => 'btn bouton2', method: :delete %> |
+         <%= link_to company_dashboard_path(@campaign.company, @campaign.company.dashboard) do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+          <% end %>
+
+      </div>
+
+      <div class="campaign-grid">
+        <div class="titles  text-center">
+          <h1>
+            <%= @campaign.title.upcase %>
+          </h1>
+        </div>
+
+
+        <!-- <div class="template-fb  text-center">
+        </div> -->
+        <div class="template-fb ">
+          <div class="fb-add-mini">
+
+            <div class="logo-company-1-mini">
+                <%= cl_image_tag @campaign.company.photo, :class => 'avatar ',
+                width: 45, height: 45, crop: :fill %>
+            </div>
+
+            <h3 class="marque-mini text-left"><%= @campaign.company.name %></h3>
+            <p class="sponsor-mini text-left">Sponsorised</p>
+
+            <div class="title-mini text-left">
+              <%= @campaign.title.capitalize %>
+            </div>
+
+            <div class="pic-mini">
+              <%= cl_image_tag @campaign.photo , height: 150, width: 400, crop: :fill %>
+            </div>
+
+            <div>
+              <h2 class="title-un-pic1-mini text-left">
+                <%= @campaign.post_title %>
+              </h2>
+
+              <p class="p-un-pic-mini text-left">
+                <%= @campaign.post_msg %>
+
+              </p>
+
+              <h2 class="website-mini text-left">
+                <%= @campaign.url.upcase %>
+              </h2>
+
+              <p class="counts-mini text-left">
+              200 Likes 25 Comments 109 Shares
+              </p>
+            </div>
+
+            <div >
+              <h2 class="interaction-bar-mini text-left">
+              Likes Comments Share
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="fb-stats text-center">
+          <h1>Summary</h1>
+          <br>
+          <p>Campaign id</p>
+          <h3><%= @campaign.company_id %></h3>
+
+          <p>Campaign Name</p>
+          <h3><%= @campaign.title.capitalize %></h3>
+
+          <p>Weekly budget</p>
+          <h3>???</h3>
+
+          <p>Total spent</p>
+          <h3>???</h3>
+
+          <p>From</p>
+          <h3><%= @campaign.start %></h3>
+
+          <p>to</p>
+          <h3><%= @campaign.end %></h3>
+
+        </div>
+
+        <div class="chart-fb text-center">
+          <div class="description " id="chart_div" style="width: 100%; height: 200px;">
+          </div>
+        </div>
+
+        <div class="title-numbers text-center">
+          <h1>DATAS / STATS</h1>
+        </div>
+
+        <div class="number1 text-center">
+          <p>
+            Cost per Click
+          </p>
+          <h3> $0.12 </h3>
+        </div>
+        <div class="number2 text-center">
+          <p>
+            Engagements
+          </p>
+          <h3> 8% </h3>
+        </div>
+        <div class="number3 text-center">
+          <p>
+            Impressions
+          </p>
+          <h3> 2209 </h3>
+        </div>
+        <div class="number4 text-center">
+          <p>
+            Website views
+          </p>
+          <h3> 1289 </h3>
+        </div>
+
+      </div>
+    </div>
+
+  </body>

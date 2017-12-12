@@ -4,26 +4,25 @@
 
 <div class="container">
   <div class="row">
+
     <div class="col-md-6 col-md-offset-3 form-sign">
-      <h2 class= "text-center">Create your campaign !</h2>
+      <h2 class= "text-center cta-header-no-size" style="color: #55A1F4">Create your campaign !</h2>
+
 
       <%= simple_form_for @campaign do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <%= f.input :title %>
+
+        <div class="form-inputs" style="margin-top: 60px">
+          <%= f.input :name, label: "Description" %>
           <%= f.input :start %>
           <%= f.input :end %>
-          <%= f.input :budget_total %>
-          <%= f.input :target_age_min %>
-          <%= f.input :target_age_max %>
-          <%= f.input :post_msg %>
+          <%= f.input :budget_total, as: :string, label: "Weekly budget" %>
           <%= f.input :post_title %>
-          <%= f.input :url %>
-          <%= f.input :photo %>
+          <%= f.input :post_msg, label: "Post content" %>
+          <%= f.input :photo, label: "Add a picture" %>
           <%= f.input :photo_cache, as: :hidden %>
-
-
+          <%= f.input :display, as: :boolean, label: false, inline_label: "Also display on my Facebook page" %>
         </div>
 
         <div class="form-actions text-center">
