@@ -8,7 +8,9 @@
               <% end %>
                |
         <%= link_to "Destroy the campaign", campaign_path(@campaign),:class => 'btn bouton2', method: :delete %> |
-         <%= link_to company_dashboard_path(@campaign.company, @campaign.company.dashboard) do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #60A1F4; margin: 20px"></i>
+
+         <%= link_to campaign_campaign_days_path(@campaign) do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+
           <% end %>
 
       </div>
@@ -26,8 +28,7 @@
         <div class="template-fb ">
           <div class="fb-add-mini">
             <div class="logo-company-1-mini">
-                <%= cl_image_tag @campaign.company.photo, :class => 'avatar ',
-                width: 45, height: 45, crop: :fill %>
+                <%= cl_image_tag @campaign.company.photo, :class => 'avatar ', width: 45, height: 45, crop: :fill %>
             </div>
             <h3 class="marque-mini text-left"><%= @campaign.company.name.capitalize %></h3>
             <p class="sponsor-mini text-left">Sponsorised</p>
@@ -65,11 +66,11 @@
           <p>Campaign Name</p>
           <h3><%= @campaign.title.upcase %></h3>
 
-          <p>Weekly budget</p>
-          <h3>???</h3>
+          <p>Total budget</p>
+          <h3><%= @campaign.budget_total %>€</h3>
 
           <p>Total spent</p>
-          <h3>???</h3>
+          <h3><%= @campaign.budget_total - @campaign.budget_remaining %>€</h3>
 
           <p>From</p>
           <h3><%= @campaign.start %></h3>

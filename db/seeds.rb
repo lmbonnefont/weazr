@@ -26,11 +26,13 @@ user_2 = {
 company_1 = {
   address: "27 rue saint louis",
   name: "Chez Tinou",
+  website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
 }
 
 company_2 = {
   address: "12 rue de Tocqueville",
   name: "Chez Popaul",
+  website_url: 'https://aurel-allard.github.io/Kibouftou-Landing/',
 }
 
 input_1 = {
@@ -121,4 +123,3 @@ kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
 kibouftou.save!
 k_dash.save!
-###########################
