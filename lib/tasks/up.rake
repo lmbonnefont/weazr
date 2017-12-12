@@ -4,16 +4,15 @@ require 'nokogiri'
 namespace :weather do
   desc "Update Weather for the next 14 days by scrapping data."
   task update_weather_14_days: :environment do
-  p "hello1"
   nextdays = Meteo.where("date >= :toomorow AND date <= :date_in_two_weeks", toomorow: Date.today + 1, date_in_two_weeks: Date.today + 14.days)
-  p url = "https://www.timeanddate.com/weather/france/paris/ext"
+  url = "https://www.timeanddate.com/weather/france/paris/ext"
     html_file = open(url).read
-    p html_doc = Nokogiri::HTML(html_file)
+    html_doc = Nokogiri::HTML(html_file)
     i = 0
     k = 0
     l = 6
     m = 8
-    p n = 0
+    n = 0
     hashday = {}
     for j in (1..14) do
       hashday[transform_date(html_doc.search(".c#{i} th")[n].text)] = {
@@ -24,7 +23,6 @@ namespace :weather do
         if i == 0
           i = 1
         elsif i == 1
-          p "hellofrombouclefor"
           i = 0
           k += 3
           l += 12
@@ -75,18 +73,19 @@ namespace :weather do
   end
 
   def updatedays(array_to_be_uploaded, hash_with_infos)
-    p "hellofromupdate"
-    p array_to_be_uploaded
-    p hash_with_infos
     array_to_be_uploaded.each do |day|
+      p hash_with_infos[day.date.strftime("%Y-%m-%d")]
       if hash_with_infos[day.date.strftime("%Y-%m-%d")]
       p day.damp = hash_with_infos[day.date.strftime("%Y-%m-%d")][:damp]
       p day.temperature = hash_with_infos[day.date.strftime("%Y-%m-%d")][:temperature]
       p day.rain = hash_with_infos[day.date.strftime("%Y-%m-%d")][:rain]
-    p "hellofromupdateendbeforesaving"
+      p "hellofromupdateendbeforesaving"
       day.save!
       p day
+      else
+        p "wrong"
       end
+      p "hellofinished"
     end
   end
 
