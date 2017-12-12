@@ -25,27 +25,41 @@ class CampaignsController < ApplicationController
       # post_title = @campaign.post_title
       # post_msg = @campaign.post_msg
       # image_url = @campaign.photo.url
-      # new_campaign.generate_ad(name, post_title, post_msg, image_url, budget)
+
+      # new_campaign.generate_ad(title, post_title, post_msg, image_url, budget)
+
 
       # # -------- Display on Facebook page -------- #
       # if @campaign.display == true
       #   new_campaign.display(image_url, post_msg)
       # end
 
+
   ################################################################
+
+
+      somme_coeffs_inputs = 0
+      array_days = []
 
       (@campaign.start..@campaign.end).each do |day|
         c = CampaignDay.new
         c.campaign = @campaign
         c.date = day
+        coeff_input = @campaign.company.input.attributes[c.date.strftime("%A").downcase] #on recherche dans les input le jour de la campagn day en création
+        somme_coeffs_inputs += coeff_input
         c.save!
-        w = Weather.new
-        w.campaign_day = c
-        w.save!
+        array_days << c
       end
+
+      array_days.each do |cd| #on pondère les inputs utilisateurs au cas ou les semaines ne seraient pas completes
+        cd.indice_bau = @campaign.company.input.attributes[cd.date.strftime("%A").downcase]/ somme_coeffs_inputs
+        cd.save!
+      end
+
     end
     redirect_to campaign_path(@campaign)
   end
+
 
   def edit
   end
@@ -62,7 +76,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
-
+    @campaign = Campaign.find(params[:id])
   end
 
   def destroy

@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = current_user.companies.find(params[:id])
+    @company = current_user.company
   end
 
 
