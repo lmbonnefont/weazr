@@ -137,16 +137,17 @@ campaign2 = {
   budget_remaining: "122",
   post_msg: ".",
   post_title: "Kibouftou",
-  title: "Christmas Campaign",
-  cpm: "13,99",
-  cpc: "0.12",
-  post_engagements: "154",
-  btn_click: "9",
-  impressions: "618",
+  title: "December Specials",
+  cpm: "14,59",
+  cpc: "0.22",
+  post_engagements: "121",
+  btn_click: "4",
+  impressions: "429",
 }
 
 k_user = User.new(k_user)
 campaign1 = Campaign.new(campaign1)
+campaign2 = Campaign.new(campaign2)
 kibouftou = Company.new(kibouftou)
 k_dash = Dashboard.new
 
@@ -154,19 +155,24 @@ kibouftou.user = k_user
 kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
 campaign1.company = kibouftou
+campaign2.company = kibouftou
 
 user_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/djjgseim9m0c3ssjqmim.jpg"
 company_url =  "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089928/kibouftou_kazfqf.png"
 campaign1_url = "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089951/24883602_1919847041668192_4831931305905943121_o_uhrdsu.png"
+campaign2_url = 'https://www.cellublue.com/blog/wp-content/uploads/2015/01/chocolat.jpg'
 k_user.remote_photo_url = user_url
 kibouftou.remote_photo_url = company_url
 campaign1.remote_photo_url = campaign1_url
+campaign2.remote_photo_url = campaign2_url
 
 k_user.save!
 kibouftou.save!
 k_dash.save!
 campaign1.save!
+campaign2.save!
 
 p campaign1
+p campaign2
 
 ###########################
