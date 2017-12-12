@@ -13,11 +13,6 @@ namespace :indice do
     end
     campaigns = campaigns.uniq
 
-
-
-
-
-
   # (1 - ((campaign.end - campaign.start + 1).to_i - campaign.campaign_days.length))
     for i in (0..campaigns.length-1) do
       tune = 0
@@ -28,20 +23,29 @@ namespace :indice do
       sumrain = array[0]
       sumtemperature = array[1]
       sumdamp = array[2]
+      s = 0
 
       campaigns[i].campaign_days.each do |cd|
         if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
-          r = Meteo.find_by(date: cd.date).rain / sumrain
+          if sumrain == 0
+            r = 0.1
+          else
+            r = Meteo.find_by(date: cd.date).rain / sumrain
+          end
           cd.indice_rain = r
-          rain += r
+          # rain += r
           t = Meteo.find_by(date: cd.date).temperature / sumtemperature
           cd.indice_temperature = t
-          temperature += t
+          # temperature += t
           d = Meteo.find_by(date: cd.date).damp / sumdamp
           cd.indice_damp = d
-          damp += d
-          cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
-          cd.budget_forcast = cd.campaign.budget_total * cd.indice_daily
+          # damp += d
+          if sumrain == 0
+            cd.indice_daily =  cd.indice_bau
+          else
+            cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
+          end
+          cd.budget_forcast = cd.campaign.budget_remaining * cd.indice_daily
           cd.save!
         end
       end
@@ -52,9 +56,7 @@ namespace :indice do
     sumrain = 0
     sumdamp = 0
     sumtemperature = 0
-    # campaigns.each do |cd|
-    #   p cd.campaign_days.length
-    # end
+
     campaigns[campaign_nb].campaign_days.each do |cd|
       if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
         sumrain += Meteo.find_by(date: cd.date).rain
