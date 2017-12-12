@@ -4,10 +4,9 @@ require 'nokogiri'
 namespace :weather do
   desc "Update Weather for the next 14 days by scrapping data."
   task update_weather_14_days: :environment do
-
+  p "hello1"
   nextdays = Meteo.where("date >= :toomorow AND date <= :date_in_two_weeks", toomorow: Date.today + 1, date_in_two_weeks: Date.today + 14.days)
-
-    url = "https://www.timeanddate.com/weather/france/paris/ext"
+    p url = "https://www.timeanddate.com/weather/france/paris/ext"
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
     i = 0
