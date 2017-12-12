@@ -65,7 +65,7 @@
             </div>
 
             <h3 class="marque-mini text-left"><%= @campaign.company.name %></h3>
-            <p class="sponsor-mini text-left">Sponsorised</p>
+            <p class="sponsor-mini text-left">Sponsored</p>
 
             <div class="title-mini text-left">
               <%= @campaign.title %>
@@ -102,10 +102,7 @@
           <h1>Summary</h1>
           <br>
           <p>Campaign id</p>
-          <h3><%= @campaign.company_id %></h3>
-
-          <p>Campaign Name</p>
-          <h3><%= @campaign.title %></h3>
+          <h3>#00<%= @campaign.id %></h3>
 
           <p>Total budget</p>
           <h3><%= @campaign.budget_total %>€</h3>
@@ -127,32 +124,32 @@
         </div>
 
         <div class="title-numbers text-center">
-          <h1>DATAS / STATS</h1>
+          <h1>Metrics</h1>
         </div>
 
         <div class="number1 text-center">
           <p>
             Cost per Click
           </p>
-          <h3> $0.12 </h3>
+          <h3>€<%= @campaign.cpc %></h3>
         </div>
         <div class="number2 text-center">
           <p>
-            Engagements
+            Post Engagements
           </p>
-          <h3> 8% </h3>
+          <h3> <%= @campaign.post_engagements %> </h3>
         </div>
         <div class="number3 text-center">
           <p>
             Impressions
           </p>
-          <h3> 2209 </h3>
+          <h3> <%= @campaign.impressions %> </h3>
         </div>
         <div class="number4 text-center">
           <p>
-            Website views
+            Button Clicks
           </p>
-          <h3> 1289 </h3>
+          <h3> <%= @campaign.btn_click %> </h3>
         </div>
 
       </div>
