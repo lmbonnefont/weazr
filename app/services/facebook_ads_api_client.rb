@@ -110,8 +110,8 @@ class FacebookAdsAPIClient
   end
 end
 
-# this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
-# p this.get_account.ad_insights(range: Date.today - 3..Date.today - 1)
+this = FacebookAdsAPIClient.new('act_114566172663449', '1917026111950285', 'https://aurel-allard.github.io/Kibouftou-Landing/', '467837863611941')
+# this.generate_ad("December Specials", "Envie de nouveauté ?", "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.", "https://www.cellublue.com/blog/wp-content/uploads/2015/01/chocolat.jpg", "500")
 
 puts
 puts "-------- Done --------"
