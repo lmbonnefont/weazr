@@ -79,7 +79,7 @@ namespace :weather do
     p array_to_be_uploaded
     p hash_with_infos
     array_to_be_uploaded.each do |day|
-      p if hash_with_infos[day.date.strftime("%Y-%m-%d")]
+      if hash_with_infos[day.date.strftime("%Y-%m-%d")]
       p day.damp = hash_with_infos[day.date.strftime("%Y-%m-%d")][:damp]
       p day.temperature = hash_with_infos[day.date.strftime("%Y-%m-%d")][:temperature]
       p day.rain = hash_with_infos[day.date.strftime("%Y-%m-%d")][:rain]
