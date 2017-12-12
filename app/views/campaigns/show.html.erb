@@ -57,8 +57,7 @@
           <div class="fb-add-mini">
 
             <div class="logo-company-1-mini">
-                <%= cl_image_tag @campaign.company.photo, :class => 'avatar ',
-                width: 45, height: 45, crop: :fill %>
+                <%= cl_image_tag @campaign.company.photo, :class => 'avatar ', width: 45, height: 45, crop: :fill %>
             </div>
 
             <h3 class="marque-mini text-left"><%= @campaign.company.name %></h3>
@@ -106,10 +105,10 @@
           <h3><%= @campaign.title.capitalize %></h3>
 
           <p>Weekly budget</p>
-          <h3>???</h3>
+          <h3><%= @campaign.budget_total %>€</h3>
 
           <p>Total spent</p>
-          <h3>???</h3>
+          <h3><%= @campaign.budget_total - @campaign.budget_remaining %>€</h3>
 
           <p>From</p>
           <h3><%= @campaign.start %></h3>
