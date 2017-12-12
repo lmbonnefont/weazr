@@ -128,6 +128,7 @@ campaign1 = {
   post_engagements: "154",
   btn_click: "9",
   impressions: "618",
+  active: false,
 }
 
 campaign2 = {
@@ -135,14 +136,15 @@ campaign2 = {
   end: "12/15/2017",
   budget_total: "1000",
   budget_remaining: "122",
-  post_msg: ".",
-  post_title: "Kibouftou",
+  post_msg: "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.",
+  post_title: "Envie de nouveauté ?",
   title: "December Specials",
   cpm: "14,59",
   cpc: "0.22",
   post_engagements: "121",
   btn_click: "4",
   impressions: "429",
+  active: false,
 }
 
 k_user = User.new(k_user)
