@@ -50,6 +50,7 @@ class CampaignsController < ApplicationController
       end
 
     end
+    indices(@campaign)
     redirect_to campaign_path(@campaign)
   end
 
@@ -85,5 +86,48 @@ class CampaignsController < ApplicationController
 
   def campaign_params
     params.require(:campaign).permit(:start, :end, :budget_total, :title, :budget_fb, :target_age_min, :target_age_max, :post_msg, :post_title, :url, :photo, :display)
+  end
+
+
+  private
+  def indices(campaign)
+    nextdays = Meteo.where("date >= :toomorow AND date <= :date_in_two_weeks", toomorow: Date.today + 1, date_in_two_weeks: Date.today + 14.days)
+
+    sumrain = 0
+    sumdamp = 0
+    sumtemperature = 0
+
+    campaign.campaign_days.each do |cd|
+      if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
+        sumrain += Meteo.find_by(date: cd.date).rain
+        sumtemperature += Meteo.find_by(date: cd.date).temperature
+        sumdamp += Meteo.find_by(date: cd.date).damp
+      end
+    end
+
+    campaign.campaign_days.each do |cd|
+        if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
+          if sumrain == 0
+            r = 0
+          else
+            r = Meteo.find_by(date: cd.date).rain / sumrain
+          end
+          cd.indice_rain = r
+          # rain += r
+          t = Meteo.find_by(date: cd.date).temperature / sumtemperature
+          cd.indice_temperature = t
+          # temperature += t
+          d = Meteo.find_by(date: cd.date).damp / sumdamp
+          cd.indice_damp = d
+          # damp += d
+          if sumrain == 0
+            cd.indice_daily =  cd.indice_bau
+          else
+            cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
+          end
+          cd.budget_forcast = cd.campaign.budget_remaining * cd.indice_daily
+          cd.save!
+        end
+      end
   end
 end

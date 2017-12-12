@@ -27,14 +27,11 @@
         <div class="navbar-dashboard stat ">
           <div class="navbar-wagon-left">
             <i class="fa fa-calendar" aria-hidden="true"></i> |
-            <span style="color: #55A1F4">17 - 23 NOV 2017</span>
+            <span style="color: #55A1F4"><%= (Date.today).strftime('%a %d') %> - <%= (Date.today + 6).strftime('%a %d')  %></span>
           </div>
-
-          <div class="navbar-wagon-right">
-            <a href="" class=" btn draw-border-red-2">Today</a>
-            <a href="" class=" btn draw-border-red-2">Week</a> |
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div>
+        <div class="campaign-title"><%= link_to @campaign.title, campaign_path(@campaign) %></div>
+        <div class="campaign-budget"><i class="fa fa-money" aria-hidden="true"></i>
+          <%= @campaign.budget_total %>€</div>
         </div>
 
 
@@ -55,6 +52,10 @@
                 <% else %>
                   <i class="fa fa-4x fa-meh-o" aria-hidden="true" style=" color: #f9a302 "></i>
                 <% end %>
+                <div class="contenant-budget">
+                  <p>Budget forcast</p>
+                  <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
+                </div>
               </div>
             </div>
 
@@ -66,8 +67,6 @@
 
               </div>
             </div>
-
-
           <% end %>
         <% end %>
 

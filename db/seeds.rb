@@ -123,4 +123,3 @@ kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
 kibouftou.save!
 k_dash.save!
-###########################

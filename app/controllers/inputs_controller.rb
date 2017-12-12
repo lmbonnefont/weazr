@@ -1,6 +1,5 @@
 class InputsController < ApplicationController
   def new
-
     @input = Input.new
   end
 
@@ -20,10 +19,9 @@ class InputsController < ApplicationController
   end
 
   def update
-    @input = current_user.companies.first.input
-    @input.update(new_params(params_input))
+    @input = current_user.company.input
+    @input.update!(new_params(params_input))
     redirect_to profile_path
-
   end
 
   private
@@ -35,6 +33,6 @@ class InputsController < ApplicationController
     days = params_input.values.map {|valeurs| valeurs.to_i}
     total = days.reduce(:+)
     new_params_input_hash = params_input.to_h
-    new_params_input_hash.each {|k,v| new_params_input_hash[k] = (v.to_f/total*100).round(2)}
+    new_params_input_hash.each {|k,v| new_params_input_hash[k] = ((v.to_f/total*100)/100).round(2)}
   end
 end
