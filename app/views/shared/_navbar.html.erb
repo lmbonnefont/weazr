@@ -13,7 +13,7 @@
 
 
     <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn draw-border-blue" %> |
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn draw-border-red" %> |
         <%= link_to "Profile", profile_path,  class: "btn draw-border-blue" %>
 
     <% else %>

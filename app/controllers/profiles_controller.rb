@@ -15,9 +15,11 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      redirect_to profile_path(@user)
-    else
-      redirect_to new_company_path
+      if @user.company
+        redirect_to profile_path(@user)
+      else
+        redirect_to new_company_path
+      end
     end
   end
 

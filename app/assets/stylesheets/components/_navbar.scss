@@ -183,12 +183,12 @@
 }
 
 .draw-border {
-  @include btn-border-drawing(#41f2c7, #fed57e, 2px, bottom, right);
+  @include btn-border-drawing($blue, $yellow, 2px, bottom, right);
   border: 8px solid transparent;
 }
 
 .draw-border-red {
-  @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
+  @include btn-border-drawing($red, $yellow, 2px, bottom, right);
   border: 8px solid transparent;
 }
 

@@ -8,15 +8,15 @@
         <div class="menu text-center">
             <div tl-menu>
 
-              <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: #60A1F4; margin: 20px"></i>
               <% end %>
               </h3>
 
-              <h3 class="text-center " style="margin-bottom: 20px"> <%= link_to new_campaign_path() do %><i class="fa fa-lg fa-plus" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <h3 class="text-center " style="margin-bottom: 20px"> <%= link_to new_campaign_path() do %><i class="fa fa-lg fa-plus" aria-hidden="true" style="color: #60A1F4; margin: 20px"></i>
               <% end %>
               </h3>
 
-              <h3 class="text-center"> <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+              <h3 class="text-center"> <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #60A1F4; margin: 20px"></i>
               <% end %>
               </h3>
 
@@ -27,7 +27,7 @@
         <div class="navbar-dashboard stat ">
           <div class="navbar-wagon-left">
             <i class="fa fa-calendar" aria-hidden="true"></i> |
-            <span style="color: #55A1F4">17 - 23 NOV 2017</span>
+            <span style="color: #60A1F4">17 - 23 NOV 2017</span>
           </div>
 
           <div class="navbar-wagon-right">
@@ -49,7 +49,7 @@
                 <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
                 <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
                 <%# if @campaign_days.find_by_date(day).indice_daily >= 0.15 %>
-                  <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #55A1F4 "></i>
+                  <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #60A1F4 "></i>
                 <%# elsif @campaign_days.find_by_date(day).indice_daily < 0.03 %>
                   <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
                 <%# else %>
