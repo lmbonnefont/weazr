@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
          "dataSource": {
             chart:{
               "caption": "Week weather forecast in Paris",
-              "captionColor": "##0075c2",
+              "captionFontColor": "##0075c2",
               "subCaption": "Rain, Damp & Temperature",
               "captionFontSize": "14",
               "subcaptionFontSize": "14",
