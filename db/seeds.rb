@@ -115,12 +115,17 @@ kibouftou = {
 campaign1 = {
   start: "12/09/2017",
   end: "12/11/2017",
-  budget_total: 1000,
-  budget_remaining: 26,
+  budget_total: "1000",
+  budget_remaining: "26",
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
   Goûtez à l'incroyable, faites confiance à Kibouftou.",
   post_title: "Kibouftou",
   title: "Christmas Campaign",
+  cpm: "13,99",
+  cpc: "0.12",
+  post_engagements: "154",
+  btn_click: "9",
+  impressions: "618",
 }
 
 
@@ -145,5 +150,7 @@ k_user.save!
 kibouftou.save!
 k_dash.save!
 campaign1.save!
+
+p campaign1
 
 ###########################
