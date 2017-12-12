@@ -49,7 +49,19 @@ namespace :weather do
       oct: 10,
       nov: 11,
       déc: 12,
-    }
+      Jan: 1,
+      Feb: 2,
+      Mar: 3,
+      Apr: 4,
+      May: 5,
+      Jun: 6,
+      Jul: 7,
+      Aug: 8,
+      Sep: 9,
+      Oct: 10,
+      Nov: 11,
+      Dec: 12}
+
     p m = months[date[1].to_sym]
     #attention pb avec les changements d'année !!
     y = Date.today.year
