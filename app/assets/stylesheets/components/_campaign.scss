@@ -8,7 +8,6 @@
 .campaign .main-camp {
   grid-row: 1 / span 1;
   grid-column: 1 / span 3;
-
 }
 
 .campaign .start-end {
@@ -36,6 +35,26 @@
   grid-column: 3 / span 1;
 }
 
+.campaigns-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.campaigns-metrics-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metrics-block {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
 
 .main-camp, .stat-content-bis {
   background: white;

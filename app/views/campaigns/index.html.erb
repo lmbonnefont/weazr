@@ -1,12 +1,53 @@
 
 <% @skip_footer = true %>
 
-
+<div class="campaigns-stat-header text-center">
+  My Campaigns Stats
+  <div class="campaigns-metrics-header">
+    <div class="metrics-block">
+      <div class="campaigns-metrics-label">
+        Total invested
+      </div>
+      <div class="campaigns-metrics-numbers">
+        €10
+      </div>
+    </div>
+    <div class="metrics-block">
+      <div class="campaigns-metrics-label">
+        Avge CPC
+      </div>
+      <div class="campaigns-metrics-numbers">
+        €10
+      </div>
+    </div>
+    <div class="metrics-block">
+      <div class="campaigns-metrics-label">
+        Avge CPM
+      </div>
+      <div class="campaigns-metrics-numbers">
+        €10
+      </div>
+    </div>
+    <div class="metrics-block">
+      <div class="campaigns-metrics-label">
+        Avge Engagement
+      </div>
+      <div class="campaigns-metrics-numbers">
+        €10
+      </div>
+    </div>
+    <div class="metrics-block">
+      <div class="campaigns-metrics-label">
+        Avge Button Clicks
+      </div>
+      <div class="campaigns-metrics-numbers">
+        €10
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container text-center margin-around">
-
-  <h1 style="margin-top: 40px; margin-bottom: 80px; color: #60A1F4" class="cta-header-no-size ">All campaigns</h1>
-
   <div class="row">
 
     <% if @campaigns.nil? %>
@@ -19,7 +60,7 @@
     <% else %>
 
       <% @campaigns.each do |campaign| %>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <%= link_to campaign_path(campaign) do %>
             <div class="fb-add">
 
