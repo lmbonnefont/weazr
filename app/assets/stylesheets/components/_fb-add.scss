@@ -1,13 +1,12 @@
 .fb-add {
-  width: 300px;
-  height: 524px;
+  width: 360px;
+  height: 480px;
   background: white;
-  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
+  box-shadow: 0 2px 4px gray;
   display: flex;
   align-items: center;
   position: relative;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .logo-company-1 {
@@ -47,11 +46,9 @@
 
 .pic {
   position: absolute;
-  left: 12px;
-  top: 92px;
-  width: 300px;
-  height: 246px;
-
+  left: 0px;
+  top: 82px;
+  padding: 10px;
   background-size: cover !important;
   background-position: center;
 }
@@ -59,14 +56,14 @@
 .title-un-pic1 {
   position: absolute;
   left: 12px;
-  top: 331px;
+  top: 260px;
   font-size: 18px;
 }
 
 .p-un-pic {
   position: absolute;
   left: 12px;
-  top: 383px;
+  top: 320px;
   font-size: 12px;
 }
 
@@ -81,7 +78,7 @@
 .counts {
   position: absolute;
   left: 12px;
-  top: 466px;
+  top: 410px;
   font-size: 12px;
   color: #9197A3;
 }
@@ -89,7 +86,7 @@
 .interaction-bar {
   position: absolute;
   left: 12px;
-  top: 474px;
+  top: 410px;
   font-size: 12px;
   font-weight: bold;
   color: #7F7F7F;
@@ -103,6 +100,9 @@
 }
 
 .bouton2 {
+  position: absolute;
+  left: 250px;
+  top: 190px;
   @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
   border: 8px solid transparent;
   padding: 8px;
