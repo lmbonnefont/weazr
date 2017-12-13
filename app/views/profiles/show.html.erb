@@ -51,7 +51,7 @@
               <% @company.campaigns.each do |campaign| %>
               <% budget += campaign.budget_total %>
               <% end %>
-              <%= budget %>$
+              €<%= budget / 100 %>.<%= budget % 100 %>
             </h3>
             <p>Week budget</p>
           </div>
