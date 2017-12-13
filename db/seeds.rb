@@ -116,7 +116,7 @@ kibouftou = {
 
 campaign1 = {
   start: "12/09/2017",
-  end: "12/11/2017",
+  end: "11/12/2017",
   budget_total: "1000",
   budget_remaining: "26",
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
@@ -133,7 +133,7 @@ campaign1 = {
 
 campaign2 = {
   start: "12/12/2017",
-  end: "12/15/2017",
+  end: "16/12/2017",
   budget_total: "1000",
   budget_remaining: "122",
   post_msg: "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.",

@@ -5,14 +5,20 @@
 
 <div class="container text-center margin-around">
 
-  <h1 style="margin-top: 40px; margin-bottom: 80px; color: #55A1F4" class="cta-header-no-size ">All campaigns</h1>
+  <h1 style="margin-top: 40px; margin-bottom: 80px; color: #60A1F4" class="cta-header-no-size ">All campaigns</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 gocard3">
+      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #60A1F4"></i> <% end %>
+    </div>
+  </div>
 
   <div class="row">
 
     <% if @campaigns.nil? %>
       <div class="text-center">
         <%= link_to new_campaign_path() do %>
-          <i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #55A1F4"></i>
+          <i class="fa fa-plus fa-5x" aria-hidden="true" style="color: #60A1F4"></i>
         <% end %>
       </div>
 
@@ -53,9 +59,11 @@
           <% end %>
           <div class="text-center" style="  margin-top: 20px;">
             <%= link_to "Destroy the campaign", campaign_path(campaign),:class => 'btn bouton2', method: :delete %>
-            <% if campaign.active %>
+
+            <% if campaign.end > Date.today %>
               <%= link_to campaign_campaign_days_path(campaign) do %>
                 <i class="fa fa-lg fa-calendar"   aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+
               <% end %>
             <% end %>
 
@@ -68,7 +76,7 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3 gocard3">
-      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #55A1F4"></i> <% end %>
+      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #60A1F4"></i> <% end %>
     </div>
   </div>
 

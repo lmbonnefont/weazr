@@ -117,7 +117,7 @@
   opacity: 0.7;
 }
 .stat h3 {
-  color:  #55A1F4;
+  color:  $purple;
   font-size: 28px;
 }
 .stat p {
@@ -132,6 +132,10 @@
 .description p {
   color: rgba(0,0,0,0.5);
   font-weight: lighter;
+}
+
+.smiley {
+  font-size: 50px;
 }
 
 ///// menu de gauche
@@ -302,13 +306,13 @@ transition: all .3s;
 }
 
 .draw-border-red-2 {
-    @include btn-border-drawing(#fa7867, #ffe593, 2px, bottom, right);
+    @include btn-border-drawing($red, $yellow, 2px, bottom, right);
     border: 8px solid transparent;
     padding: 8px;
 }
 
 .draw-border-blue {
-    @include btn-border-drawing(#41f2c7, #ffe593, 2px, bottom, right);
+    @include btn-border-drawing($blue, $yellow, 2px, bottom, right);
     border: 8px solid transparent;
     padding: 8px;
 }
