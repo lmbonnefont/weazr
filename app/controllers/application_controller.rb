@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
     profile_path
   end
 
+
+  def default_url_options
+    { host: ENV["HOST"] || "www.weazr.io" }
+  end
+
+
 end
+
+

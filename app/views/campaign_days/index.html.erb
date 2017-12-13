@@ -3,7 +3,7 @@
 <% @skip_navbar = true %>
 <% @skip_footer = true %>
 
- 
+
 <div class="profile text-center">
   <div class="menu text-center">
       <div tl-menu>
@@ -45,11 +45,11 @@
             <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
             <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
             <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
-              <i class="fa fa-4x fa-smile-o" aria-hidden="true" style=" color: #55A1F4 "></i>
+              <div class="smiley">😃</div>
             <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
-              <i class="fa fa-4x fa-frown-o" aria-hidden="true" style=" color: #FD6A64 "></i>
+              <div class="smiley">😌</div>
             <% else %>
-              <i class="fa fa-4x fa-meh-o" aria-hidden="true" style=" color: #f9a302 "></i>
+              <div class="smiley">😖</div>
             <% end %>
             <div class="contenant-budget">
               <p>Budget forcast</p>
@@ -80,8 +80,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-

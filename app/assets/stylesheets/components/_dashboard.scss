@@ -70,7 +70,7 @@
 
 .menu, .stat {
   background: white;
-  box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -83,7 +83,7 @@
 
 .description {
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
   display: flex;
   align-items: center;
 
@@ -132,6 +132,10 @@
 .description p {
   color: rgba(0,0,0,0.5);
   font-weight: lighter;
+}
+
+.smiley {
+  font-size: 50px;
 }
 
 ///// menu de gauche
