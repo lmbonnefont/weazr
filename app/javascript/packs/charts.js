@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
          "dataFormat": "json",
          "dataSource": {
             chart:{
-              "caption": "Week weather forecast in Paris",
-              "captionFontColor": "##0075c2",
-              "subCaption": "Rain, Damp & Temperature",
+              "caption": "PARIS (France) Weazr Indexes",
+              "captionFontColor": "#3aafd6",
+              "subCaption": "",
               "captionFontSize": "14",
               "subcaptionFontSize": "14",
               "subcaptionFontBold": "0",
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
               "legendShadow": "0",
               "showAxisLines": "0",
               "showAlternateHGridColor": "0",
-              "divlineThickness": "1",
+              "divlineThickness": "0",
               "divLineIsDashed": "1",
               "divLineDashLen": "1",
               "divLineGapLen": "1",
-              "xAxisName": "Day",
+              "xAxisName": "",
               "showValues": "0"
             },
             categories: days,

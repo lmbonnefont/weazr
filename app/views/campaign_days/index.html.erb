@@ -1,7 +1,6 @@
-
-
 <% @skip_navbar = true %>
 <% @skip_footer = true %>
+
 
 
 <div class="profile text-center">
@@ -42,8 +41,8 @@
       <% if day >= @campaign.start && day <= @campaign.end %>
         <div class="stat #{i+1} stat">
           <div class="stat-content">
-            <h3><%= @campaign_days.find_by_date(day).date.strftime("%e") %></h3>
-            <p><%= @campaign_days.find_by_date(day).date.strftime("%a") %></p>
+            <h3><%= day.strftime("%e") %></h3>
+            <p><%= day.strftime("%a") %></p>
             <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
               <div class="smiley">😃</div>
             <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
@@ -54,6 +53,8 @@
             <div class="contenant-budget">
               <p>Budget forcast</p>
               <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
+              <p><%= @campaign.company.input.attributes[day.strftime("%A").downcase].round(2) %></p>
+
             </div>
           </div>
         </div>

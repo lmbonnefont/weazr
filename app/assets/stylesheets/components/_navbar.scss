@@ -13,10 +13,21 @@
 .logo {
   display: flex;
   align-items: center;
+  padding-left: 20px;
 }
 
 .logo h4 {
   padding-left: 20px;
+}
+
+.nav-link {
+  color: $blue;
+  font-size: 15px;
+  margin-right: 25px;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* Logo */
@@ -41,7 +52,6 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
 }
 
 /* Navbar link */
