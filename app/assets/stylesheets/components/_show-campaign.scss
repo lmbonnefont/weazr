@@ -81,13 +81,13 @@
   font-size: 14px;
 }
 .campaign-grid p {
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.5);
 }
 
 .campaign-grid h1 {
-  font-size: 16px;
+  font-size: 28px;
   color: $blue;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .fb-stats h3, .head-campaigns h3 {
@@ -104,13 +104,14 @@
 
 .fb-stats p, .head-campaigns p
  {
-  color: rgba(0,0,0,0.4);
-  font-size: 12px;
+  color: rgba(0,0,0,0.5);
+  font-size: 14px;
 }
 
 .number1 h3, .number2 h3, .number3 h3, .number4 h3 {
   color: $blue;
-  font-size: 14px;
+  font-size: 24px;
+  font-weight: 400;
 }
 .number1 p, .number2 p, .number3 p, .number4 p {
 
