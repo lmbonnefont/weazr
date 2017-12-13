@@ -59,7 +59,7 @@
 
 .titles, .template-fb, .fb-stats, .chart-fb, .title-numbers, .number4, .number3, .number2, .number1, .head-campaigns {
   background: white;
-  box-shadow: 0 0 10px rgba(49, 243, 199, 0.27);
+  box-shadow: 0 0 10px rgba(138, 243, 219, 0.27);
   padding: 10px;
   margin: 10px;
   align-items: center;
@@ -85,15 +85,23 @@
 }
 
 .campaign-grid h1 {
-  font-size: 24px;
-  color: #55A1F4;
+  font-size: 16px;
+  color: $blue;
   font-weight: bold;
 }
 
 .fb-stats h3, .head-campaigns h3 {
-  color: #55A1F4;
-  font-size: 16px;
+  color: $blue;
+  font-size: 14px;
 }
+
+.chart-fb p {
+
+  font-size: 16px;
+
+}
+
+
 .fb-stats p, .head-campaigns p
  {
   color: rgba(0,0,0,0.4);
@@ -101,11 +109,11 @@
 }
 
 .number1 h3, .number2 h3, .number3 h3, .number4 h3 {
-  color: #55A1F4;
-  font-size: 24px;
+  color: $blue;
+  font-size: 14px;
 }
 .number1 p, .number2 p, .number3 p, .number4 p {
-  color: rgba(0,0,0,0.25);
+
   font-size: 12px;
   padding-top: 15px;
 }
