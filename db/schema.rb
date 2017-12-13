@@ -54,7 +54,9 @@ ActiveRecord::Schema.define(version: 20171213091732) do
     t.boolean "display", default: true
     t.float "usualbudget"
 
+
     t.string "title"
+
     t.string "cpm"
     t.string "cpc"
     t.string "post_engagements"
