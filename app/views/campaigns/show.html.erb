@@ -21,7 +21,7 @@
 
       <div class="campaign-grid">
         <div class="titles  text-center">
-          <h1 class=".campaign-grid">
+          <h1 class="header-grid">
             <%= @campaign.title.capitalize %>
           </h1>
         </div>
@@ -115,7 +115,7 @@
             <% if @campaign.post_engagements.nil? %>
               none
             <% else %>
-              €<%= @campaign.post_engagements %>
+              <%= @campaign.post_engagements %>
             <% end %>
           </h3>
         </div>
@@ -127,7 +127,7 @@
             <% if @campaign.impressions.nil? %>
               none
             <% else %>
-              €<%= @campaign.impressions %>
+              <%= @campaign.impressions %>
             <% end %>
           </h3>
         </div>
@@ -139,7 +139,7 @@
             <% if @campaign.btn_click.nil? %>
               none
             <% else %>
-              €<%= @campaign.btn_click %>
+              <%= @campaign.btn_click %>
             <% end %>
           </h3>
         </div>

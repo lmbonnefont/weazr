@@ -84,6 +84,14 @@
   color: rgba(0,0,0,0.5);
 }
 
+.header-grid {
+  h1 {
+    font-size: 40px;
+    color: $blue;
+    font-weight: 500;
+  }
+}
+
 .campaign-grid h1 {
   font-size: 28px;
   color: $blue;
