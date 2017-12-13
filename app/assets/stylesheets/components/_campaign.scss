@@ -39,16 +39,20 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 40px 145px 0 145px;
+  border-radius: 20px;
+  width: 1140px;
+  margin: 40px auto;
+  border: solid 2px $blue;
   background: $blue;
 }
 
 .metrics-block {
   margin: 20px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   font-family: Raileway;
   color: white;
+  // color: rgba(0, 0, 0, 0.6);
   font-weight: 300;
 }
 
@@ -56,10 +60,12 @@
   font-size: 32px;
   font-weight: 300;
   margin-right: 5px;
+  margin-bottom: 0;
 }
 
 .campaigns-metrics-label p {
   font-size: 24px;
+  margin-bottom: 0;
 }
 
 .main-camp, .stat-content-bis {
