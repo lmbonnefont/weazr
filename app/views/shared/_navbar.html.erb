@@ -3,8 +3,8 @@
   <!-- Logo -->
 
   <div class="logo">
-  <i class="em em-partly_sunny_rain" style="width: 40px; height: 40px"></i>
-    <h4 class="happy cta-header">Weazr</h4>
+  <%= link_to root_path() do %><i class="em em-partly_sunny_rain" style="width: 40px; height: 40px"></i>
+    <h4 class="happy cta-header">Weazr</h4><% end %>
   </div>
 
 
@@ -13,18 +13,33 @@
 
 
     <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn draw-border-red" %> |
-        <%= link_to "Profile", profile_path,  class: "btn draw-border-blue" %>
+        <%#= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn draw-border-red" %>
+        <%= link_to "Profile", profile_path,  class: "btn-weazr" %>
+        <div class="navbar-wagon-item">
+              <div class="dropdown">
+                <% if current_user.photo.file.nil?%>
+                   <%= cl_image_tag("tneymtpekih2wlj1dwdd.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: { toggle: "dropdown"}, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+                <% else %>
+                   <%= cl_image_tag current_user.photo, width: 100, height: 100, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", data: { toggle: "dropdown"} %>
+                <% end %>
+                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
     <% else %>
-     <%= link_to "Log in", new_user_session_path, class: "btn draw-border" %>
-     <%= link_to "Try", new_user_registration_path, class: "btn draw-border" %>
+     <%= link_to "Log in", new_user_session_path, class: "btn-weazr" %>
+     <%#= link_to "Try", new_user_registration_path, class: "btn draw-border" %>
     <% end %>
 
   </div>
 
+
+
   <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-wagon-item <!-- hidden-md hidden-lg -->">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">

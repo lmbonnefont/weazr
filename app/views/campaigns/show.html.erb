@@ -21,11 +21,10 @@
 
       <div class="campaign-grid">
         <div class="titles  text-center">
-          <h1 class="cta-header">
+          <h1 class="header-grid">
             <%= @campaign.title.upcase %>
           </h1>
         </div>
-
 
         <!-- <div class="template-fb  text-center">
         </div> -->
@@ -66,21 +65,22 @@
         <div class="fb-stats text-center">
           <h1>Summary</h1>
           <br>
+          <br>
           <p>Campaign id</p>
 
           <h3>#00<%= @campaign.id %></h3>
 
 
           <p>Total budget</p>
-          <h3><%= @campaign.budget_total %>€</h3>
+          <h3>€<%= @campaign.budget_total / 100 %>.<%= @campaign.budget_total % 100 %></h3>
 
           <p>Total spent</p>
-          <h3><%= @campaign.budget_total - @campaign.budget_remaining %>€</h3>
+          <h3>€<%= (@campaign.budget_total - @campaign.budget_remaining) / 100 %>.<%= (@campaign.budget_total - @campaign.budget_remaining) % 100 %></h3>
 
-          <p>From</p>
+          <p>Start Date</p>
           <h3><%= @campaign.start %></h3>
 
-          <p>to</p>
+          <p>End Date</p>
           <h3><%= @campaign.end %></h3>
 
         </div>
@@ -100,25 +100,49 @@
           <p>
             Cost per Click
           </p>
-          <h3>€<%= @campaign.cpc %></h3>
+          <h3>
+            <% if @campaign.cpc.nil? %>
+              none
+            <% else %>
+              €<%= @campaign.cpc %>
+            <% end %>
+          </h3>
         </div>
         <div class="number2 text-center">
           <p>
             Post Engagements
           </p>
-          <h3> <%= @campaign.post_engagements %> </h3>
+          <h3>
+            <% if @campaign.post_engagements.nil? %>
+              none
+            <% else %>
+              <%= @campaign.post_engagements %>
+            <% end %>
+          </h3>
         </div>
         <div class="number3 text-center">
           <p>
             Impressions
           </p>
-          <h3> <%= @campaign.impressions %> </h3>
+          <h3>
+            <% if @campaign.impressions.nil? %>
+              none
+            <% else %>
+              <%= @campaign.impressions %>
+            <% end %>
+          </h3>
         </div>
         <div class="number4 text-center">
           <p>
             Button Clicks
           </p>
-          <h3> <%= @campaign.btn_click %> </h3>
+          <h3>
+            <% if @campaign.btn_click.nil? %>
+              none
+            <% else %>
+              <%= @campaign.btn_click %>
+            <% end %>
+          </h3>
         </div>
 
       </div>
