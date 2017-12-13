@@ -22,7 +22,7 @@
       <div class="campaign-grid">
         <div class="titles  text-center">
           <h1 class="header-grid">
-            <%= @campaign.title.capitalize %>
+            <%= @campaign.title.upcase %>
           </h1>
         </div>
 
@@ -65,21 +65,22 @@
         <div class="fb-stats text-center">
           <h1>Summary</h1>
           <br>
+          <br>
           <p>Campaign id</p>
 
           <h3>#00<%= @campaign.id %></h3>
 
 
           <p>Total budget</p>
-          <h3><%= @campaign.budget_total %>€</h3>
+          <h3>€<%= @campaign.budget_total / 100 %>.<%= @campaign.budget_total % 100 %></h3>
 
           <p>Total spent</p>
-          <h3><%= @campaign.budget_total - @campaign.budget_remaining %>€</h3>
+          <h3>€<%= (@campaign.budget_total - @campaign.budget_remaining) / 100 %>.<%= (@campaign.budget_total - @campaign.budget_remaining) % 100 %></h3>
 
-          <p>From</p>
+          <p>Start Date</p>
           <h3><%= @campaign.start %></h3>
 
-          <p>to</p>
+          <p>End Date</p>
           <h3><%= @campaign.end %></h3>
 
         </div>

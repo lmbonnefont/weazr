@@ -1,7 +1,7 @@
 .campaign-grid {
   display: grid;
   grid-template-columns: 470px 200px 1fr 1fr;
-  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-rows: 110px 1fr 1fr 1fr;
   height: calc(100vh - 70px);
   padding: 30px;
 }
@@ -57,11 +57,18 @@
   flex-direction: column;
 }
 
-.titles, .template-fb, .fb-stats, .chart-fb, .title-numbers, .number4, .number3, .number2, .number1, .head-campaigns {
+.titles {
+  background-color: $blue;
+}
+
+.template-fb, .fb-stats, .chart-fb, .title-numbers, .number4, .number3, .number2, .number1, .head-campaigns {
   background: white;
-  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
+}
+
+.titles, .template-fb, .fb-stats, .chart-fb, .title-numbers, .number4, .number3, .number2, .number1, .head-campaigns {
+  box-shadow: 0 2px 3px #DBDBDB;
   padding: 10px;
-  margin: 10px;
+  margin: 7px;
   align-items: center;
   justify-content: space-around;
 }
@@ -75,7 +82,6 @@
 /* Fonts and colors */
 .campaign-grid h2 {
   font-size: 14px;
-
 }
 .campaign-grid h3 {
   font-size: 14px;
@@ -85,22 +91,25 @@
 }
 
 .header-grid {
-  h1 {
-    font-size: 40px;
-    color: $blue;
-    font-weight: 500;
-  }
+  color: white !important;
+  // font-family: Apercu !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
 }
 
-.campaign-grid h1 {
-  font-size: 28px;
+.campaign-grid {
+  h1 {
+  font-size: 24px;
   color: $blue;
   font-weight: 500;
+  }
 }
 
 .fb-stats h3, .head-campaigns h3 {
   color: $blue;
-  font-size: 14px;
+  font-size: 15px;
+  margin-top: 0 !important;
+  margin-bottom: 35px !important;
 }
 
 .chart-fb p {
@@ -114,16 +123,17 @@
  {
   color: rgba(0,0,0,0.5);
   font-size: 14px;
+  font-weight: 700;
 }
 
 .number1 h3, .number2 h3, .number3 h3, .number4 h3 {
   color: $blue;
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 32px;
+  font-weight: 300;
 }
 .number1 p, .number2 p, .number3 p, .number4 p {
-
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 700;
   padding-top: 15px;
 }
 
