@@ -12,6 +12,7 @@ loadDynamicBannerText();
 
 import { isElementInViewport, callbackFunc } from '../components/timeline.js';
 
+
 // var dateTomorrow = new Date();
 // currentDate.setDate(currentDate.getDate() + 1);
 
@@ -21,6 +22,4 @@ flatpickr("#start_date", {
   minDate: Date.now() + 86400000,
   maxDate: Date.now() + 1296000000,
 });
-
-
 
