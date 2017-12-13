@@ -8,12 +8,6 @@
   <h1 style="margin-top: 40px; margin-bottom: 80px; color: #60A1F4" class="cta-header-no-size ">All campaigns</h1>
 
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 gocard3">
-      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #60A1F4"></i> <% end %>
-    </div>
-  </div>
-
-  <div class="row">
 
     <% if @campaigns.nil? %>
       <div class="text-center">
@@ -22,9 +16,7 @@
         <% end %>
       </div>
 
-
     <% else %>
-
 
       <% @campaigns.each do |campaign| %>
         <div class="col-md-6">
@@ -48,8 +40,10 @@
               <div>
                 <h2 class="title-un-pic1 text-left"> <%= campaign.post_title %></h2>
                 <p class="p-un-pic text-left"><%= campaign.post_msg %></p>
-
-                <p class="counts text-left">200 Likes 25 Comments 109 Shares</p>
+                <% likes = (0..5) %>
+                <% shares = (150..220) %>
+                <% comments = (0..1) %>
+                <p class="counts text-left"><%= "#{rand(likes)} Likes #{rand(comments)} Comment 0 Shares" %></p>
               </div>
 
               <div >
