@@ -14,7 +14,7 @@
 
     <% if user_signed_in? %>
         <%#= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn draw-border-red" %>
-        <%= link_to "Profile", profile_path,  class: "btn draw-border-blue" %>
+        <%= link_to "Profile", profile_path,  class: "btn-weazr" %>
         <div class="navbar-wagon-item">
               <div class="dropdown">
                 <% if @user.photo.file.nil?%>
@@ -30,8 +30,8 @@
           </div>
 
     <% else %>
-     <%= link_to "Log in", new_user_session_path, class: "btn draw-border" %>
-     <%= link_to "Try", new_user_registration_path, class: "btn draw-border" %>
+     <%= link_to "Log in", new_user_session_path, class: "btn-weazr" %>
+     <%#= link_to "Try", new_user_registration_path, class: "btn draw-border" %>
     <% end %>
 
   </div>
