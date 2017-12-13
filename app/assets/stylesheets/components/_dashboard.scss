@@ -3,9 +3,10 @@
   height: 100vh;
   display: grid;
   grid-template-columns:  100px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 15% 55% 30%;
+  grid-template-rows: 10% 40% 50%;
   justify-content: space-around;
 }
+
 .profile .menu {
   grid-row: 1 / span 3;
   grid-column: 1 / span 1;
@@ -22,6 +23,8 @@
 .profile .description {
   grid-row: 3 / span 1;
   grid-column: 2 / span 7;
+  display:flex;
+  justify-content: space-around;
 }
 
 
@@ -61,7 +64,7 @@
 }
 
 .profile .off {
-  background-color: rgb(128, 128, 128);
+  background-color: rgba(128, 128, 128, 0.2);
 }
 
 

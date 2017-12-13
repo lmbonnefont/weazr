@@ -4,10 +4,8 @@ require 'nokogiri'
 namespace :weather do
   desc "Update Weather for the next 14 days by scrapping data."
   task update_weather_14_days: :environment do
-
   nextdays = Meteo.where("date >= :toomorow AND date <= :date_in_two_weeks", toomorow: Date.today + 1, date_in_two_weeks: Date.today + 14.days)
-
-    url = "https://www.timeanddate.com/weather/france/paris/ext"
+  url = "https://www.timeanddate.com/weather/france/paris/ext"
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
     i = 0
@@ -36,9 +34,9 @@ namespace :weather do
   end
 
   def transform_date(date)
-    date = date.split(" ")
+    p date = date.split(" ")
     d = date[0].match(/\d+/)
-    months = {
+    p months = {
       janv: 1,
       fév: 2,
       mars: 3,
@@ -51,8 +49,20 @@ namespace :weather do
       oct: 10,
       nov: 11,
       déc: 12,
-    }
-    m = months[date[1].to_sym]
+      Jan: 1,
+      Feb: 2,
+      Mar: 3,
+      Apr: 4,
+      May: 5,
+      Jun: 6,
+      Jul: 7,
+      Aug: 8,
+      Sep: 9,
+      Oct: 10,
+      Nov: 11,
+      Dec: 12}
+
+    p m = months[date[1].to_sym]
     #attention pb avec les changements d'année !!
     y = Date.today.year
     return "#{y}-#{m}-#{d}"
@@ -76,14 +86,18 @@ namespace :weather do
 
   def updatedays(array_to_be_uploaded, hash_with_infos)
     array_to_be_uploaded.each do |day|
+      p hash_with_infos[day.date.strftime("%Y-%m-%d")]
       if hash_with_infos[day.date.strftime("%Y-%m-%d")]
-      day.damp = hash_with_infos[day.date.strftime("%Y-%m-%d")][:damp]
-      day.temperature = hash_with_infos[day.date.strftime("%Y-%m-%d")][:temperature]
-      day.rain = hash_with_infos[day.date.strftime("%Y-%m-%d")][:rain]
-
+      p day.damp = hash_with_infos[day.date.strftime("%Y-%m-%d")][:damp]
+      p day.temperature = hash_with_infos[day.date.strftime("%Y-%m-%d")][:temperature]
+      p day.rain = hash_with_infos[day.date.strftime("%Y-%m-%d")][:rain]
+      p "hellofromupdateendbeforesaving"
       day.save!
       p day
+      else
+        p "wrong"
       end
+      p "hellofinished"
     end
   end
 
