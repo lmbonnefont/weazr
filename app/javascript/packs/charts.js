@@ -16,12 +16,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
       var revenueChart = new FusionCharts({
         "type": "msline",
         "renderAt": 'chart-container',
-         "width": "1000",
-         "height": "600",
+         "width": "1200",
+         "height": "300",
          "dataFormat": "json",
          "dataSource": {
             chart:{
               "caption": "Week weather forecast in Paris",
+              "captionFontColor": "##0075c2",
               "subCaption": "Rain, Damp & Temperature",
               "captionFontSize": "14",
               "subcaptionFontSize": "14",
