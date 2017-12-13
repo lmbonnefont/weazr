@@ -15,8 +15,8 @@
 
         <div class="form-inputs" style="margin-top: 60px">
           <%= f.input :title, label: "Description" %>
-          <%= f.input :start %>
-          <%= f.input :end %>
+          <%= f.input :start, as: :string, input_html: {id: "start_date"} %>
+          <%= f.input :end, as: :string, input_html: {id: "end_date"} %>
           <%= f.input :budget_total, as: :string, label: "Budget to be spent" %>
           <%= f.input :post_title %>
           <%= f.input :post_msg, label: "Post content" %>

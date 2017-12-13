@@ -1,7 +1,7 @@
 .profil {
   display: grid;
-  grid-template-columns: 350px 1fr 1fr 1fr;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 350px 4fr 4fr 1fr;
+  grid-template-rows: 250px 1fr;
   height: calc(100vh - 70px);
   padding: 30px;
 }
@@ -20,11 +20,36 @@
   grid-column: 4 / span 1;
 }
 
+.stat-globe {
+  background: $blue;
+  padding: 20px;
+  margin: 7px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  p {
+    color: white !important;
+  }
+}
+
+.stat-globe:hover {
+  background: white;
+  padding: 18px;
+  border: solid 2px $blue;
+  text-decoration: none;
+  color: $blue !important;
+  p {
+    color: rgba(0,0,0,0.6) !important;
+  }
+}
+
 .main-bis, .description-bis, .stat-bis, .stat2 {
   background: white;
-  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
+  box-shadow: 0 2px 3px #DBDBDB;
   padding: 50px;
-  margin: 10px;
+  margin: 7px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -63,7 +88,6 @@
   font-size: 28px;
 }
 .stat2   p {
-
   font-size: 19px;
 }
 
@@ -73,14 +97,12 @@
   font-weight: normal;
 }
 .description-bis p {
-
   font-weight: lighter;
 }
 
 .gocard {
-
   background: white;
-  box-shadow: 0 0 10px rgba(199, 206, 255, 0.75);
+  box-shadow: 0 2px 3px #DBDBDB;
 
   padding: 50px;
   margin: 10px;
@@ -120,7 +142,6 @@
 }
 
 .gocard3 {
-
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
