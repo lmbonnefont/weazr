@@ -1,6 +1,6 @@
 .profil {
   display: grid;
-  grid-template-columns: 350px 2fr 2fr 1fr;
+  grid-template-columns: 350px 4fr 4fr 1fr;
   grid-template-rows: 250px 1fr;
   height: calc(100vh - 70px);
   padding: 30px;
@@ -21,31 +21,33 @@
 }
 
 .stat-globe {
-  background: #F2FDFF;
-  // box-shadow: 0 0 3px $blue;
-  // border-radius: 10px;
-  border: solid 2px $blue;
-  padding: 50px;
+  background: $blue;
+  padding: 20px;
   margin: 7px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.stat-globe:hover {
-  background: $blue;
-  text-decoration: none;
-  color: white;
+  color: white !important;
   p {
-    color: white;
+    color: white !important;
   }
 }
 
+.stat-globe:hover {
+  background: white;
+  padding: 18px;
+  border: solid 2px $blue;
+  text-decoration: none;
+  color: $blue !important;
+  p {
+    color: rgba(0,0,0,0.6) !important;
+  }
+}
 
 .main-bis, .description-bis, .stat-bis, .stat2 {
   background: white;
   box-shadow: 0 2px 3px #DBDBDB;
-  border: solid 1px $blue;
   padding: 50px;
   margin: 7px;
   display: flex;
