@@ -59,7 +59,7 @@
 
               <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
 
-              <p style="color: gray; font-weight: normal"><%= @campaign_days.find_by_date(day).indice_bau.round(2) * @campaign.budget_total %>€</p>
+              <p style="color: gray; font-weight: normal"><%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) %>€</p>
 
             </div>
           </div>
