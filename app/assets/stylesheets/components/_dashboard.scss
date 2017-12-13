@@ -68,7 +68,20 @@
 }
 
 
-.menu, .stat {
+.menu {
+  background: $blue;
+  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 940px) {
+  .profile {
+    display: block;
+  }
+}
+
+.stat {
   background: white;
   box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
   display: flex;
@@ -119,10 +132,12 @@
 .stat h3 {
   color:  $purple;
   font-size: 28px;
+  font-weight: bold;
 }
 .stat p {
-  color: rgba(0,0,0,0.25);
+  color: $blue;
   font-size: 19px;
+  font-weight: bold;
 }
 .description h3 {
   color: rgba(0,0,0,0.9);
