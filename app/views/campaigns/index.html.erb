@@ -2,47 +2,64 @@
 <% @skip_footer = true %>
 
 <div class="campaigns-stat-header text-center">
-  My Campaigns Stats
-  <div class="campaigns-metrics-header">
-    <div class="metrics-block">
-      <div class="campaigns-metrics-label">
-        Total invested
-      </div>
-      <div class="campaigns-metrics-numbers">
-        €10
-      </div>
+  <div class="metrics-block">
+    <div class="campaigns-metrics-numbers">
+      <% i = 0 %>
+      <% @campaigns.each do |campaign| %>
+        <% i += campaign.budget_total %>
+      <% end %>
+      <p>€<%= i / 100 %>.<%= i % 100 %></p>
     </div>
-    <div class="metrics-block">
-      <div class="campaigns-metrics-label">
-        Avge CPC
-      </div>
-      <div class="campaigns-metrics-numbers">
-        €10
-      </div>
+    <div class="campaigns-metrics-label">
+      <p>invested</p>
     </div>
-    <div class="metrics-block">
-      <div class="campaigns-metrics-label">
-        Avge CPM
-      </div>
-      <div class="campaigns-metrics-numbers">
-        €10
-      </div>
+  </div>
+  <div class="metrics-block">
+    <div class="campaigns-metrics-numbers">
+      <% i = 0 %>
+      <% @campaigns.each do |campaign| %>
+        <% i += campaign.cpc.to_f %>
+      <% end %>
+      <p>€<%= i.round(2) %></p>
     </div>
-    <div class="metrics-block">
-      <div class="campaigns-metrics-label">
-        Avge Engagement
-      </div>
-      <div class="campaigns-metrics-numbers">
-        €10
-      </div>
+    <div class="campaigns-metrics-label">
+      <p>CPC</p>
     </div>
-    <div class="metrics-block">
-      <div class="campaigns-metrics-label">
-        Avge Button Clicks
-      </div>
-      <div class="campaigns-metrics-numbers">
-        €10
-      </div>
+  </div>
+  <div class="metrics-block">
+    <div class="campaigns-metrics-numbers">
+      <% i = 0 %>
+      <% @campaigns.each do |campaign| %>
+        <% i += campaign.cpm.to_i %>
+      <% end %>
+      <p><%= i %></p>
+    </div>
+    <div class="campaigns-metrics-label">
+      <p>CPM</p>
+    </div>
+  </div>
+  <div class="metrics-block">
+    <div class="campaigns-metrics-numbers">
+      <% i = 0 %>
+      <% @campaigns.each do |campaign| %>
+        <% i += campaign.post_engagements.to_i %>
+      <% end %>
+      <p><%= i %></p>
+    </div>
+    <div class="campaigns-metrics-label">
+      <p>engagements</p>
+    </div>
+  </div>
+  <div class="metrics-block">
+    <div class="campaigns-metrics-numbers">
+      <% i = 0 %>
+      <% @campaigns.each do |campaign| %>
+        <% i += campaign.btn_click.to_i %>
+      <% end %>
+      <p><%= i %></p>
+    </div>
+    <div class="campaigns-metrics-label">
+      <p>button clicks</p>
     </div>
   </div>
 </div>
@@ -68,16 +85,12 @@
                   <%= cl_image_tag campaign.company.photo, :class => 'avatar ',
                   width: 45, height: 45, crop: :fill %>
               </div>
-
               <h3 class="marque text-left"><%= campaign.company.name %></h3>
               <p class="sponsor text-left">Sponsorised</p>
-
               <div class="title text-left"> <%= campaign.title %></div>
-
               <div class="pic">
-                <%= cl_image_tag campaign.photo , height: 246, width: 470, crop: :fill %>
+                <%= cl_image_tag campaign.photo , height: 180, width: 340, crop: :fill %>
               </div>
-
               <div>
                 <h2 class="title-un-pic1 text-left"> <%= campaign.post_title %></h2>
                 <p class="p-un-pic text-left"><%= campaign.post_msg %></p>
@@ -86,34 +99,25 @@
                 <% comments = (0..1) %>
                 <p class="counts text-left"><%= "#{rand(likes)} Likes #{rand(comments)} Comment 0 Shares" %></p>
               </div>
-
               <div >
                 <h2 class="interaction-bar text-left"> Likes Comments Share</h2>
               </div>
+              <%= link_to "Remove Ad", campaign_path(campaign),:class => 'btn bouton2', method: :delete %>
+              <% if campaign.end > Date.today %>
+                <%= link_to campaign_campaign_days_path(campaign) do %>
+                  <i class="fa fa-lg fa-calendar"   aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+                <% end %>
+              <% end %>
             </div>
           <% end %>
-          <div class="text-center" style="  margin-top: 20px;">
-            <%= link_to "Destroy the campaign", campaign_path(campaign),:class => 'btn bouton2', method: :delete %>
-
-            <% if campaign.end > Date.today %>
-              <%= link_to campaign_campaign_days_path(campaign) do %>
-                <i class="fa fa-lg fa-calendar"   aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
-
-              <% end %>
-            <% end %>
-
-          </div>
-
         </div>
       <% end %>
+      <div class="col-md-4">
+        <div class="fb-more">
+          <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #60A1F4"></i> <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 gocard3">
-      <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #60A1F4"></i> <% end %>
-    </div>
-  </div>
-
 </div>
 

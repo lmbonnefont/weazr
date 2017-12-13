@@ -38,22 +38,28 @@
 .campaigns-stat-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 40px;
-}
-
-.campaigns-metrics-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: 40px 145px 0 145px;
+  background: $blue;
 }
 
 .metrics-block {
   margin: 20px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+  align-items: flex-end;
+  font-family: Raileway;
+  color: white;
+  font-weight: 300;
+}
+
+.campaigns-metrics-numbers p {
+  font-size: 32px;
+  font-weight: 300;
+  margin-right: 5px;
+}
+
+.campaigns-metrics-label p {
+  font-size: 24px;
 }
 
 .main-camp, .stat-content-bis {
@@ -74,7 +80,6 @@
 /* Fonts and colors */
 .campaign h2 {
   font-size: 28px;
-
 }
 .campaign h3 {
   font-size: 22px;
@@ -83,7 +88,6 @@
 .campaign p {
   color: rgba(0,0,0,0.6);
 }
-
 
 .stat-camp h3 {
   color: $purple;
@@ -111,4 +115,14 @@
 .description-camp p {
   color: rgba(0,0,0,0.5);
   font-weight: lighter;
+}
+.fb-more {
+  width: 360px;
+  height: 480px;
+  background: white;
+  // box-shadow: 2px 2px 3px gray;
+  border: solid 2px $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
