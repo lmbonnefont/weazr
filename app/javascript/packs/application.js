@@ -18,7 +18,8 @@ import { isElementInViewport, callbackFunc } from '../components/timeline.js';
 flatpickr("#start_date", {
   altInput: true,
   plugins: [new rangePlugin({ input: "#end_date"})],
-  minDate: Date.now(),
+  minDate: Date.now() + 86400000,
+  maxDate: Date.now() + 1296000000,
 });
 
 
