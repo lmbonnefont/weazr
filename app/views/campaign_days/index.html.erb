@@ -6,32 +6,37 @@
 <div class="profile text-center">
   <div class="menu text-center">
       <div tl-menu>
-        <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-globe" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+        <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-globe" aria-hidden="true" style="color: white; margin: 20px"></i>
         <% end %>
         </h3>
 
-        <h3 class="text-center " style="margin-bottom: 20px"> <%= link_to new_campaign_path() do %><i class="fa fa-lg fa-plus" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
-        <% end %>
+        <h3 class="text-center " style="margin-bottom: 20px">
+          <%= link_to new_campaign_path() do %>
+          <i class="fa fa-lg fa-plus" aria-hidden="true" style="color: white; margin: 20px"></i>
+          <% end %>
         </h3>
-
-
-        <h3 class="text-center"> <%= link_to profile_path() do %><i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
-        <% end %>
+        <h3 class="text-center">
+          <%= link_to profile_path() do %>
+          <i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
+          <% end %>
         </h3>
 
       </div>
   </div>
 
   <div class="navbar-dashboard stat ">
-    <div class="navbar-wagon-left">
-      <i class="fa fa-calendar" aria-hidden="true"></i> |
-      <span style="color: #55A1F4"><%= (Date.today+1).strftime('%a %d') %> - <%= (Date.today + 7).strftime('%a %d')  %></span>
+    <div class="navbar-wagon-left" style="padding: 10px">
+      <i class="fa fa-calendar" style="color: #60A1F4; font-weight: bold; margin-left: 10px; margin-right: 10px;" aria-hidden="true"></i> |
+      <span style="color: #55A1F4; font-weight: bold" >
+        <%= (Date.today+1).strftime('%a %d') %> - <%= (Date.today + 7).strftime('%a %d')  %>
+      </span>
+    </div>
+    <div class="campaign-budget" style="font-weight: bold">
+      <i style="font-weight: bold; margin: 8px" class="fa fa-money" aria-hidden="true"> </i> =>
+      <%= @campaign.budget_total %>€
     </div>
 
-    <div class="campaign-title"><%= link_to @campaign.title, campaign_path(@campaign) %></div>
-
-    <div class="campaign-budget"><i class="fa fa-money" aria-hidden="true"></i>
-    <%= @campaign.budget_total %>€</div>
+    <div class="campaign-title">Campaign name : <%= link_to @campaign.title, campaign_path(@campaign) %></div>
   </div>
 
   <% today = Date.today + 1%>
@@ -46,14 +51,15 @@
             <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
               <div class="smiley">😃</div>
             <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
-              <div class="smiley">😌</div>
-            <% else %>
               <div class="smiley">😖</div>
+            <% else %>
+              <div class="smiley">😌</div>
             <% end %>
             <div class="contenant-budget">
-              <p>Budget forcast</p>
+
               <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
-              <p><%= @campaign.company.input.attributes[day.strftime("%A").downcase].round(2) %></p>
+
+              <p style="color: gray; font-weight: normal"><%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) %>€</p>
 
             </div>
           </div>
