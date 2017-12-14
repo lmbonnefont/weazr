@@ -114,6 +114,16 @@ kibouftou = {
   pixel_id: '467837863611941',
 }
 
+k_inputs = {
+  monday: 0.10,
+  tuesday: 0.10,
+  wednesday: 0.10,
+  thursday: 0.14,
+  friday: 0.18,
+  saturday: 0.21,
+  sunday: 0.17,
+}
+
 campaign1 = {
   start: "12/09/2017",
   end: "11/12/2017",
@@ -148,14 +158,16 @@ campaign2 = {
 }
 
 k_user = User.new(k_user)
+kibouftou = Company.new(kibouftou)
+k_inputs = Input.new(k_inputs)
 campaign1 = Campaign.new(campaign1)
 campaign2 = Campaign.new(campaign2)
-kibouftou = Company.new(kibouftou)
 k_dash = Dashboard.new
 
 kibouftou.user = k_user
 kibouftou.dashboard = k_dash
 kibouftou.economic_sector = es
+kibouftou.input = k_inputs
 campaign1.company = kibouftou
 campaign2.company = kibouftou
 
@@ -169,6 +181,7 @@ campaign1.remote_photo_url = campaign1_url
 campaign2.remote_photo_url = campaign2_url
 
 k_user.save!
+k_inputs.save!
 kibouftou.save!
 k_dash.save!
 campaign1.save!
