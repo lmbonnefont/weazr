@@ -2,176 +2,176 @@
 <% @skip_footer = true %>
 
 
-
-<div class="profile text-center">
-  <div class="menu text-center">
-      <div tl-menu>
-        <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-globe" aria-hidden="true" style="color: white; margin: 20px"></i>
-        <% end %>
-        </h3>
-
-        <h3 class="text-center " style="margin-bottom: 20px">
-          <%= link_to new_campaign_path() do %>
-          <i class="fa fa-lg fa-plus" aria-hidden="true" style="color: white; margin: 20px"></i>
+<div id="back">
+  <div class="profile text-center">
+    <div class="menu text-center">
+        <div tl-menu>
+          <h3 class="text-center "> <%= link_to campaigns_path() do %><i class="fa fa-lg fa-globe" aria-hidden="true" style="color: white; margin: 20px"></i>
           <% end %>
-        </h3>
-        <h3 class="text-center">
-          <%= link_to profile_path() do %>
-          <i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
-          <% end %>
-        </h3>
+          </h3>
 
-      </div>
-  </div>
+          <h3 class="text-center " style="margin-bottom: 20px">
+            <%= link_to new_campaign_path() do %>
+            <i class="fa fa-lg fa-plus" aria-hidden="true" style="color: white; margin: 20px"></i>
+            <% end %>
+          </h3>
+          <h3 class="text-center">
+            <%= link_to profile_path() do %>
+            <i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
+            <% end %>
+          </h3>
 
-  <div class="navbar-dashboard stat ">
-    <div class="navbar-wagon-left" style="padding: 10px">
-      <i class="fa fa-calendar" style="color: #60A1F4; font-weight: bold; margin-right: 10px;" aria-hidden="true"></i> |
-      <span style="color: #55A1F4; font-weight: bold" >
-        <%= (Date.today+1).strftime('%a %d') %> - <%= (Date.today + 7).strftime('%a %d')  %>
-      </span>
-    </div>
-    <div class="campaign-budget" style="font-weight: bold">
-      <i style="font-weight: bold; margin: 8px" class="fa fa-money" aria-hidden="true"> </i> =>
-      <%= @campaign.budget_total / 100 %>€
-    </div>
-
-    <div class="campaign-title">Campaign name : <%= link_to @campaign.title, campaign_path(@campaign) %></div>
-  </div>
-
-  <div class="days-desc">
-    <div class="w-day">
-      <div class="stat-content">
-        <h3>Days</h3>
-        <br>
-        <p>Is Weather Friendly?</p>
-        <div class="contenant-budget">
-          <p>Usual Spending</p>
-          <p style="color: gray; font-weight: normal">Adjusted Spending</p>
         </div>
+    </div>
+
+    <div class="navbar-dashboard stat ">
+      <div class="navbar-wagon-left" style="padding: 10px">
+        <i class="fa fa-calendar" style="color: #60A1F4; font-weight: bold; margin-right: 10px;" aria-hidden="true"></i> |
+        <span style="color: #55A1F4; font-weight: bold" >
+          <%= (Date.today+1).strftime('%a %d') %> - <%= (Date.today + 7).strftime('%a %d')  %>
+        </span>
+      </div>
+      <div class="campaign-budget" style="font-weight: bold">
+        <i style="font-weight: bold; margin: 8px" class="fa fa-money" aria-hidden="true"> </i><%= @campaign.budget_total / 100 %>€
+      </div>
+
+      <div class="campaign-title">Campaign name : <%= link_to @campaign.title, campaign_path(@campaign) %></div>
+    </div>
+
+    <div class="days-desc">
+      <div class="w-day">
+          <div class="day-date">
+            Days
+          </div>
+          <div class="friendliness">
+            Business Friendly?
+          </div>
+          <div class="usual">
+            Usual Spending
+          </div>
+          <div class="adjusted">
+            Adjusted Spending
+          </div>
       </div>
     </div>
-  </div>
 
-  <div class="all-days">
-    <% today = Date.today + 1%>
-    <% day7 = today + 6 %>
-    <% i = 0 %>
-    <% (today..day7).each  do |day| %>
+    <div class="all-days">
+      <% today = Date.today + 1%>
+      <% day7 = today + 6 %>
+      <% i = 0 %>
+      <% (today..day7).each  do |day| %>
 
-          <% if day >= @campaign.start && day <= @campaign.end %>
-            <div class="w-day">
-              <div class="stat-content">
-                <h3><%= day.strftime("%e") %></h3>
-                <p><%= day.strftime("%a") %></p>
-                <% if @campaign_days.find_by_date(day).indice_daily >= (1/(@campaign.end-@campaign.start) * 1.2) %>
-                  <div class="smiley">😃</div>
+            <% if day >= @campaign.start && day <= @campaign.end %>
+              <div class="w-day">
+                <div class="stat-content">
+                  <h3><%= day.strftime("%e") %></h3>
+                  <p><%= day.strftime("%a") %></p>
 
-                  <% rain = Meteo.find_by(date: day).rain %>
-                  <% if rain >= 2 %>
-                    <i class="em em-rain_cloud"></i>
-                  <% elsif rain < 2 && rain >= 0 %>
-                    <i class="em em-cloud"></i>
-                  <% elsif rain >= 5 %>
-                    <i class="em em-thunder_cloud_and_rain"></i>
+                  <% if @campaign_days.find_by_date(day).indice_daily >= (1/(@campaign.end-@campaign.start) * 1.2) %>
+                    <div class="smiley">😍</div>
+
+                    <% rain = Meteo.find_by(date: day).rain %>
+                    <% if rain >= 2 %>
+                      <i class="em em-rain_cloud"></i>
+                    <% elsif rain < 2 && rain >= 0 %>
+                      <i class="em em-cloud"></i>
+                    <% elsif rain >= 5 %>
+                      <i class="em em-thunder_cloud_and_rain"></i>
+                    <% else %>
+                      <i class="em em-sunny"></i>
+                    <% end %>
+
+                    <% temperature = Meteo.find_by(date: day).temperature %>
+                    <% if temperature >= 17 %>
+                      <i class="fa fa-thermometer-empty color-red" aria-hidden="true"></i>
+                      <%= temperature %> °C
+                    <% elsif temperature >= 10 && temperature < 17  %>
+                      <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
+                      <%= temperature %> °C
+                    <% else temperature < 10 %>
+                      <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
+                      <%= temperature %> °C
+                    <% end %>
+                  <% elsif @campaign_days.find_by_date(day).indice_daily < (1/(@campaign.end-@campaign.start) * 0.8)%>
+                    <div class="smiley">😱</div>
+                    <% rain = Meteo.find_by(date: day).rain %>
+                    <% if rain >= 2 %>
+                      <i class="em em-rain_cloud"></i>
+                    <% elsif rain < 2 && rain >= 0 %>
+                      <i class="em em-cloud"></i>
+                    <% elsif rain >= 5 %>
+                      <i class="em em-thunder_cloud_and_rain"></i>
+                    <% else %>
+                      <i class="em em-sunny"></i>
+                    <% end %>
+
+                     <% temperature = Meteo.find_by(date: day).temperature %>
+                     <% if temperature >= 17 %>
+                       <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
+                       <%= temperature %> °C
+                     <% elsif temperature >= 10 && temperature < 17  %>
+                       <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
+                       <%= temperature %> °C
+                     <% else temperature < 10 %>
+                       <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
+                       <%= temperature %> °C
+                     <% end %>
                   <% else %>
-                    <i class="em em-sunny"></i>
+                    <div class="smiley">😌</div>
+                    <% rain = Meteo.find_by(date: day).rain %>
+                    <% if rain >= 2 %>
+                      <i class="em em-rain_cloud"></i>
+                    <% elsif rain < 2 && rain >= 0 %>
+                      <i class="em em-cloud"></i>
+                    <% elsif rain >= 5 %>
+                      <i class="em em-thunder_cloud_and_rain"></i>
+                    <% else %>
+                      <i class="em em-sunny"></i>
+                    <% end %>
+
+
+                    <% temperature = Meteo.find_by(date: day).temperature %>
+                    <% if temperature >= 17 %>
+                      <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
+                      <%= temperature %> °C
+                    <% elsif temperature >= 10 && temperature < 17  %>
+                      <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
+                      <%= temperature %> °C
+                    <% else temperature < 10 %>
+                      <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
+                      <%= temperature %> °C
+                    <% end %>
                   <% end %>
 
-                  <% temperature = Meteo.find_by(date: day).temperature %>
-                  <% if temperature >= 17 %>
-                    <i class="fa fa-thermometer-empty color-red" aria-hidden="true"></i>
-                    <%= temperature %> °C
-                  <% elsif temperature >= 10 && temperature < 17  %>
-                    <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
-                    <%= temperature %> °C
-                  <% else temperature < 10 %>
-                    <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
-                    <%= temperature %> °C
-                  <% end %>
-                <% elsif @campaign_days.find_by_date(day).indice_daily < (1/(@campaign.end-@campaign.start) * 0.8)%>
-                  <div class="smiley">😖</div>
-                  <% rain = Meteo.find_by(date: day).rain %>
-                  <% if rain >= 2 %>
-                    <i class="em em-rain_cloud"></i>
-                  <% elsif rain < 2 && rain >= 0 %>
-                    <i class="em em-cloud"></i>
-                  <% elsif rain >= 5 %>
-                    <i class="em em-thunder_cloud_and_rain"></i>
-                  <% else %>
-                    <i class="em em-sunny"></i>
-                  <% end %>
+                  <div class="contenant-budget">
+                    <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
+                    <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
+                  </div>
 
-                   <% temperature = Meteo.find_by(date: day).temperature %>
-                   <% if temperature >= 17 %>
-                     <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
-                     <%= temperature %> °C
-                   <% elsif temperature >= 10 && temperature < 17  %>
-                     <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
-                     <%= temperature %> °C
-                   <% else temperature < 10 %>
-                     <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
-                     <%= temperature %> °C
-                   <% end %>
+              </div>
+            </div>
 
-                <% else %>
-                  <div class="smiley">😌</div>
-                  <% rain = Meteo.find_by(date: day).rain %>
-                  <% if rain >= 2 %>
-                    <i class="em em-rain_cloud"></i>
-                  <% elsif rain < 2 && rain >= 0 %>
-                    <i class="em em-cloud"></i>
-                  <% elsif rain >= 5 %>
-                    <i class="em em-thunder_cloud_and_rain"></i>
-                  <% else %>
-                    <i class="em em-sunny"></i>
-                  <% end %>
-
-
-                  <% temperature = Meteo.find_by(date: day).temperature %>
-                  <% if temperature >= 17 %>
-                    <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
-                    <%= temperature %> °C
-                  <% elsif temperature >= 10 && temperature < 17  %>
-                    <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
-                    <%= temperature %> °C
-                  <% else temperature < 10 %>
-                    <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
-                    <%= temperature %> °C
-                  <% end %>
-                <% end %>
-
-                <div class="contenant-budget">
-
-                  <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
-                  <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
-
+            <% else %>
+              <div class="w-day off">
+                <div class="stat-content">
+                  <h3><%= day.strftime("%e") %></h3>
+                  <p><%= day.strftime("%a") %></p>
                 </div>
               </div>
-
-            </div>
-
-
-          <% else %>
-            <div class="w-day off">
-              <div class="stat-content">
-                <h3><%= day.strftime("%e") %></h3>
-                <p><%= day.strftime("%a") %></p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+    </div>
+
+      <div class="description">
+          <div id="chart-container" data-days="<%= @days.to_json %>" data-series="<%= @series.to_json %>"></div>
+
+      </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
 
-    <!-- <div class="description">
-        <div id="chart-container" data-days="<%= @days.to_json %>" data-series="<%= @series.to_json %>"></div>
-
+      </div>
     </div>
+
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-
-    </div>
-
-</div> -->
