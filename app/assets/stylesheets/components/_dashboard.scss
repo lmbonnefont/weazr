@@ -3,7 +3,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns:  65px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 10% 40% 50%;
+  grid-template-rows: 10% 42% 48%;
   justify-content: space-around;
 }
 
@@ -36,7 +36,6 @@
   background: white;
   text-align: left;
   padding: 20px;
-  width: 250px;
 }
 
 .profile .description {
@@ -47,7 +46,8 @@
 }
 
 .days-desc .w-day {
-  width: 250px;
+  width: 220px;
+  height: 300px;
 }
 
 .w-day {
@@ -55,27 +55,59 @@
 }
 
 .day-date {
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: bold;
+  color: #03B7C4;
+  display: flex;
+  align-items: center;
   padding: 10px 10px;
-  background: $blue;
-  border: 5px solid white;
+  border: 6px solid white;
+  background: linear-gradient(90deg, #E0FDFF, white);
+  border-radius: 20px;
+  height: 80px;
 }
 
 .friendliness {
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: bold;
+  color: #03B7C4;
   padding: 10px 10px;
-  background: $blue;
-  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  border: 6px solid white;
+  background: linear-gradient(90deg, #E0FDFF, white);
+  border-radius: 20px;
+  height: 118px;
 }
 
 .usual {
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: bold;
+  color: #03B7C4;
   padding: 10px 10px;
-  background: $blue;
-  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  border: 6px solid white;
+  background: linear-gradient(90deg, #E0FDFF, white);
+  border-radius: 20px;
+  height: 40px;
 }
 
 .adjusted {
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: bold;
+  color: #03B7C4;
   padding: 10px 10px;
-  background: $blue;
-  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  border: 6px solid white;
+  background: linear-gradient(90deg, #E0FDFF, white);
+  border-radius: 20px;
+  height: 40px;
 }
 
 // .profile .stat1 {

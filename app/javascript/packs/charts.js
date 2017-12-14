@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         "type": "msline",
         "renderAt": 'chart-container',
          "width": "1200",
-         "height": "300",
+         "height": "280",
          "dataFormat": "json",
          "dataSource": {
             chart:{
