@@ -159,7 +159,7 @@ campaign2 = {
 
 campaign3 = {
   start: "10/12/2017",
-  end: "15/12/2017",
+  end: "14/12/2017",
   budget_total: "80000",
   budget_remaining: "122",
   post_msg: "Faites le plein des plus délicieux fruits de mer avant Noël. Un petit goût iodé dans votre bouche pour votre plus grand plaisir. Reprenez le contrôle de la paëlla.",
