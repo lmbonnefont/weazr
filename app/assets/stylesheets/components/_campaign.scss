@@ -130,6 +130,9 @@
 }
 
 .fb-more:hover {
-  color: white;
-  background: $blue !important;
+  width: 360px;
+  height: 480px;
+  color: white !important;
+  background: $blue;
+  box-shadow: 0 0 10px gray;
 }
