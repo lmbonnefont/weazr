@@ -18,6 +18,11 @@
   display:flex;
   justify-content: space-around;
   background: white;
+  margin-top: 10px;
+  border-top: 1px solid $blue;
+  border-bottom: 1px solid $blue;
+  border-right: 1px solid $blue;
+  margin-right: 20px;
 }
 
 .profile .navbar-dashboard {
@@ -32,11 +37,15 @@
   grid-row: 2 / span 1;
   grid-column: 2 / span 1;
   display: flex;
-  align-items: flex-start;
-  background: white;
+  flex-direction: column;
+  align-items: space-between;
+  background: #E0F7F9;
   text-align: left;
+  margin-top: 10px;
+  margin-left: 20px;
   padding: 20px;
   width: 250px;
+  border-left: 1px solid $blue;
 }
 
 .profile .description {
@@ -52,6 +61,10 @@
 
 .w-day {
   width: 120px;
+}
+
+#back {
+  background-color: white !important;
 }
 
 // .profile .stat1 {
@@ -90,7 +103,7 @@
 // }
 
 .profile .off {
-  background-color: rgba(128, 128, 128, 0.2);
+  // background-color: rgba(128, 128, 128, 0.2);
   width: 100px;
 }
 
