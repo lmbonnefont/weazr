@@ -64,7 +64,6 @@
               <div class="stat-content">
                 <h3><%= day.strftime("%e") %></h3>
                 <p><%= day.strftime("%a") %></p>
-                <% indice_weather = @campaign_days.find_by_date(day).indice_rain * 0.6 + @campaign_days.find_by_date(day).indice_temperature * 0.2 + @campaign_days.find_by_date(day).indice_damp * 0.2 %>
                 <% if @campaign_days.find_by_date(day).indice_daily >= (1/(@campaign.end-@campaign.start) * 1.2) %>
                   <div class="smiley">😃</div>
 
@@ -147,7 +146,6 @@
                   <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
                   <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
 
-
                 </div>
               </div>
 
@@ -175,5 +173,5 @@
     <div class="col-md-12">
 
     </div>
-  </div>
+
 </div> -->
