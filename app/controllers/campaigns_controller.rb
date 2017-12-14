@@ -16,21 +16,21 @@ class CampaignsController < ApplicationController
     #### BEWARE WHEN ADDING A CAMPAIGN, TOKENS MAY NEED AN UPDATE #####
 
       # # -------- Creation of a Facebook campaign -------- # #
-      account_id = current_user.company.account_id
-      page_id = current_user.company.page_id
-      website_url = current_user.company.website_url
-      pixel_id = current_user.company.pixel_id
-      new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
-      name = @campaign.title
-      budget = @campaign.budget_total * 100
-      post_title = @campaign.post_title
-      post_msg = @campaign.post_msg
-      image_url = @campaign.photo.url
-      new_campaign.generate_ad(name, post_title, post_msg, image_url, budget)
+      #account_id = current_user.company.account_id
+      #page_id = current_user.company.page_id
+      #website_url = current_user.company.website_url
+      #pixel_id = current_user.company.pixel_id
+      #new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
+      #name = @campaign.title
+      #budget = @campaign.budget_total * 100
+      #post_title = @campaign.post_title
+      #post_msg = @campaign.post_msg
+      #image_url = @campaign.photo.url
+      #new_campaign.generate_ad(name, post_title, post_msg, image_url, budget)
 
       # # -------- Display on Facebook page -------- # #
       # if @campaign.display == true
-        new_campaign.display(image_url, post_msg)
+      #  new_campaign.display(image_url, post_msg)
       # end
 
   ################################################################
@@ -110,6 +110,8 @@ class CampaignsController < ApplicationController
       end
     end
 
+    nb_jour = campaign.campaign_days.length
+    sommebudgetbeforeadjustment = 0
     campaign.campaign_days.each do |cd|
         if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
           if sumrain == 0
@@ -125,14 +127,29 @@ class CampaignsController < ApplicationController
           d = Meteo.find_by(date: cd.date).damp / sumdamp
           cd.indice_damp = d
           # damp += d
-          if sumrain == 0
-            cd.indice_daily =  cd.indice_bau
-          else
-            cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
-          end
-          cd.budget_forcast = cd.campaign.budget_remaining * cd.indice_daily
+
+          indice = (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain)
+          cd.indice_daily = (indice - (1/nb_jour))
+          indiceecartmoyenne = cd.indice_daily * 5
+          cd.budget_forcast = (1 + indiceecartmoyenne) * cd.campaign.budget_total * cd.indice_bau
+          sommebudgetbeforeadjustment += cd.budget_forcast
           cd.save!
         end
       end
+
+    indiceajustement = campaign.budget_total / sommebudgetbeforeadjustment
+
+    somme_budget_final = 0
+
+    campaign.campaign_days.each do |cd|
+      cd.budget_forcast = cd.budget_forcast * indiceajustement
+      cd.save!
+    end
   end
 end
+
+          # if sumrain == 0
+          #   cd.indice_daily =  cd.indice_bau
+          # else
+          #   cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
+          # end
