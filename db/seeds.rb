@@ -125,8 +125,8 @@ k_inputs = {
 }
 
 campaign1 = {
-  start: "11/29/2017",
-  end: "12/09/2017",
+  start: "29/11/2017",
+  end: "09/12/2017",
   budget_total: "50000",
   budget_remaining: "26",
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
@@ -142,9 +142,9 @@ campaign1 = {
 }
 
 campaign2 = {
-  start: "12/01/2017",
-  end: "12/30/2017",
-  budget_total: "90000",
+  start: "01/12/2017",
+  end: "30/12/2017",
+  budget_total: "95000",
   budget_remaining: "122",
   post_msg: "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.",
   post_title: "Envie de nouveauté ?",
@@ -158,8 +158,8 @@ campaign2 = {
 }
 
 campaign3 = {
-  start: "12/10/2017",
-  end: "12/15/2017",
+  start: "10/12/2017",
+  end: "15/12/2017",
   budget_total: "80000",
   budget_remaining: "122",
   post_msg: "Faites le plein des plus délicieux fruits de mer avant Noël. Un petit goût iodé dans votre bouche pour votre plus grand plaisir. Reprenez le contrôle de la paëlla.",
@@ -172,6 +172,22 @@ campaign3 = {
   impressions: "5395",
   active: false,
 }
+
+# campaign4 = {
+#   start: "05/12/2017",
+#   end: "20/12/2017",
+#   budget_total: "80000",
+#   budget_remaining: "122",
+#   post_msg: "Notre crédo ? Une livraison rapide et sans soucis. Du restaurant à votre assiette à la vitesse de l'éclair.",
+#   post_title: "Laissez votre estomac reprendre le contrôle.",
+#   title: "Sea Time",
+#   cpm: "15,97",
+#   cpc: "0.28",
+#   post_engagements: "834",
+#   btn_click: "59",
+#   impressions: "2305",
+#   active: false,
+# }
 
 k_user = User.new(k_user)
 kibouftou = Company.new(kibouftou)
