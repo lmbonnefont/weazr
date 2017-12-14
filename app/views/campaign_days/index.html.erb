@@ -81,11 +81,14 @@
 
                   <% temperature = Meteo.find_by(date: day).temperature %>
                   <% if temperature >= 17 %>
-                    <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
+                    <i class="fa fa-thermometer-empty color-red" aria-hidden="true"></i>
+                    <%= temperature %> °C
                   <% elsif temperature >= 10 && temperature < 17  %>
                     <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
+                    <%= temperature %> °C
                   <% else temperature < 10 %>
                     <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
+                    <%= temperature %> °C
                   <% end %>
                 <% elsif @campaign_days.find_by_date(day).indice_daily < (1/(@campaign.end-@campaign.start) * 0.8)%>
                   <div class="smiley">😖</div>
@@ -103,10 +106,13 @@
                    <% temperature = Meteo.find_by(date: day).temperature %>
                    <% if temperature >= 17 %>
                      <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
+                     <%= temperature %> °C
                    <% elsif temperature >= 10 && temperature < 17  %>
                      <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
+                     <%= temperature %> °C
                    <% else temperature < 10 %>
                      <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
+                     <%= temperature %> °C
                    <% end %>
 
                 <% else %>
@@ -126,10 +132,13 @@
                   <% temperature = Meteo.find_by(date: day).temperature %>
                   <% if temperature >= 17 %>
                     <i class="fa fa-thermometer-empty" style="color: red" aria-hidden="true"></i>
+                    <%= temperature %> °C
                   <% elsif temperature >= 10 && temperature < 17  %>
                     <i class="fa fa-thermometer-empty" style="color: gray" aria-hidden="true"></i>
+                    <%= temperature %> °C
                   <% else temperature < 10 %>
                     <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
+                    <%= temperature %> °C
                   <% end %>
                 <% end %>
 
