@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
       pixel_id = current_user.company.pixel_id
       new_campaign = FacebookAdsAPIClient.new(account_id, page_id, website_url, pixel_id)
       name = @campaign.title
-      budget = @campaign.budget_total
+      budget = @campaign.budget_total * 100
       post_title = @campaign.post_title
       post_msg = @campaign.post_msg
       image_url = @campaign.photo.url
