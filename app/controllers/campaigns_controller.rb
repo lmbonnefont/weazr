@@ -2,6 +2,7 @@ class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   def new
+    @company = current_user.company
     @campaign = Campaign.new
   end
 

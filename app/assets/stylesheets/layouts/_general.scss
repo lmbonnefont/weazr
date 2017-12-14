@@ -4,4 +4,12 @@
 
 .box-shadow {
   box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
+
+}
+.box-shadow-2 {
+  box-shadow: 2px 2px 3px rgba(207, 231, 245, 0.39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin: 50px;
 }

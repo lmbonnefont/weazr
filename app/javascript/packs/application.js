@@ -23,3 +23,5 @@ flatpickr("#start_date", {
   maxDate: Date.now() + 1296000000,
 });
 
+import { one } from '../components/fb-show.js';
+one();

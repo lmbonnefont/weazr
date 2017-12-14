@@ -87,7 +87,7 @@
               </div>
               <h3 class="marque text-left"><%= campaign.company.name %></h3>
               <p class="sponsor text-left">Sponsored</p>
-              <div class="title text-left"> <%= campaign.title %></div>
+              <div class="title text-left" style="color: black"> <%= campaign.title %></div>
               <div class="pic">
                 <%= cl_image_tag campaign.photo , height: 180, width: 340, crop: :fill %>
               </div>
@@ -97,10 +97,10 @@
                 <% likes = (0..5) %>
                 <% shares = (150..220) %>
                 <% comments = (0..1) %>
-                <p class="counts text-left"><%= "#{rand(likes)} Likes #{rand(comments)} Comment 0 Shares" %></p>
+                <p class="counts text-left" style="color: #9197A3"><%= "#{rand(likes)} Likes #{rand(comments)} Comment 0 Shares" %></p>
               </div>
               <div >
-                <h2 class="interaction-bar text-left"> Likes Comments Share</h2>
+                <h2 class="interaction-bar text-left" style="color: #7F7F7F; font-weight: bold"> 100 Likes 80 Comments 34 Share</h2>
               </div>
               <%= link_to "Remove Ad", campaign_path(campaign),:class => 'btn bouton2', method: :delete %>
               <% if campaign.end > Date.today %>
