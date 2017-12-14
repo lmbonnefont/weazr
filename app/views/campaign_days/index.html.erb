@@ -42,11 +42,14 @@
     <div class="days-desc">
       <div class="w-day">
         <div class="stat-content">
-          <h3>Days</h3>
-          <br>
-          <p>Business Friendly?</p>
-          <div class="contenant-budget">
+          <div class="day-date">
+            <h3>Days</h3>
+          </div>
+          <div class="friendliness"><p>Business Friendly?</p></div>
+          <div class="usual">
             <p>Usual Spending</p>
+          </div>
+          <div class="adjusted">
             <p style="color: gray; font-weight: normal">Adjusted Spending</p>
           </div>
         </div>
@@ -114,7 +117,6 @@
                        <i class="fa fa-thermometer-empty" style="color: blue" aria-hidden="true"></i>
                        <%= temperature %> °C
                      <% end %>
-
                   <% else %>
                     <div class="smiley">😌</div>
                     <% rain = Meteo.find_by(date: day).rain %>
@@ -143,16 +145,12 @@
                   <% end %>
 
                   <div class="contenant-budget">
-
-                    <p style="color: $blue; font-weight: normal">€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
-                    <p>€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
-
-
+                    <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
+                    <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
                   </div>
-                </div>
 
               </div>
-
+            </div>
 
             <% else %>
               <div class="w-day off">
@@ -176,5 +174,5 @@
 
       </div>
     </div>
-  </div>
+
 </div>

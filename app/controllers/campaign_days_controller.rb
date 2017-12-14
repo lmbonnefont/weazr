@@ -25,6 +25,14 @@ class CampaignDaysController < ApplicationController
     @series[2]["data"] = @campaign_days.where(date: [Date.today..Date.today + 7]).pluck(:indice_temperature).map do |temperature|
       {"value": temperature}
     end
+
+    @savings = 0
+    @campaign.campaign_days.each do |cd|
+      if cd.indice_bau * @campaign.budget_total - cd.budget_forcast > 0
+        @savings += cd.indice_bau * @campaign.budget_total - cd.budget_forcast
+      end
+    end
+    @savings = (@savings / 100).round(1)
   end
 
 end
