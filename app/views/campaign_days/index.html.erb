@@ -143,8 +143,9 @@
 
                 <div class="contenant-budget">
 
-                  <p style="color: $blue; font-weight: normal">€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
-                  <p>€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
+                  <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
+                  <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
+
                 </div>
               </div>
 
@@ -162,7 +163,7 @@
         <% end %>
   </div>
 
-    <div class="description">
+    <!-- <div class="description">
         <div id="chart-container" data-days="<%= @days.to_json %>" data-series="<%= @series.to_json %>"></div>
 
     </div>
@@ -172,7 +173,5 @@
     <div class="col-md-12">
 
     </div>
-  </div>
-</div>
 
-<h1><%= @savings %></h1>
+</div> -->
