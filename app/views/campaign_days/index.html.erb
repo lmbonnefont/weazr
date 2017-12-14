@@ -20,10 +20,8 @@
             <i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
             <% end %>
           </h3>
-
         </div>
     </div>
-
     <div class="navbar-dashboard stat ">
       <div class="navbar-wagon-left" style="padding: 10px">
         <i class="fa fa-calendar" style="color: #60A1F4; font-weight: bold; margin-right: 10px;" aria-hidden="true"></i> |
@@ -32,8 +30,7 @@
         </span>
       </div>
       <div class="campaign-budget" style="font-weight: bold">
-        <i style="font-weight: bold; margin: 8px" class="fa fa-money" aria-hidden="true"> </i> =>
-        <%= @campaign.budget_total / 100 %>€
+        <i style="font-weight: bold; margin: 8px" class="fa fa-money" aria-hidden="true"> </i><%= @campaign.budget_total / 100 %>€
       </div>
 
       <div class="campaign-title">Campaign name : <%= link_to @campaign.title, campaign_path(@campaign) %></div>
@@ -41,18 +38,18 @@
 
     <div class="days-desc">
       <div class="w-day">
-        <div class="stat-content">
           <div class="day-date">
-            <h3>Days</h3>
+            Days
           </div>
-          <div class="friendliness"><p>Business Friendly?</p></div>
+          <div class="friendliness">
+            Business Friendly?
+          </div>
           <div class="usual">
-            <p>Usual Spending</p>
+            Usual Spending
           </div>
           <div class="adjusted">
-            <p style="color: gray; font-weight: normal">Adjusted Spending</p>
+            Adjusted Spending
           </div>
-        </div>
       </div>
     </div>
 
@@ -148,7 +145,6 @@
                     <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
                     <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
                   </div>
-
               </div>
             </div>
 
