@@ -148,4 +148,9 @@
       </div>
     </div>
 
+<% somme = 0 %>
+<% @campaign.campaign_days.each do |cd| %>
+<% somme += cd.budget_forcast %>
+<% end %>
+<%= somme %>
 
