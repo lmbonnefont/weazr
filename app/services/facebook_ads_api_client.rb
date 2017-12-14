@@ -6,9 +6,8 @@ require 'date'
 class FacebookAdsAPIClient
 
   def initialize(account_id, page_id, website_url, pixel_id)
-    # FacebookAds.access_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
-    @marketing_token = 'EAAVcDLP8LsoBAAwL3n4YGgrbFTZCpKkB7nvOd2PuyvtPMb01CjyPMeBGkiOssPSHFUPyORUUSaGTsjK9gl1W27vjBmVQtBcL0UZBqa7rMssuGHYaGWPQqDZA7asZBaUkZAPrwi1eQxcAwIuMqxGkCca3mfBFcVWrdXzqUy4u3qQZDZD'
-    @page_token = 'EAAVcDLP8LsoBAEFMJFqhcoZCdyg7iZB4mHgAv4Lfv0sVIx5ZCguhWz5cmw2TxulriIDdUIRZAmQi7sNmZBEiPD7M71lUpARzW6B1nLW3F0n0ba1nXXjS9tKTWkxXfqq5A4KadvpFnX1cJcIOIjn0kYZAJk3gUw48hXsSYsLkYm8yDROum7mlgAIxSpVEPQn3MZD'
+    @marketing_token = 'EAAVcDLP8LsoBAId3ZADjlrvWLoJ6OzL2QfrUxRhYbTGWAOFBsFi1SWnWPJmAuVjscea0OhhAZC5dICn0mQOcuCq5WtF96TBQEyZB9GKjVeObHiaBHGZCpPdwHQMWxToYZCHa9CwP8lylc6H4gIhQkfwQLOQf7Aq52bv5HxiYsOwZDZD'
+    @page_token = 'EAACEdEose0cBAM3C7Ef9ZCNhGvcpxDo56RhdBMoB0xc6stjtfT9OCIbgETY5vFyhqUIdNwutaLFkVZC5e7Wb2UlLVKfXSReo3lSo5VcZBwpOZBbkqwIGUfVpStlPoeLU7FS2NhzSaQdsXjsOjhkQUg5YIZCcF0XZCjpJwC4MpFPZAqjTWvZB7LZBayU67ZAp8aWukUN7uQSSvy3QZDZD'
     FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
     FacebookAds.access_token = @marketing_token
     @account_id = account_id
