@@ -56,7 +56,7 @@
   }
 }
 
-.week-container {
+.inputs-container {
   label {
     color: $blue;
     font-weight: lighter;
@@ -75,6 +75,7 @@
   text-align: center;
   .form-group {
   margin: 10px;
+  flex: 1 1 auto;
 
   }
 }

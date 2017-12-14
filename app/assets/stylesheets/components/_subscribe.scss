@@ -28,14 +28,16 @@
   text-transform: uppercase;
   padding: 0.8em 1.3em;
   font-weight: bold;
-  color: white;
+  color: #2f336a;
   letter-spacing: 1px;
   transition: all .3s;
+  border: 1px solid #ffce3c;
   &:hover {
-    background-color: #ffe189;
-    color: white;
+    background-color: #2f336a;
+    color: #ffce3c;
     cursor: pointer;
     transition: all .3s;
+    border: 1px solid #ffce3c;
   }
 }
 
