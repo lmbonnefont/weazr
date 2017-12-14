@@ -142,13 +142,13 @@ campaign1 = {
 }
 
 campaign2 = {
-  start: "01/12/2017",
-  end: "30/12/2017",
+  start: "01/11/2017",
+  end: "30/11/2017",
   budget_total: "95000",
   budget_remaining: "122",
   post_msg: "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.",
   post_title: "Envie de nouveauté ?",
-  title: "December Specials",
+  title: "November Specials",
   cpm: "14,59",
   cpc: "0.22",
   post_engagements: "1212",
