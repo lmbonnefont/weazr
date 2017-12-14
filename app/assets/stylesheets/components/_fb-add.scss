@@ -10,6 +10,24 @@
   position: relative;
 }
 
+.fb-add-2 {
+  width: 360px;
+  height: 480px;
+  background: white;
+  box-shadow: 0 2px 4px gray;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 167px;
+  margin-top: 50px;
+  position: fixed;
+
+}
+
+.fb-add p, .fb-add h2{
+  color: black;
+}
+
 .logo-company-1 {
   position: absolute;
   left: 12px;
@@ -50,6 +68,15 @@
   left: 0px;
   top: 82px;
   padding: 10px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.pic-empty {
+  position: absolute;
+  left: 10px;
+  top: 86px;
+
   background-size: cover !important;
   background-position: center;
 }

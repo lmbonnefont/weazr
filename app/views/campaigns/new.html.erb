@@ -1,11 +1,8 @@
-
-
 <% @skip_footer = true %>
 
 <div class="container">
   <div class="row">
-
-    <div class="col-md-6 col-md-offset-3 form-sign box-shadow">
+    <div class="col-md-6 form-sign box-shadow">
       <h2 class= "text-center cta-header-no-size" style="color: #60A1F4">Create your campaign!</h2>
 
 
@@ -33,10 +30,39 @@
 
         <div class="form-actions text-center">
           <%= f.button :submit, "create campaign", :class => 'btn-white btn-colored' %>
-
         </div>
       <% end %>
-     </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="fb-add-2">
+
+        <div class="logo-company-1">
+          <%= cl_image_tag @company.photo, :class => 'avatar ',
+          width: 45, height: 45, crop: :fill %>
+        </div>
+
+        <h3 class="marque text-left" > <%= @company.name %></h3>
+        <p class="sponsor text-left">Sponsored</p>
+        <div class="title text-left" style="color: black" id="fb-show-title"> </div>
+        <div class="pic-empty">
+          <%= cl_image_tag("ubereats_main_1493714644355_p1tnrn.jpg", width: 340, height: 180) %>
+        </div>
+        <div>
+          <h2 class="title-un-pic1 text-left" id="title-pic-fb"> </h2>
+          <p class="p-un-pic text-left" id="content-pic-fb"></p>
+
+          <% likes = (0..5) %>
+          <% shares = (150..220) %>
+          <% comments = (0..1) %>
+          <p class="counts text-left" style="color: #9197A3"><%= "#{rand(likes)} Likes #{rand(comments)} Comment 0 Shares" %></p>
+        </div>
+        <div >
+          <h2 class="interaction-bar text-left" style="color: #7F7F7F; font-weight: bold"> 100 Likes 80 Comments 34 Share</h2>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -39,11 +39,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: 20px;
+  border-radius: 4px;
   width: 1140px;
   margin: 40px auto;
   border: solid 2px $blue;
-  background: $blue;
+  background: white;
 }
 
 .metrics-block {
@@ -51,7 +51,7 @@
   display: flex;
   align-items: center;
   font-family: Raileway;
-  color: white;
+  color: $blue;
   // color: rgba(0, 0, 0, 0.6);
   font-weight: 300;
 }
