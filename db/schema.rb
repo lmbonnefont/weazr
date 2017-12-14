@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213130327) do
+ActiveRecord::Schema.define(version: 20171214103449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171213130327) do
     t.bigint "company_id"
     t.date "start"
     t.date "end"
-    t.integer "budget_total"
+    t.integer "budget_total", default: 0
     t.integer "budget_remaining"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

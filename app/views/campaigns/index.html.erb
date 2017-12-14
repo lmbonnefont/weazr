@@ -1,6 +1,5 @@
 
 <% @skip_footer = true %>
-
 <div class="campaigns-stat-header text-center">
   <div class="metrics-block">
     <div class="campaigns-metrics-numbers">
@@ -102,12 +101,18 @@
               <div >
                 <h2 class="interaction-bar text-left"> Likes Comments Share</h2>
               </div>
-              <%= link_to "Remove Ad", campaign_path(campaign),:class => 'btn bouton2', method: :delete %>
+
+                <div class="actions">
+                  <%= link_to campaign_path(campaign), method: :delete do %>
+                    <i class="fa fa-lg fa-trash-o" style="color: $blue; margin: 20px"></i>
+                  <% end %>
               <% if campaign.end > Date.today %>
                 <%= link_to campaign_campaign_days_path(campaign) do %>
-                  <i class="fa fa-lg fa-calendar"   aria-hidden="true" style="color: #55A1F4; margin: 20px"></i>
+                  <i class="fa fa-lg fa-calendar"   aria-hidden="true" style="color: $blue;"></i>
                 <% end %>
               <% end %>
+                </div>
+
             </div>
           <% end %>
         </div>
