@@ -20,10 +20,8 @@
             <i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
             <% end %>
           </h3>
-
         </div>
     </div>
-
     <div class="navbar-dashboard stat ">
       <div class="navbar-wagon-left" style="padding: 10px">
         <i class="fa fa-calendar" style="color: #60A1F4; font-weight: bold; margin-right: 10px;" aria-hidden="true"></i> |
@@ -147,7 +145,6 @@
                     <p>€<%= ((@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total) / 100).round(1) %></p>
                     <p id="weather-style">€<%= (@campaign_days.find_by_date(day).budget_forcast / 100).round(1) %></p>
                   </div>
-
               </div>
             </div>
 
