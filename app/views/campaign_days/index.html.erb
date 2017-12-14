@@ -33,7 +33,7 @@
     </div>
     <div class="campaign-budget" style="font-weight: bold">
       <i style="font-weight: bold; margin: 8px" class="fa fa-money" aria-hidden="true"> </i> =>
-      <%= @campaign.budget_total %>€
+      <%= @campaign.budget_total / 100 %>€
     </div>
 
     <div class="campaign-title">Campaign name : <%= link_to @campaign.title, campaign_path(@campaign) %></div>
@@ -58,23 +58,27 @@
     <% day7 = today + 6 %>
     <% i = 0 %>
     <% (today..day7).each  do |day| %>
+
           <% if day >= @campaign.start && day <= @campaign.end %>
             <div class="w-day">
               <div class="stat-content">
                 <h3><%= day.strftime("%e") %></h3>
                 <p><%= day.strftime("%a") %></p>
-                <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
+                <% indice_weather = @campaign_days.find_by_date(day).indice_rain * 0.6 + @campaign_days.find_by_date(day).indice_temperature * 0.2 + @campaign_days.find_by_date(day).indice_damp * 0.2 %>
+                <% if @campaign_days.find_by_date(day).indice_daily >= (1/(@campaign.end-@campaign.start) * 1.2) %>
                   <div class="smiley">😃</div>
-                <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
+                <% elsif @campaign_days.find_by_date(day).indice_daily < (1/(@campaign.end-@campaign.start) * 0.8)%>
                   <div class="smiley">😖</div>
                 <% else %>
                   <div class="smiley">😌</div>
                 <% end %>
+
                 <div class="contenant-budget">
 
-                  <p>€<%= @campaign_days.find_by_date(day).budget_forcast.truncate %></p>
+                  <p>€<%= @campaign_days.find_by_date(day).budget_forcast.truncate / 100 %></p>
 
-                  <p style="color: gray; font-weight: normal">€<%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) %></p>
+                  <p style="color: gray; font-weight: normal">€<%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) / 100 %></p>
+
 
                 </div>
               </div>
