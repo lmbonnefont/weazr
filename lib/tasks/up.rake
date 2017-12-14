@@ -31,6 +31,9 @@ namespace :weather do
         end
     end
     updatedays(nextdays, hashday)
+    m = Meteo.new
+    m.date = Date.today + 14
+    m.save!
   end
 
   def transform_date(date)
