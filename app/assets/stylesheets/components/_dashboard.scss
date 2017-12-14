@@ -3,14 +3,13 @@
   height: 100vh;
   display: grid;
   grid-template-columns:  65px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 10% 40% 50%;
+  grid-template-rows: 10% 50% 40%;
   justify-content: space-around;
 }
 
 .profile .menu {
   grid-row: 1 / span 3;
   grid-column: 1 / span 1;
-
 }
 
 .profile .all-days {
@@ -19,6 +18,11 @@
   display:flex;
   justify-content: space-around;
   background: white;
+  margin-top: 20px;
+  // border-top: 1px solid $blue;
+  // border-bottom: 1px solid $blue;
+  // border-right: 1px solid $blue;
+  margin-right: 20px;
 }
 
 .profile .navbar-dashboard {
@@ -32,12 +36,15 @@
 .days-desc {
   grid-row: 2 / span 1;
   grid-column: 2 / span 1;
-  display: flex;
-  align-items: flex-start;
-  background: white;
+  // background: #E0F7F9;
   text-align: left;
-  padding: 20px;
-  width: 200px;
+  margin-top: 20px;
+  margin-left: 20px;
+  // padding-left: 20px;
+  width: 250px;
+  // border-top: 1px solid $blue;
+  // border-bottom: 1px solid $blue;
+  // border-left: 1px solid $blue;
 }
 
 .profile .description {
@@ -47,6 +54,65 @@
   justify-content: space-around;
 }
 
+.day-date {
+  display: flex;
+  align-items: center;
+  background: #E0F7F9;
+  padding-left: 10px;
+  border: 4px solid white;
+  height: 100px;
+  h3 {
+    margin: 0px !important;
+  }
+}
+
+.friendliness {
+  display: flex;
+  align-items: center;
+  background: #E0F7F9;
+  padding-left: 10px;
+  border: 4px solid white;
+  height: 125px;
+  p {
+    margin: 0 !important;
+  }
+}
+
+.usual {
+  display: flex;
+  align-items: center;
+  background: #E0F7F9;
+  padding-left: 10px;
+  border: 4px solid white;
+  height: 40px;
+  p {
+    margin: 0 !important;
+  }
+}
+
+.adjusted {
+  display: flex;
+  align-items: center;
+  background: #E0F7F9;
+  padding-left: 10px;
+  border: 4px solid white;
+  height: 40px;
+  p {
+    margin: 0 !important;
+  }
+}
+
+.days-desc .w-day {
+  width: 250px;
+}
+
+.w-day {
+  width: 120px;
+}
+
+#back {
+  background-color: white !important;
+}
 
 // .profile .stat1 {
 //   grid-row: 2 / span 1;
@@ -84,7 +150,8 @@
 // }
 
 .profile .off {
-  background-color: rgba(128, 128, 128, 0.2);
+  // background-color: rgba(128, 128, 128, 0.2);
+  width: 100px;
 }
 
 
