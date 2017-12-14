@@ -8,6 +8,7 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
+    @campaign.budget_total = @campaign.budget_total * 100
     @campaign.company = current_user.company
     @campaign.budget_remaining = @campaign.budget_total
     if @campaign.save!
@@ -110,6 +111,8 @@ class CampaignsController < ApplicationController
       end
     end
 
+    nb_jour = campaign.campaign_days.length
+    sommebudgetbeforeadjustment = 0
     campaign.campaign_days.each do |cd|
         if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
           if sumrain == 0
@@ -125,14 +128,29 @@ class CampaignsController < ApplicationController
           d = Meteo.find_by(date: cd.date).damp / sumdamp
           cd.indice_damp = d
           # damp += d
-          if sumrain == 0
-            cd.indice_daily =  cd.indice_bau
-          else
-            cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
-          end
-          cd.budget_forcast = cd.campaign.budget_remaining * cd.indice_daily
+
+          indice = (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain)
+          cd.indice_daily = (indice - (1/nb_jour))
+          indiceecartmoyenne = cd.indice_daily * 7
+          cd.budget_forcast = (1 + indiceecartmoyenne) * cd.campaign.budget_total * cd.indice_bau
+          sommebudgetbeforeadjustment += cd.budget_forcast
           cd.save!
         end
       end
+
+    indiceajustement = campaign.budget_total / sommebudgetbeforeadjustment
+
+    somme_budget_final = 0
+
+    campaign.campaign_days.each do |cd|
+      cd.budget_forcast = cd.budget_forcast * indiceajustement
+      cd.save!
+    end
   end
 end
+
+          # if sumrain == 0
+          #   cd.indice_daily =  cd.indice_bau
+          # else
+          #   cd.indice_daily = 0.5 * (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain) + 0.5 * cd.indice_bau
+          # end

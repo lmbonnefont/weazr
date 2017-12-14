@@ -3,32 +3,47 @@
 <div class="container">
   <div class="row">
 
+
     <div class="col-md-6 col-md-offset-3 form-sign ">
       <div class="text-center">
         <h2 class= "cta-header-no-size-form ">Create your investement pattern</h2>
       </div>
 
-      <p class="text-center">Give us your importance, we will manage it for you</p>
+
+      <h4 class="text-center">Give us your importance, we will manage it for you</h4>
 
         <%= simple_form_for @input, url: company_input_path(params[:company_id]), method: :patch do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
           <%#= f.hidden_field :path, :value => @path  %>
-          <%= f.input :monday, placeholder: 'betwen 0 and 100%' %>
-          <%= f.input :tuesday, placeholder: 'betwen 0 and 100%'%>
-          <%= f.input :wednesday, placeholder: 'betwen 0 and 100%'%>
-          <%= f.input :thursday, placeholder: 'betwen 0 and 100%'%>
-          <%= f.input :friday, placeholder: 'betwen 0 and 100%'%>
-          <%= f.input :saturday, placeholder: 'betwen 0 and 100%'%>
-          <%= f.input :sunday, placeholder: 'betwen 0 and 100%'%>
+          <div class="week-container">
+            <p>Start of the week</p>
 
+            <div class="days-container">
+                <%= f.input :monday, required: false, placeholder: 'from 0 to 10' %>
+                <%= f.input :tuesday, required: false, placeholder: 'from 0 to 10'%>
+                <%= f.input :wednesday, required: false, placeholder: 'from 0 to 10'%>
+                <%= f.input :thursday, required: false, placeholder: 'from 0 to 10'%>
+
+            </div>
+            <p>End of the week</p>
+            <div class="days-container">
+
+                  <%= f.input :friday, required: false, placeholder: 'from 0 to 10'%>
+                  <%= f.input :saturday, required: false, placeholder: 'from 0 to 10'%>
+                  <%= f.input :sunday, required: false, placeholder: 'from 0 to 10'%>
+
+            </div>
+          </div>
         </div>
 
         <div class="form-actions text-center">
           <%= f.button :submit, "Edit company", :class => 'btn-white btn-colored' %>
         </div>
       <% end %>
+
+      </div>
 
     </div>
 

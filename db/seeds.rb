@@ -125,8 +125,8 @@ k_inputs = {
 }
 
 campaign1 = {
-  start: "11/29/2017",
-  end: "12/09/2017",
+  start: "29/11/2017",
+  end: "09/12/2017",
   budget_total: "50000",
   budget_remaining: "26",
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
@@ -142,9 +142,9 @@ campaign1 = {
 }
 
 campaign2 = {
-  start: "12/01/2017",
-  end: "12/30/2017",
-  budget_total: "90000",
+  start: "01/12/2017",
+  end: "30/12/2017",
+  budget_total: "95000",
   budget_remaining: "122",
   post_msg: "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.",
   post_title: "Envie de nouveauté ?",
@@ -157,9 +157,9 @@ campaign2 = {
   active: false,
 }
 
-campaign2 = {
-  start: "12/10/2017",
-  end: "12/15/2017",
+campaign3 = {
+  start: "10/12/2017",
+  end: "15/12/2017",
   budget_total: "80000",
   budget_remaining: "122",
   post_msg: "Faites le plein des plus délicieux fruits de mer avant Noël. Un petit goût iodé dans votre bouche pour votre plus grand plaisir. Reprenez le contrôle de la paëlla.",
@@ -173,12 +173,28 @@ campaign2 = {
   active: false,
 }
 
+# campaign4 = {
+#   start: "05/12/2017",
+#   end: "20/12/2017",
+#   budget_total: "80000",
+#   budget_remaining: "122",
+#   post_msg: "Notre crédo ? Une livraison rapide et sans soucis. Du restaurant à votre assiette à la vitesse de l'éclair.",
+#   post_title: "Laissez votre estomac reprendre le contrôle.",
+#   title: "Sea Time",
+#   cpm: "15,97",
+#   cpc: "0.28",
+#   post_engagements: "834",
+#   btn_click: "59",
+#   impressions: "2305",
+#   active: false,
+# }
+
 k_user = User.new(k_user)
 kibouftou = Company.new(kibouftou)
 k_inputs = Input.new(k_inputs)
 campaign1 = Campaign.new(campaign1)
 campaign2 = Campaign.new(campaign2)
-campaign3 = Campaign.new(campaign2)
+campaign3 = Campaign.new(campaign3)
 k_dash = Dashboard.new
 
 kibouftou.user = k_user
@@ -189,16 +205,16 @@ campaign1.company = kibouftou
 campaign2.company = kibouftou
 campaign3.company = kibouftou
 
-user_url = "https://www.myfrenchstartup.com/founder/575140b66b048.jpg"
+user_url = "http://immomatin.com/images/th/th-151222z5eo4z.gif"
 company_url =  "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089928/kibouftou_kazfqf.png"
 campaign1_url = "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089951/24883602_1919847041668192_4831931305905943121_o_uhrdsu.png"
 campaign2_url = 'http://s1.lemde.fr/mmpub/edt/zip/2017/06/01/155215730-9ecf701879dcd9c76d77f84828f52a711ec691b1/images/t05.jpg'
-campaign2_url = 'https://image.afcdn.com/recipe/20150617/67073_w1024h768c1cx362cy241.jpg'
+campaign3_url = 'https://image.afcdn.com/recipe/20150617/67073_w1024h768c1cx362cy241.jpg'
 k_user.remote_photo_url = user_url
 kibouftou.remote_photo_url = company_url
 campaign1.remote_photo_url = campaign1_url
 campaign2.remote_photo_url = campaign2_url
-campaign2.remote_photo_url = campaign3_url
+campaign3.remote_photo_url = campaign3_url
 
 k_user.save!
 k_inputs.save!
@@ -210,5 +226,6 @@ campaign3.save!
 
 p campaign1
 p campaign2
+p campaign3
 
 ###########################
