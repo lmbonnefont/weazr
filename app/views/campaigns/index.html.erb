@@ -104,7 +104,7 @@
 
                 <div class="actions">
                   <%= link_to campaign_path(campaign), method: :delete do %>
-                    <i class="fa fa-lg fa-trash-o" style="color: $blue; margin: 20px"></i>
+                    <i class="fa fa-lg fa-trash-o" style="color: $blue; margin: 10px"></i>
                   <% end %>
               <% if campaign.end > Date.today %>
                 <%= link_to campaign_campaign_days_path(campaign) do %>
@@ -118,11 +118,10 @@
         </div>
       <% end %>
       <div class="col-md-4">
-        <div class="fb-more">
-          <%= link_to new_campaign_path() do %><i class="fa fa-plus fa-5x plus" aria-hidden="true" style="color: #60A1F4"></i> <% end %>
-        </div>
+          <%= link_to new_campaign_path(), class: "fb-more" do %><i class="fa fa-plus fa-5x plus" aria-hidden="true"></i> <% end %>
       </div>
     <% end %>
   </div>
 </div>
+
 
