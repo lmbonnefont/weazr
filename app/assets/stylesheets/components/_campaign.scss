@@ -125,6 +125,7 @@
 .fb-more {
   width: 360px;
   height: 480px;
+  color: $blue !important;
   background: white;
   // box-shadow: 2px 2px 3px gray;
   border: solid 2px $blue;
@@ -132,4 +133,12 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+.fb-more:hover {
+  width: 360px;
+  height: 480px;
+  color: white !important;
+  background: $blue;
+  box-shadow: 0 0 10px gray;
 }
