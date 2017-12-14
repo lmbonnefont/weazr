@@ -8,6 +8,7 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
+    @campaign.budget_total = @campaign.budget_total * 100
     @campaign.company = current_user.company
     @campaign.budget_remaining = @campaign.budget_total
     if @campaign.save!
