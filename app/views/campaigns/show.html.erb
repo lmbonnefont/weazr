@@ -2,6 +2,7 @@
 
 
 
+
     <div class="container">
       <div class="text-center" style="margin-top:50px">
 
@@ -10,16 +11,15 @@
         <% end %>
           |
           <%= link_to campaign_path(@campaign), method: :delete do %>
-              <i class="fa fa-lg fa-trash-o"   aria-hidden="true" style="color: #D0DAE6; margin: 20px"></i>
+              <i class="fa fa-lg fa-trash-o"   aria-hidden="true" style="color: $blue; margin: 20px"></i>
               <% end %>
-        <%#= link_to "Destroy the campaign", campaign_path(@campaign),:class => 'btn bouton2', method: :delete %>
         <% if @campaign.end > Date.today %>
           |
           <%= link_to campaign_campaign_days_path(@campaign) do %>
           <i class="fa fa-lg fa-calendar" aria-hidden="true" style="color: $blue; margin: 20px"></i>
-
           <% end %>
         <% end %>
+
       </div>
 
       <div class="campaign-grid">
