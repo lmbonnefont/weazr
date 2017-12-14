@@ -1,0 +1,33 @@
+<% (today..day7).each  do |day| %>
+      <% if day >= @campaign.start && day <= @campaign.end %>
+        <div class="stat #{i+1} stat">
+          <div class="stat-content">
+            <h3><%= day.strftime("%e") %></h3>
+            <p><%= day.strftime("%a") %></p>
+            <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
+              <div class="smiley">😃</div>
+            <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
+              <div class="smiley">😖</div>
+            <% else %>
+              <div class="smiley">😌</div>
+            <% end %>
+            <div class="contenant-budget">
+
+              <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
+
+              <p style="color: gray; font-weight: normal"><%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) %>€</p>
+
+            </div>
+          </div>
+        </div>
+
+      <% else %>
+        <div class="stat #{i+1} stat off">
+          <div class="stat-content">
+            <h3><%= day.strftime("%e") %></h3>
+            <p><%= day.strftime("%a") %></p>
+
+          </div>
+        </div>
+      <% end %>
+    <% end %>

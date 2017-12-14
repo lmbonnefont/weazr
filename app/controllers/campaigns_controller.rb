@@ -17,6 +17,7 @@ class CampaignsController < ApplicationController
     #### BEWARE WHEN ADDING A CAMPAIGN, TOKENS MAY NEED AN UPDATE #####
 
       # # -------- Creation of a Facebook campaign -------- # #
+
       #account_id = current_user.company.account_id
       #page_id = current_user.company.page_id
       #website_url = current_user.company.website_url
@@ -131,7 +132,7 @@ class CampaignsController < ApplicationController
 
           indice = (0.6 * cd.indice_damp + 0.2 * cd.indice_temperature + 0.2 * cd.indice_rain)
           cd.indice_daily = (indice - (1/nb_jour))
-          indiceecartmoyenne = cd.indice_daily * 5
+          indiceecartmoyenne = cd.indice_daily * 7
           cd.budget_forcast = (1 + indiceecartmoyenne) * cd.campaign.budget_total * cd.indice_bau
           sommebudgetbeforeadjustment += cd.budget_forcast
           cd.save!
