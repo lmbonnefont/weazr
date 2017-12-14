@@ -39,42 +39,58 @@
     <div class="campaign-title">Campaign name : <%= link_to @campaign.title, campaign_path(@campaign) %></div>
   </div>
 
-  <% today = Date.today + 1%>
-  <% day7 = today + 6 %>
-  <% i = 0 %>
+  <div class="days-desc">
+    <div class="w-day">
+      <div class="stat-content">
+        <h3>Days</h3>
+        <br>
+        <p>Is Weather Friendly?</p>
+        <div class="contenant-budget">
+          <p>Usual Spending</p>
+          <p style="color: gray; font-weight: normal">Adjusted Spending</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="all-days">
+    <% today = Date.today + 1%>
+    <% day7 = today + 6 %>
+    <% i = 0 %>
     <% (today..day7).each  do |day| %>
-      <% if day >= @campaign.start && day <= @campaign.end %>
-        <div class="stat #{i+1} stat">
-          <div class="stat-content">
-            <h3><%= day.strftime("%e") %></h3>
-            <p><%= day.strftime("%a") %></p>
-            <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
-              <div class="smiley">😃</div>
-            <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
-              <div class="smiley">😖</div>
-            <% else %>
-              <div class="smiley">😌</div>
-            <% end %>
-            <div class="contenant-budget">
+          <% if day >= @campaign.start && day <= @campaign.end %>
+            <div class="w-day">
+              <div class="stat-content">
+                <h3><%= day.strftime("%e") %></h3>
+                <p><%= day.strftime("%a") %></p>
+                <% if @campaign_days.find_by_date(day).indice_daily >= 0.12 %>
+                  <div class="smiley">😃</div>
+                <% elsif @campaign_days.find_by_date(day).indice_daily < 0.04 %>
+                  <div class="smiley">😖</div>
+                <% else %>
+                  <div class="smiley">😌</div>
+                <% end %>
+                <div class="contenant-budget">
 
-              <p><%= @campaign_days.find_by_date(day).budget_forcast.truncate %>€</p>
+                  <p>€<%= @campaign_days.find_by_date(day).budget_forcast.truncate %></p>
 
-              <p style="color: gray; font-weight: normal"><%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) %>€</p>
+                  <p style="color: gray; font-weight: normal">€<%= (@campaign_days.find_by_date(day).indice_bau * @campaign.budget_total).round(2) %></p>
 
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-      <% else %>
-        <div class="stat #{i+1} stat off">
-          <div class="stat-content">
-            <h3><%= day.strftime("%e") %></h3>
-            <p><%= day.strftime("%a") %></p>
+          <% else %>
+            <div class="w-day off">
+              <div class="stat-content">
+                <h3><%= day.strftime("%e") %></h3>
+                <p><%= day.strftime("%a") %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+  </div>
 
-          </div>
-        </div>
-      <% end %>
-    <% end %>
     <div class="description">
         <div id="chart-container" data-days="<%= @days.to_json %>" data-series="<%= @series.to_json %>"></div>
 
