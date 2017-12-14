@@ -8,6 +8,7 @@ class FacebookAdsAPIClient
   def initialize(account_id, page_id, website_url, pixel_id)
     @marketing_token = 'EAAVcDLP8LsoBAId3ZADjlrvWLoJ6OzL2QfrUxRhYbTGWAOFBsFi1SWnWPJmAuVjscea0OhhAZC5dICn0mQOcuCq5WtF96TBQEyZB9GKjVeObHiaBHGZCpPdwHQMWxToYZCHa9CwP8lylc6H4gIhQkfwQLOQf7Aq52bv5HxiYsOwZDZD'
     @page_token = 'EAACEdEose0cBAIkTSQSLZBUyZAp6gEKdQqPZCqEpkujtme45djWqGwZAg4ZBRjpuYlIr23KzUwBon1mSYnFvyTrJ9lZAkUgza6RCRwwK1PZAnBcniScSLdZCyT9KD2YNPoVSxK6v6ZCNLZBTdaOgiy5UUG7IvoX65uoWLPxPbtfYZAUi9qjsnCrWnlcPlTmVqlXZCYsZD'
+
     FacebookAds.base_uri = 'https://graph.facebook.com/v2.11'
     FacebookAds.access_token = @marketing_token
     @account_id = account_id
