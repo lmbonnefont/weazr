@@ -31,7 +31,7 @@ class InputsController < ApplicationController
   end
 
   def new_params(params_input)
-    days = params_input.values.map {|valeurs| valeurs.to_i}
+    days = params_input.values.map {|valeurs| valeurs.gsub(",",".").to_f}
     total = days.reduce(:+)
     new_params_input_hash = params_input.to_h
     new_params_input_hash.each {|k,v| new_params_input_hash[k] = ((v.to_f/total*100)/100).round(2)}
