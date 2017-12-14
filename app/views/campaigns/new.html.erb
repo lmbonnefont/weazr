@@ -20,8 +20,14 @@
           <%= f.input :budget_total, as: :string, label: "Budget to be spent" %>
           <%= f.input :post_title %>
           <%= f.input :post_msg, label: "Post content" %>
-          <%= f.input :photo, label: "Add a picture" %>
-          <%= f.input :photo_cache, as: :hidden %>
+          <div class="photo-container">
+            <%= f.label :photo do %>
+              <i class="fa fa-lg fa-cloud-upload" aria-hidden="true"></i>
+              Add a picture
+            <% end %>
+            <%= f.input :photo, label: false %>
+            <%= f.input :photo_cache, as: :hidden %>
+          </div>
           <%= f.input :display, as: :boolean, label: false, inline_label: "Also display on my Facebook page" %>
         </div>
 
@@ -35,3 +41,4 @@
 </div>
 
 
+<i class="fa fa-cloud-upload" aria-hidden="true"></i>

@@ -21,13 +21,19 @@
     color: black;
 }
 
-.campaign_photo {
+.photo-container {
   input {
     display: none;
   }
   label {
+    border-radius: 3px;
     background: #2069e2;
     color: white;
     padding: 20px;
+    font-weight: lighter;
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
   }
 }
