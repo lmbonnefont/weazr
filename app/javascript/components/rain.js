@@ -1,49 +1,4 @@
-<div class="banner">
-  <div class="banner-content" >
-    <ul class = list-inline>
-      <li><h1>Weazr</h1></li>
-      <li><h2>Forecast your</h2></li>
-      <li><h3>Facebook</h3></li>
-      <li><h2>Ads</h2></li>
-      <li><h1><i class="em em-smiley"></i></h1></li>
-    </ul>
-    <p class="bold">
-      <span id="banner-typed-text"></span>
-    </p>
-    <div class="input-group col-md-6 col-md-offset-3">
-        <%= link_to "Test Your Weather Sensitiveness", new_user_registration_path,:class => 'btn button' %>
-    </div>
-  </div>
-<canvas id="canvas">Canvas is not supported in your browser</canvas>
-</div>
-
-
-
-
-<style>
-html, canvas {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-
-#instructions {
-  opacity: 1;
-  transition: opacity 2s;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI1NnB4IiBoZWlnaHQ9IjI1NnB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjU2IDI1NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBwb2ludHM9IjIyLjE0LDQ4IDM3LjA0NSwyMi4xODMgNTEuOTUxLDQ4Ii8+PHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iNTEuOTUxLDE4NiAzNy4wNDUsMjExLjgxNiAyMi4xNCwxODYiLz48cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSI3MCwyMzMuODEyIDQ0LjE4NCwyMTguOTA2IDcwLDIwNC4wMDEiLz48cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIyMDgsMjA0LjAwMSAyMzMuODE2LDIxOC45MDYgMjA4LDIzMy44MTIiLz48cmVjdCB4PSIzMSIgeT0iNDciIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiB3aWR0aD0iMTIiIGhlaWdodD0iMTQxIi8+PHJlY3QgeD0iNjgiIHk9IjIxMyIgc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHdpZHRoPSIxNDEiIGhlaWdodD0iMTIiLz48dGV4dCB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDExNC45NDUzIDEwMy4zNTc5KSI+PHRzcGFuIHg9IjAiIHk9IjAiIHN0eWxlPSJmaWxsOiNGRkZGRkY7IGZvbnQtZmFtaWx5OidBcmlhbC1Cb2xkTVQnOyBmb250LXNpemU6MTY7Ij5EUkFHPC90c3Bhbj48dHNwYW4geD0iMTYuMDA0IiB5PSIxOS4yIiBzdHlsZT0iZmlsbDojRkZGRkZGOyBmb250LWZhbWlseTonQXJpYWwtQm9sZE1UJzsgZm9udC1zaXplOjE2OyI+dG88L3RzcGFuPjx0c3BhbiB4PSItMTEuMTEzIiB5PSIzOC40MDEiIHN0eWxlPSJmaWxsOiNGRkZGRkY7IGZvbnQtZmFtaWx5OidBcmlhbC1Cb2xkTVQnOyBmb250LXNpemU6MTY7Ij5DSEFOR0U8L3RzcGFuPjwvdGV4dD48dGV4dCB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDExNy4xNzE5IDIwNy4xMzI4KSIgc3R5bGU9ImZpbGw6I0ZGRkZGRjsgZm9udC1mYW1pbHk6J0FyaWFsLUJvbGRNVCc7IGZvbnQtc2l6ZToxNjsiPldJTkQ8L3RleHQ+PHRleHQgdHJhbnNmb3JtPSJtYXRyaXgoLTQuMzcxMTM5ZS0wOCAtMSAxIC00LjM3MTEzOWUtMDggNTkuODcwMSAxODEuMDU4NikiIHN0eWxlPSJmaWxsOiNGRkZGRkY7IGZvbnQtZmFtaWx5OidBcmlhbC1Cb2xkTVQnOyBmb250LXNpemU6MTY7Ij5SQUlOIElOVEVOU0lUWTwvdGV4dD48L3N2Zz4=);
-
-  @media (max-height: 400px) {
-    display: none;
-  }
-}
-</style>
-
-<script>
-  // Falling rain simulation using 2D canvas
+// Falling rain simulation using 2D canvas
 // - vanilla JS, no frameworks
 // - framerate independent physics
 // - slow-mo / fast-forward support via demo.speed
@@ -65,9 +20,9 @@ var demo = {
   speed: 1,
   // - color of particles
   color: {
-    r: '252',
-    g: '252',
-    b: '252',
+    r: '80',
+    g: '175',
+    b: '255',
     a: '0.5'
   },
 
@@ -403,4 +358,5 @@ var Ticker = (function(){
 
   return PUBLIC_API;
 }());
-</script>
+
+export { Rain };
