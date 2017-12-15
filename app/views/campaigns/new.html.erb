@@ -16,28 +16,33 @@
           <div class="inputs-container">
             <%= f.input :title, label: "Description" %>
             <div class="days-container">
-            <%= f.input :start, as: :string, input_html: {id: "start_date"} %>
-            <%= f.input :end, as: :string, input_html: {id: "end_date"} %>
-            <%= f.input :budget_total, as: :string, label: "Budget to be spent" %>
+              <%= f.input :start, as: :string, input_html: {id: "start_date"} %>
+              <%= f.input :end, as: :string, input_html: {id: "end_date"} %>
+              <%= f.input :budget_total, as: :string, label: "Budget to be spent" %>
             </div>
             <%= f.input :post_title %>
             <%= f.input :post_msg, label: "Post content" %>
           </div>
-          <div class="photo-container">
-            <%= f.label :photo do %>
-              <i class="fa fa-lg fa-cloud-upload" aria-hidden="true"></i>
-              Add a picture
-            <% end %>
-            <%= f.input :photo, label: false %>
-            <%= f.input :photo_cache, as: :hidden %>
-          </div>
-          <%= f.input :display, as: :boolean, label: false, inline_label: "Also display on my Facebook page" %>
-        </div>
 
-        <div class="form-actions text-center">
-          <%= f.button :submit, "create campaign", :class => 'btn-white btn-colored' %>
-        </div>
-      <% end %>
+
+          <div class="bottom-form">
+
+                <div class="photo-container">
+                  <%= f.label :photo do %>
+                    <i class="fa fa-lg fa-cloud-upload" aria-hidden="true"></i>
+                    Add a picture
+                  <% end %>
+                  <%= f.input :photo, label: false %>
+                  <%= f.input :photo_cache, as: :hidden %>
+                </div>
+                <%= f.input :display, as: :boolean, label: false, inline_label: "Also display on my Facebook page" %>
+              </div>
+          </div>
+
+              <div class="form-actions text-center">
+                <%= f.button :submit, "create campaign", :class => 'btn-white btn-colored' %>
+              </div>
+            <% end %>
     </div>
 
     <div class="col-md-6">
