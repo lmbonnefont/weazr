@@ -19,7 +19,7 @@
       <% @campaigns.each do |campaign| %>
         <% i += campaign.cpc.to_f %>
       <% end %>
-      <p>€<%= i.round(2) %></p>
+      <p>€<%= (i / (1 * @campaigns.count)).round(2) %></p>
     </div>
     <div class="campaigns-metrics-label">
       <p>CPC</p>
@@ -31,7 +31,7 @@
       <% @campaigns.each do |campaign| %>
         <% i += campaign.cpm.to_i %>
       <% end %>
-      <p><%= i %></p>
+      <p>€<%= i %></p>
     </div>
     <div class="campaigns-metrics-label">
       <p>CPM</p>

@@ -126,7 +126,7 @@ k_inputs = {
 
 campaign1 = {
   start: "15/11/2017",
-  end: "25/12/2017",
+  end: "02/12/2017",
   budget_total: "50000",
   budget_remaining: "0",
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
@@ -152,7 +152,7 @@ campaign2 = {
   cpm: "14,59",
   cpc: "0.22",
   post_engagements: "1212",
-  btn_click: "54",
+  btn_click: "55",
   impressions: "4299",
   active: false,
 }
