@@ -125,10 +125,10 @@ k_inputs = {
 }
 
 campaign1 = {
-  start: "29/11/2017",
-  end: "09/12/2017",
+  start: "15/11/2017",
+  end: "25/12/2017",
   budget_total: "50000",
-  budget_remaining: "26",
+  budget_remaining: "0",
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
   Goûtez à l'incroyable, faites confiance à Kibouftou.",
   post_title: "Kibouftou",
@@ -142,10 +142,10 @@ campaign1 = {
 }
 
 campaign2 = {
-  start: "01/11/2017",
-  end: "30/11/2017",
+  start: "17/11/2017",
+  end: "28/11/2017",
   budget_total: "95000",
-  budget_remaining: "122",
+  budget_remaining: "0",
   post_msg: "Testez le plus exclusif des chocolats, par le chef Igor Sakhafarine. Seulement et exclusivement chez Kibouftou.",
   post_title: "Envie de nouveauté ?",
   title: "November Specials",
@@ -158,12 +158,29 @@ campaign2 = {
 }
 
 campaign3 = {
-  start: "10/12/2017",
-  end: "14/12/2017",
+  start: "26/11/2017",
+  end: "10/12/2017",
+  budget_total: "75000",
+  budget_remaining: "1200",
+  post_msg: "Concours",
+  post_title: "Pour célébrer la bonne nouvelle, NOUS VOUS OFFRONS 5 REPAS POUR 2 PERSONNES, d'une valeur de 60€.
+Pour participer, taguez en commentaire l'heureux élu avec qui vous souhaitez partager ce délicieux repas, les gagnants seront alors tirés au sort.",
+  title: "FoodBet",
+  cpm: "14,32",
+  cpc: "0.31",
+  post_engagements: "769",
+  btn_click: "42",
+  impressions: "2225",
+  active: false,
+}
+
+campaign3 = {
+  start: "06/12/2017",
+  end: "16/12/2017",
   budget_total: "80000",
-  budget_remaining: "122",
+  budget_remaining: "0",
   post_msg: "Faites le plein des plus délicieux fruits de mer avant Noël. Un petit goût iodé dans votre bouche pour votre plus grand plaisir. Reprenez le contrôle de la paëlla.",
-  post_title: "Envie de moules ? Testez THE paëlla.",
+  post_title: "Envie de moules bien fraiches ? Testez THE paëlla.",
   title: "Sea Time",
   cpm: "18,23",
   cpc: "0.25",
@@ -173,28 +190,13 @@ campaign3 = {
   active: false,
 }
 
-# campaign4 = {
-#   start: "05/12/2017",
-#   end: "20/12/2017",
-#   budget_total: "80000",
-#   budget_remaining: "122",
-#   post_msg: "Notre crédo ? Une livraison rapide et sans soucis. Du restaurant à votre assiette à la vitesse de l'éclair.",
-#   post_title: "Laissez votre estomac reprendre le contrôle.",
-#   title: "Sea Time",
-#   cpm: "15,97",
-#   cpc: "0.28",
-#   post_engagements: "834",
-#   btn_click: "59",
-#   impressions: "2305",
-#   active: false,
-# }
-
 k_user = User.new(k_user)
 kibouftou = Company.new(kibouftou)
 k_inputs = Input.new(k_inputs)
 campaign1 = Campaign.new(campaign1)
 campaign2 = Campaign.new(campaign2)
 campaign3 = Campaign.new(campaign3)
+campaign3 = Campaign.new(campaign4)
 k_dash = Dashboard.new
 
 kibouftou.user = k_user
@@ -204,17 +206,20 @@ kibouftou.input = k_inputs
 campaign1.company = kibouftou
 campaign2.company = kibouftou
 campaign3.company = kibouftou
+campaign4.company = kibouftou
 
-user_url = "http://immomatin.com/images/th/th-151222z5eo4z.gif"
+user_url = "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/005/0a2/2d6/17a7192.jpg"
 company_url =  "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089928/kibouftou_kazfqf.png"
 campaign1_url = "http://res.cloudinary.com/dezbvo9h2/image/upload/v1513089951/24883602_1919847041668192_4831931305905943121_o_uhrdsu.png"
 campaign2_url = 'http://s1.lemde.fr/mmpub/edt/zip/2017/06/01/155215730-9ecf701879dcd9c76d77f84828f52a711ec691b1/images/t05.jpg'
 campaign3_url = 'https://image.afcdn.com/recipe/20150617/67073_w1024h768c1cx362cy241.jpg'
+campaign4_url = 'https://oneclassblog.com/wp-content/uploads/2017/10/food.jpg'
 k_user.remote_photo_url = user_url
 kibouftou.remote_photo_url = company_url
 campaign1.remote_photo_url = campaign1_url
 campaign2.remote_photo_url = campaign2_url
 campaign3.remote_photo_url = campaign3_url
+campaign4.remote_photo_url = campaign4_url
 
 k_user.save!
 k_inputs.save!
@@ -223,9 +228,11 @@ k_dash.save!
 campaign1.save!
 campaign2.save!
 campaign3.save!
+campaign4.save!
 
 p campaign1
 p campaign2
 p campaign3
+p campaign4
 
 ###########################
