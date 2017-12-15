@@ -3,8 +3,9 @@
   height: 100vh;
   display: grid;
   grid-template-columns:  65px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 10% 55% 45%;
+  grid-template-rows: 10% 50% 40%;
   justify-content: space-around;
+  position: relative;
 }
 
 .profile .menu {
@@ -46,7 +47,23 @@
   grid-column: 2 / span 7;
   display:flex;
   justify-content: space-around;
-  margin-left: 150px;
+  margin-left: 210px;
+}
+
+.scoring {
+  position: absolute;
+  bottom: 15%;
+  left: 7%;
+  color: $blue;
+  font-family: Open Sans;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+
+    h1 {
+      font-weight: bolder;
+
+    }
 }
 
 .day-date {
