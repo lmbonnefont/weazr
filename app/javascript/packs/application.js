@@ -25,3 +25,8 @@ flatpickr("#start_date", {
 
 import { one } from '../components/fb-show.js';
 one();
+
+
+// import { Rain } from '../components/rain.js';
+// Rain();
+
