@@ -96,13 +96,15 @@
   }
 }
 
-.days-desc .w-day {
-  width: 220px;
-  height: 300px;
-}
+
 
 .w-day {
   width: 120px;
+}
+
+
+.w-day-leg {
+  width: 180px;
 }
 
 .day-date {
@@ -255,6 +257,15 @@
   color: $purple;
   font-weight: bold;
 }
+
+.profile h4 {
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: $purple;
+  font-weight: bold;
+}
+
+
 .profile p {
   color: $purple;
 }
@@ -291,6 +302,7 @@
 
 .smiley {
   font-size: 50px;
+  border-top: 1px solid rgba(128, 128, 128, 0.12);
 }
 
 ///// menu de gauche
@@ -480,3 +492,36 @@ transition: all .3s;
   color: $green;
 }
 
+.legende {
+  padding-left: 20px;
+  position: relative;
+}
+
+.leg1 {
+  position: absolute;
+  left: 10px;
+  top: 40px;
+}
+
+.leg2 {
+  position: absolute;
+  left: 10px;
+  top: 138px;
+}
+
+.leg3 {
+  position: absolute;
+  left: 10px;
+  top: 225px;
+}
+
+.leg4 {
+  position: absolute;
+  left: 10px;
+  top: 263px;
+}
+
+.leg4 h4 {
+  color: #03B7C4;
+  font-weight: bold;
+}
