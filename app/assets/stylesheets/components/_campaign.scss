@@ -50,10 +50,9 @@
   margin: 20px;
   display: flex;
   align-items: center;
-  font-family: Raileway;
+  font-family: Raleway;
   color: $blue;
   // color: rgba(0, 0, 0, 0.6);
-  font-weight: 300;
 }
 
 .campaigns-metrics-numbers p {
@@ -61,11 +60,13 @@
   font-weight: 300;
   margin-right: 5px;
   margin-bottom: 0;
+  font-weight: 300;
 }
 
 .campaigns-metrics-label p {
   font-size: 24px;
   margin-bottom: 0;
+  font-weight: 700 !important;
 }
 
 .main-camp, .stat-content-bis {
