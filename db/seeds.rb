@@ -162,9 +162,9 @@ campaign3 = {
   end: "10/12/2017",
   budget_total: "75000",
   budget_remaining: "1200",
-  post_msg: "Concours",
-  post_title: "Pour célébrer la bonne nouvelle, NOUS VOUS OFFRONS 5 REPAS POUR 2 PERSONNES, d'une valeur de 60€.
+  post_msg: "Pour célébrer la bonne nouvelle, NOUS VOUS OFFRONS 5 REPAS POUR 2 PERSONNES, d'une valeur de 60€.
 Pour participer, taguez en commentaire l'heureux élu avec qui vous souhaitez partager ce délicieux repas, les gagnants seront alors tirés au sort.",
+  post_title: "Concours",
   title: "FoodBet",
   cpm: "14,32",
   cpc: "0.31",
@@ -174,10 +174,10 @@ Pour participer, taguez en commentaire l'heureux élu avec qui vous souhaitez pa
   active: false,
 }
 
-campaign3 = {
+campaign4 = {
   start: "06/12/2017",
   end: "16/12/2017",
-  budget_total: "80000",
+  budget_total: "78000",
   budget_remaining: "0",
   post_msg: "Faites le plein des plus délicieux fruits de mer avant Noël. Un petit goût iodé dans votre bouche pour votre plus grand plaisir. Reprenez le contrôle de la paëlla.",
   post_title: "Envie de moules bien fraiches ? Testez THE paëlla.",
@@ -196,7 +196,7 @@ k_inputs = Input.new(k_inputs)
 campaign1 = Campaign.new(campaign1)
 campaign2 = Campaign.new(campaign2)
 campaign3 = Campaign.new(campaign3)
-campaign3 = Campaign.new(campaign4)
+campaign4 = Campaign.new(campaign4)
 k_dash = Dashboard.new
 
 kibouftou.user = k_user
