@@ -176,7 +176,7 @@ Pour participer, taguez en commentaire l'heureux élu avec qui vous souhaitez pa
 
 campaign4 = {
   start: "06/12/2017",
-  end: "16/12/2017",
+  end: "14/12/2017",
   budget_total: "78000",
   budget_remaining: "1290",
   post_msg: "Faites le plein des plus délicieux fruits de mer avant Noël. Un petit goût iodé dans votre bouche pour votre plus grand plaisir. Reprenez le contrôle de la paëlla.",
