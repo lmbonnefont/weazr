@@ -17,7 +17,7 @@
           </h3>
           <h3 class="text-center">
             <%= link_to profile_path() do %>
-            <i class="fa fa-cog fa-spin fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
+            <i class="fa fa-cog fa-lg fa-fw" aria-hidden="true" style="color: white; margin: 20px"></i>
             <% end %>
           </h3>
         </div>
@@ -164,7 +164,7 @@
       <div class="description">
           <div id="chart-container" data-days="<%= @days.to_json %>" data-series="<%= @series.to_json %>"></div>
           <div class="scoring">
-            <h2>Your gain</h2>
+            <h2>Expected gain</h2>
             <h1><%= @savings %> €</h1>
 
           </div>
