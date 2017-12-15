@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       var revenueChart = new FusionCharts({
         "type": "msline",
         "renderAt": 'chart-container',
-         "width": "1200",
+         "width": "1000",
          "height": "280",
          "dataFormat": "json",
          "dataSource": {
