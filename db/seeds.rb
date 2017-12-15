@@ -132,7 +132,7 @@ campaign1 = {
   post_msg: "Et si vous testiez le meilleur de la bouffe parisienne ? Vos papilles méritent mieux que ce que vous offrent les services de livraison traditionnels.
   Goûtez à l'incroyable, faites confiance à Kibouftou.",
   post_title: "Kibouftou",
-  title: "Christmas Campaign",
+  title: "Lauching New",
   cpm: "13,99",
   cpc: "0.12",
   post_engagements: "1543",
