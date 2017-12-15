@@ -26,7 +26,7 @@
       <div class="navbar-wagon-left" style="padding: 10px">
         <i class="fa fa-calendar" style="color: #60A1F4; font-weight: bold; margin-right: 10px;" aria-hidden="true"></i> |
         <span style="color: #55A1F4; font-weight: bold" >
-          <%= (Date.today+1).strftime('%a %d') %> - <%= (Date.today + 7).strftime('%a %d')  %>
+          <%= @campaign.start.strftime('%a %d') %> - <%= (@campaign.start + 7).strftime('%a %d')  %>
         </span>
       </div>
       <div class="campaign-budget" style="font-weight: bold">
