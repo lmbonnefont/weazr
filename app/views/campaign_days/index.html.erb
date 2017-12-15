@@ -54,8 +54,8 @@
     </div>
 
     <div class="all-days">
-      <% today = Date.today + 1%>
-      <% day7 = today + 6 %>
+      <% today = @campaign.start%>
+      <% day7 = today + 7 %>
       <% i = 0 %>
       <% (today..day7).each  do |day| %>
 
@@ -164,11 +164,4 @@
 
       </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
 
-      </div>
-    </div>
-
-</div>

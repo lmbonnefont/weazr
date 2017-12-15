@@ -3,7 +3,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns:  65px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 10% 42% 48%;
+  grid-template-rows: 10% 55% 45%;
   justify-content: space-around;
 }
 
@@ -46,6 +46,7 @@
   grid-column: 2 / span 7;
   display:flex;
   justify-content: space-around;
+  margin-left: 150px;
 }
 
 .day-date {
