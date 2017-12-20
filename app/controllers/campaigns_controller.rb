@@ -104,7 +104,7 @@ class CampaignsController < ApplicationController
     sumtemperature = 0
 
     campaign.campaign_days.each do |cd|
-      if Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil || Meteo.find_by(date: cd.date) != nil
+      if Meteo.find_by(date: cd.date) != nil
         sumrain += Meteo.find_by(date: cd.date).rain
         sumtemperature += Meteo.find_by(date: cd.date).temperature
         sumdamp += Meteo.find_by(date: cd.date).damp

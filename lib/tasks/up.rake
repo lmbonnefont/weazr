@@ -15,6 +15,7 @@ namespace :weather do
     n = 0
     hashday = {}
     for j in (1..14) do
+      p hashday
       hashday[transform_date(html_doc.search(".c#{i} th")[n].text)] = {
          temperature: transform_temperature(html_doc.search(".c#{i} .sep")[k].text),
          damp: transform_humidity(html_doc.search(".c#{i} td")[l].text),
@@ -31,16 +32,18 @@ namespace :weather do
         end
     end
     updatedays(nextdays, hashday)
-    m = Meteo.new
-    m.date = Date.today + 14
-    m.save!
+    if Meteo.where(date: Date.today + 14).empty? #On demande si le jour existe déjà (on fait tourner heroku task manager plusieurs fois par jour par sécurité)
+      m = Meteo.new
+      m.date = Date.today + 14
+      m.save!
+    end
   end
 
   def transform_date(date)
-    p date = date.split(" ")
+    date = date.split(" ")
     d = date[0].match(/\d+/)
-    p months = {
-      janv: 1,
+    months = {
+      jan: 1,
       fév: 2,
       mars: 3,
       avril: 4,
@@ -65,9 +68,12 @@ namespace :weather do
       Nov: 11,
       Dec: 12}
 
-    p m = months[date[1].to_sym]
-    #attention pb avec les changements d'année !!
-    y = Date.today.year
+    m = months[date[1].to_sym]
+    if m != 12
+      y = Date.today.year + 1
+    else
+      y = Date.today.year
+    end
     return "#{y}-#{m}-#{d}"
   end
 
